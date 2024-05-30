@@ -1,0 +1,26 @@
+[project]
+name = "nyancat"
+version = "0.0.1"
+authors = [
+  { name="Joseph Barbier", email="joseph.barbierdarnal@gmail.com" },
+]
+description = "A large collection of matplotlib color maps"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "pandas",
+  "matplotlib"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/JosephBARBIERDARNAL/nyancat"
+Issues = "https://github.com/JosephBARBIERDARNAL/nyancat/issues"
