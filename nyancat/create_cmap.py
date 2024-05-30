@@ -37,3 +37,8 @@ class NyanCat:
         hex_list = self.hex(id)
         rgb_list = [tuple(int(hex.lstrip('#')[i:i+2], 16) for i in (0, 2, 4)) for hex in hex_list]
         return rgb_list
+
+
+
+if __name__ == '__main__':
+    pass

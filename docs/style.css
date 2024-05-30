@@ -1,0 +1,36 @@
+code {
+   color: #f9f9f9;
+   background-color: #444242;
+   padding: 2px 4px;
+   border-radius: 4px;
+}
+
+div.wy-side-nav-search {
+   background-color: #f0640c;
+}
+
+body>div.wy-grid-for-nav>nav>div {
+   background-color: #000000;
+
+}
+
+a {
+   color: #f0640c;
+}
+
+h1 {
+   margin-top: 80px;
+}
+
+h2 {
+   margin-top: 60px;
+}
+
+h3 {
+   margin-top: 60px;
+}
+
+p,
+li {
+   font-size: large;
+}
