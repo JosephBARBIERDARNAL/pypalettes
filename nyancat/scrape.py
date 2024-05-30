@@ -2,6 +2,9 @@ import pandas as pd
 import random
 from bs4 import BeautifulSoup
 
+# fix random seed for reproducibility
+random.seed(42)
+
 # read the html content
 with open('palette.html', 'r', encoding='utf-8') as file:
     html_content = file.read()
