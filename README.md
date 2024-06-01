@@ -2,6 +2,8 @@
 
 A large (**~2500**) collection of color maps for matplotlib/seaborn.
 
+All available palettes can be found [here](https://josephbarbierdarnal.github.io/purrpalette/)
+
 <br><br>
 
 ## Installation
@@ -14,11 +16,13 @@ pip install purrpalette
 
 ## Quick start
 
+```python
+from purrpalette import PurrPalette
+```
+
 Load a color map using the `name`:
 
 ```python
-from purrpalette import PurrPalette
-
 purr = PurrPalette()
 cmap = purr.load_cmap('Stegastes_variabilis')
 cmap
@@ -29,10 +33,8 @@ cmap
 Load a random color map:
 
 ```python
-from purrpalette import purrpalette
-
-purrpalette = purrpalette()
-cmap = purrpalette.load_cmap('random')
+purr = PurrPalette()
+cmap = purr.load_cmap('random')
 cmap
 ```
 
@@ -41,13 +43,22 @@ cmap
 Find where the source of the color map:
 
 ```python
-from purrpalette import PurrPalette
-
 purr = PurrPalette()
 print(purr.source('bilbao'))
 ```
 
 output: `'The R package: {khroma}'`
+
+<br>
+
+Get hex values of a color map:
+
+```python
+purr = PurrPalette()
+purr.hex('42e4b0')
+```
+
+output: `['#000000', '#14213D', '#FCA311', '#E5E5E5', '#FFFFFF']`
 
 <br><br>
 
