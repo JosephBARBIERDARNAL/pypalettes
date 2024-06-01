@@ -21,6 +21,7 @@ for section in sections:
    for name_tag in name_tags:
       name = name_tag.text.strip()
       source, name = split_string(name)
+      source = f"The R package: {{{source}}}"
       names.append(name)
       sources.append(source)
 
