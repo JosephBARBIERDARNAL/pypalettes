@@ -8,7 +8,7 @@ with open('parsers/coolors.html', 'r', encoding='utf-8') as file:
 soup = BeautifulSoup(html_content, 'html.parser')
 palette_cols = soup.find_all('div', class_='explore-palettes_col')
 
-# define seed
+# define seed for the id generation
 random.seed(42)
 
 # initialize lists to store data

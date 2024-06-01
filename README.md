@@ -4,11 +4,11 @@ A large collection of matplotlib color maps.
 
 ### How data has been collected
 
-- open https://coolors.co/palettes/trending
-- copy the `<div>` tag with `id="explore-palettes_results"`
-- paste it into `palette.html`
-- scrape the data with `purrpalette/scrape.py`
-- save the data to `purrpalette/palettes.csv`
+- Sites used
+   - https://coolors.co/palettes/trending
+   - https://pmassicotte.github.io/paletteer_gallery/
+
+These sites have been scraped with the scripts in `parsers/`. Data is then saved into a `.csv` format with name+palette.
 
 ### How to add a new palette
 
