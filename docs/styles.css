@@ -43,7 +43,7 @@ main {
 }
 
 .color {
-   width: 60px;
+   width: 100px;
    height: 60px;
    margin: 2px;
    border-radius: 2px;
@@ -65,7 +65,7 @@ button {
 }
 
 button:hover {
-   background-color: #0769d1;
+   background-color: #df7b00;
 }
 
 .clearfix {
