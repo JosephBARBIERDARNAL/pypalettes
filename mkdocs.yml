@@ -1,5 +1,5 @@
-site_name: nyancat
-repo_url: https://github.com/JosephBARBIERDARNAL/nyancat
+site_name: purrpalette
+repo_url: https://github.com/JosephBARBIERDARNAL/purrpalette
 site_author: Joseph Barbier
 nav:
   - Home: index.md

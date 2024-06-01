@@ -1,7 +1,7 @@
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
 import pandas as pd
 
-class NyanCat:
+class purrpalette:
     
     def __init__(self, palettes_path='palettes.csv'):
         self.palettes = pd.read_csv(palettes_path)

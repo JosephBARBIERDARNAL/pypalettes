@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="nyancat",
+    name="purrpalette",
     version="0.0.1",
     packages=find_packages(),
     description="A large collection of matplotlib color maps",

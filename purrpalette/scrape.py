@@ -3,7 +3,7 @@ import random
 from bs4 import BeautifulSoup
 
 # read the html content
-with open('palette.html', 'r', encoding='utf-8') as file:
+with open('palettes.html', 'r', encoding='utf-8') as file:
     html_content = file.read()
 soup = BeautifulSoup(html_content, 'html.parser')
 palette_cols = soup.find_all('div', class_='explore-palettes_col')
@@ -43,4 +43,4 @@ df = pd.DataFrame({
     'hex': hex_values_list,
     'rgb': rgb_values_list
 })
-df.to_csv('nyancat/palettes.csv', index=False)
+df.to_csv('purrpalette/palettes.csv', index=False)

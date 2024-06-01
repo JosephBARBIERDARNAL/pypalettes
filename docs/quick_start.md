@@ -4,7 +4,7 @@
 To install the package, you can use pip:
 
 ```bash
-pip install nyancat
+pip install purrpalette
 ```
 
 # Usage
@@ -13,10 +13,10 @@ pip install nyancat
 Load a color map using the `id`:
 
 ```python
-from nyancat import NyanCat
+from purrpalette import purrpalette
 
-nyancat = NyanCat()
-cmap = nyancat.load_cmap('dafed9')
+purrpalette = purrpalette()
+cmap = purrpalette.load_cmap('dafed9')
 ```
 
 <br>
@@ -24,8 +24,8 @@ cmap = nyancat.load_cmap('dafed9')
 Load a random color map:
 
 ```python
-from nyancat import NyanCat
+from purrpalette import purrpalette
 
-nyancat = NyanCat()
-cmap = nyancat.load_cmap('random')
+purrpalette = purrpalette()
+cmap = purrpalette.load_cmap('random')
 ```

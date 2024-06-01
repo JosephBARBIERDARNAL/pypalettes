@@ -2,5 +2,5 @@ venv
 __pycache__
 dist
 build
-nyancat.egg-info
+purrpalette.egg-info
 site
