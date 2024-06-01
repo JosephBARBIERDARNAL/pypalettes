@@ -1,17 +1,27 @@
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
 import pandas as pd
+from difflib import get_close_matches
+
+from purrpalette.utils import load_csv
 
 class PurrPalette:
     
     def __init__(self, palettes_path='palettes.csv'):
-        self.palettes = pd.read_csv(palettes_path)
+        df = load_csv(palettes_path)
+        self.palettes = df
         self.palettes.set_index('name', inplace=True)
+        self.all_palettes = df['name'].tolist()
+        self.name = None
 
     def _get_palette(self, name):
         if name == 'random':
             return self.palettes.sample(1).iloc[0]
         if name not in self.palettes.index:
-            raise ValueError(f"Palette with name '{name}' not found. Please choose from\n{self.palettes.index.values}")
+            suggestions = get_close_matches(name, self.palettes.index, n=1)
+            raise ValueError(
+                f"Palette with name '{name}' not found. Did you mean: '{', '.join(suggestions)}'?\n"
+                "See available palettes at https://josephbarbierdarnal.github.io/purrpalette/"
+            )
         return self.palettes.loc[name]
 
     def load_cmap(self, name='random', cmap_type='continuous'):

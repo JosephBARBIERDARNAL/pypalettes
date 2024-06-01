@@ -10,6 +10,10 @@ setup(
     author="Joseph Barbier",
     author_email="joseph.barbierdarnal@gmail.com",
     url="http://www.barberjoseph.com",
+    include_package_data=True,
+    package_data={
+        'purrpalette': ['palettes.csv'],
+    },
     install_requires=[
         "pandas",
         "matplotlib"
