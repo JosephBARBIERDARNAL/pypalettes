@@ -20,36 +20,46 @@ pip install purrpalette
 
 ```python
 from purrpalette import PurrPalette
+purr = PurrPalette()
 ```
 
-Load a color map using the `name`:
+Load a color map:
 
 ```python
-purr = PurrPalette()
-cmap = purr.load_cmap('Stegastes_variabilis')
+cmap = purr.load_cmap('Darjeeling2', type='qualitative')
 cmap
 ```
+
+![Darjeeling2](images/Darjeeling2-qualitative.png)
+
+```python
+cmap = purr.load_cmap('Darjeeling2', type='continuous')
+cmap
+```
+
+![Darjeeling2](images/Darjeeling2-continuous.png)
 
 <br>
 
 Load a random color map:
 
 ```python
-purr = PurrPalette()
 cmap = purr.load_cmap('random')
 cmap
 ```
 
+![random](images/random.png)
+
 <br>
 
-Find where the source of the color map:
+Find where a color map comes from:
 
 ```python
 purr = PurrPalette()
 print(purr.source('bilbao'))
 ```
 
-output: `'The R package: {khroma}'`
+`'The R package: {khroma}'`
 
 <br>
 
@@ -60,7 +70,23 @@ purr = PurrPalette()
 purr.hex('42e4b0')
 ```
 
-output: `['#000000', '#14213D', '#FCA311', '#E5E5E5', '#FFFFFF']`
+`['#000000', '#14213D', '#FCA311', '#E5E5E5', '#FFFFFF']`
+
+<br>
+
+Get rgb values of a color map:
+
+```python
+print(purr.rgb('AirNomads'))
+```
+
+`[(255, 153, 51),
+ (194, 72, 65),
+ (255, 255, 51),
+ (139, 91, 69),
+ (135, 175, 209),
+ (238, 176, 90),
+ (219, 197, 160)]`
 
 <br><br>
 

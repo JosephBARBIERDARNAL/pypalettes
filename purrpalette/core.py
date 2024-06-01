@@ -10,7 +10,6 @@ class PurrPalette:
         df = load_csv(palettes_path)
         self.palettes = df
         self.palettes.set_index('name', inplace=True)
-        self.all_palettes = df['name'].tolist()
         self.name = None
 
     def _get_palette(self, name):
@@ -24,16 +23,16 @@ class PurrPalette:
             )
         return self.palettes.loc[name]
 
-    def load_cmap(self, name='random', cmap_type='continuous'):
+    def load_cmap(self, name='random', type='continuous'):
         palette = self._get_palette(name)
         hex_list = eval(palette['palette'])
 
-        if cmap_type == 'continuous':
+        if type == 'continuous':
             cmap = LinearSegmentedColormap.from_list(name=f'{name}', colors=hex_list)
-        elif cmap_type == 'qualitative':
+        elif type == 'qualitative':
             cmap = ListedColormap(name=f'{name}', colors=hex_list)
         else:
-            raise ValueError("cmap_type argument must be 'continuous' or 'qualitative'")
+            raise ValueError("type argument must be 'continuous' or 'qualitative'")
 
         self.name = name
         self.cmap = cmap
