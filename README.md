@@ -1,6 +1,6 @@
 # purrpalette
 
-A large collection of matplotlib color maps.
+A large (~2500) collection of color maps for matplotlib/seaborn.
 
 ### How data has been collected
 
@@ -12,4 +12,4 @@ These sites have been scraped with the scripts in `parsers/`. Data is then saved
 
 ### How to add a new palette
 
-TODO: think how to do it
+More is better: if you know how to add a significant amount of palettes (>30), please do so. PRs are welcome.
