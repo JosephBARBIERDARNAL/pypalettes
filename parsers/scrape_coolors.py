@@ -12,7 +12,7 @@ palette_cols = soup.find_all('div', class_='explore-palettes_col')
 random.seed(42)
 
 # initialize lists to store data
-palette_names = []
+palettes = []
 hex_values_list = []
 rgb_values_list = []
 
@@ -36,13 +36,16 @@ for palette_col in palette_cols:
         rgb_values.append(rgb_value)
     
     # append the data to the lists
-    palette_names.append(palette_name)
+    palettes.append(palette_name)
     hex_values_list.append(hex_values)
     rgb_values_list.append(rgb_values)
 
 # store the palettes
 df = pd.DataFrame({
-    'name': palette_names,
+    'name': palettes,
     'palette': hex_values_list,
+    'source': ['coolors.co']*len(palettes),
 })
 df.to_csv('purrpalette/coolors.csv', index=False)
+
+print(f'Coolors.co parsing finished with: {len(palettes)} palettes found')
