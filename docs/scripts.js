@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('purrpalette/palettes.csv')
+    fetch('https://raw.githubusercontent.com/JosephBARBIERDARNAL/purrpalette/main/purrpalette/palettes.csv')
         .then(response => response.text())
         .then(data => {
             const colormapContainer = document.getElementById('colormap-container');
