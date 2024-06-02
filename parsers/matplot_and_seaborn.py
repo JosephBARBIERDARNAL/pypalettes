@@ -16,7 +16,7 @@ qualitative_palettes = ['tab10', 'tab20', 'Set1', 'Set2', 'Set3', 'Paired', 'Acc
 all_palette_names = palette_names + diverging_palettes + sequential_palettes + qualitative_palettes
 seaborn_palettes = pd.DataFrame({
    'name': all_palette_names,
-   'hex': [palette_to_hex(name) for name in all_palette_names],
+   'palette': [palette_to_hex(name) for name in all_palette_names],
    'source': ['matplotlib/seaborn builtin' for _ in all_palette_names]
 })
 
