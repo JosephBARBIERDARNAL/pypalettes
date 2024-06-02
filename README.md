@@ -1,7 +1,5 @@
 # purrpalette
 
-WIP
-
 A large (**~2500**) collection of color maps for matplotlib/seaborn.
 
 All available palettes can be found [here](https://josephbarbierdarnal.github.io/purrpalette/)
