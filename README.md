@@ -1,8 +1,31 @@
 # purrpalette
 
-A large (**~2500**) collection of color maps for matplotlib/seaborn.
+A large (**+2500**) collection of color maps for matplotlib/seaborn.
 
-All available palettes can be found [here](https://josephbarbierdarnal.github.io/purrpalette/)
+All available palettes can be found [on the dedicated website](https://josephbarbierdarnal.github.io/purrpalette/)
+
+<br><br>
+
+## Quick start
+
+Once the `cmap` is loaded, you can use it as any other color map in `matplotlib` or `seaborn`.
+
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+from purrpalette import PurrPalette
+import numpy as np
+
+data = np.random.rand(10, 12)
+
+purr = PurrPalette()
+cmap = purr.load_cmap('Darjeeling2')
+
+sns.heatmap(data, cmap=cmap)
+plt.show()
+```
+
+![heatmap example](images/heatmap.png)
 
 <br><br>
 
@@ -14,7 +37,7 @@ pip install git+https://github.com/JosephBARBIERDARNAL/purrpalette.git
 
 <br><br>
 
-## Quick start
+## Getting started
 
 - Load the package:
 
