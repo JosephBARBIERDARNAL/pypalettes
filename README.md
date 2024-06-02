@@ -64,8 +64,7 @@ print(purr.source('bilbao'))
 Get hex values of a color map:
 
 ```python
-purr = PurrPalette()
-purr.hex('42e4b0')
+print(purr.hex('42e4b0'))
 ```
 
 `['#000000', '#14213D', '#FCA311', '#E5E5E5', '#FFFFFF']`
@@ -85,6 +84,12 @@ print(purr.rgb('AirNomads'))
  (135, 175, 209),
  (238, 176, 90),
  (219, 197, 160)]`
+
+<br><br>
+
+## Related projects
+
+`purrpalette` is **highly** inspired from the R package [paletteer](https://github.com/EmilHvitfeldt/paletteer) and the python package [palettable](https://github.com/jiffyclub/palettable).
 
 <br><br>
 
