@@ -94,10 +94,18 @@ print(purr.source('bilbao'))
 - Get hex values of a color map:
 
 ```python
-print(purr.hex('42e4b0'))
+print(purr.hex('pupitar'))
 ```
 
-`['#000000', '#14213D', '#FCA311', '#E5E5E5', '#FFFFFF']`
+`['#7098C0FF',
+ '#88C0E8FF',
+ '#285880FF',
+ '#B8E0F8FF',
+ '#F8F8F8FF',
+ '#404060FF',
+ '#A8A8A8FF',
+ '#C8C8D0FF',
+ '#B04000FF']`
 
 <br>
 
