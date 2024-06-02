@@ -1,5 +1,4 @@
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
-import pandas as pd
 from difflib import get_close_matches
 
 from purrpalette.utils import load_csv
@@ -26,6 +25,9 @@ class PurrPalette:
     def load_cmap(self, name='random', type='qualitative'):
         palette = self._get_palette(name)
         hex_list = eval(palette['palette'])
+
+        if name == 'random':
+            name = palette.name
 
         if type == 'continuous':
             cmap = LinearSegmentedColormap.from_list(name=f'{name}', colors=hex_list)
