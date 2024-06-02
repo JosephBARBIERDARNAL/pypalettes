@@ -1,4 +1,5 @@
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
+import matplotlib.cm as cm
 from difflib import get_close_matches
 
 from purrpalette.utils import load_csv
@@ -11,10 +12,21 @@ class PurrPalette:
         self.palettes.set_index('name', inplace=True)
         self.name = None
 
+    def _get_from_matplotlib(self, name):
+        try:
+            cmap = cm.get_cmap(name)
+            return cmap
+        except ValueError:
+            raise ValueError(
+                f"Colormap with name '{name}' not found in matplotlib. "
+                "See available colormaps at https://matplotlib.org/stable/tutorials/colors/colormaps.html"
+            )
+
     def _get_palette(self, name):
         if name == 'random':
             return self.palettes.sample(1).iloc[0]
         if name not in self.palettes.index:
+            cmap_matplotlib = self._get_from_matplotlib(name)
             suggestions = get_close_matches(name, self.palettes.index, n=1)
             raise ValueError(
                 f"Palette with name '{name}' not found. Did you mean: '{', '.join(suggestions)}'?\n"
