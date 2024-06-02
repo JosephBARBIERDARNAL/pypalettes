@@ -19,7 +19,7 @@ import numpy as np
 data = np.random.rand(10, 12)
 
 purr = PurrPalette()
-cmap = purr.load_cmap('Darjeeling2')
+cmap = purr.load_cmap('Anemone')
 
 sns.heatmap(data, cmap=cmap)
 plt.show()
@@ -115,6 +115,10 @@ print(purr.rgb('AirNomads'))
  (238, 176, 90),
  (219, 197, 160)]`
 
+<br>
+
+More examples can be found in the [how to use notebook](https://github.com/JosephBARBIERDARNAL/purrpalette/blob/main/how_to_use.ipynb)
+
 <br><br>
 
 ## Related projects
@@ -129,11 +133,13 @@ print(purr.rgb('AirNomads'))
    - https://coolors.co/palettes/trending
    - https://pmassicotte.github.io/paletteer_gallery/
 
-These sites have been scraped with the scripts in `parsers/`. Data is then saved into a `.csv` format with name+palette.
+These sites have been scraped with the scripts in `parsers/`. Data is then saved into a `.csv` format with name+palette+source.
 
 Color maps already available in `matplotlib` and `seaborn` have been added to the collection.
 
-Since some color maps have the same name, some specific palettes can be different from the original ones. The easiest way to find the original source is to use the `source()` method, and I highly suggest you to find your dream color map on the [original site](https://josephbarbierdarnal.github.io/purrpalette/).
+Since some color maps have the same name, some specific palettes can be different from the ones expected. If you find a mistake, please open an issue.
+
+The easiest way to find the original source is to use the `source()` method, and I highly suggest you to find your dream color map using the [original site](https://josephbarbierdarnal.github.io/purrpalette/).
 
 <br><br>
 
