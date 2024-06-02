@@ -11,7 +11,7 @@ All available palettes can be found [here](https://josephbarbierdarnal.github.io
 ## Installation
 
 ```bash
-pip install purrpalette
+pip install git+https://github.com/JosephBARBIERDARNAL/purrpalette.git
 ```
 
 <br><br>
