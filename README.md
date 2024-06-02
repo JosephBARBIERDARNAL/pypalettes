@@ -16,19 +16,27 @@ pip install git+https://github.com/JosephBARBIERDARNAL/purrpalette.git
 
 ## Quick start
 
+- Load the package:
+
 ```python
 from purrpalette import PurrPalette
 purr = PurrPalette()
 ```
 
-Load a color map:
+<br>
+
+- Load a color map:
 
 ```python
-cmap = purr.load_cmap('Darjeeling2', type='qualitative')
+cmap = purr.load_cmap('Darjeeling2')
 cmap
 ```
 
 ![Darjeeling2](images/Darjeeling2-qualitative.png)
+
+<br>
+
+- Transform a qualitative color map into a continuous one:
 
 ```python
 cmap = purr.load_cmap('Darjeeling2', type='continuous')
@@ -39,7 +47,7 @@ cmap
 
 <br>
 
-Load a random color map:
+- Load a random color map:
 
 ```python
 cmap = purr.load_cmap('random')
@@ -50,10 +58,9 @@ cmap
 
 <br>
 
-Find where a color map comes from:
+- Find where a color map comes from:
 
 ```python
-purr = PurrPalette()
 print(purr.source('bilbao'))
 ```
 
@@ -61,7 +68,7 @@ print(purr.source('bilbao'))
 
 <br>
 
-Get hex values of a color map:
+- Get hex values of a color map:
 
 ```python
 print(purr.hex('42e4b0'))
@@ -71,7 +78,7 @@ print(purr.hex('42e4b0'))
 
 <br>
 
-Get rgb values of a color map:
+- Get rgb values of a color map:
 
 ```python
 print(purr.rgb('AirNomads'))
@@ -106,3 +113,5 @@ These sites have been scraped with the scripts in `parsers/`. Data is then saved
 ## How to add a new palette
 
 More is better: if you know how to add a significant amount of palettes (>30), please do so. PRs are welcome.
+
+TODO: detail the process
