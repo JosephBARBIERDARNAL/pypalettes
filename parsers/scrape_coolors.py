@@ -2,14 +2,13 @@ import pandas as pd
 import random
 from bs4 import BeautifulSoup
 
+from utils import generate_palette_name
+
 # read the html content
 with open('parsers/coolors.html', 'r', encoding='utf-8') as file:
     html_content = file.read()
 soup = BeautifulSoup(html_content, 'html.parser')
 palette_cols = soup.find_all('div', class_='explore-palettes_col')
-
-# define seed for the id generation
-random.seed(42)
 
 # initialize lists to store data
 palettes = []
@@ -20,7 +19,7 @@ rgb_values_list = []
 for palette_col in palette_cols:
     
     # generate palette id with letters and digits
-    palette_name = ''.join(random.choices('abcdef0123456789', k=6))
+    palette_name = generate_palette_name()
     color_divs = palette_col.find_all('div', class_='palette-card_colors')[0].find_all('div')
     
     # extract hex values and RGB values

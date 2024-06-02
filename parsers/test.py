@@ -1,15 +1,4 @@
 import random
-random.seed(42)
-
-def split_string(input_string):
-    try:
-        parts = input_string.split('::')
-        if len(parts) == 2:
-            return parts[0], parts[1]
-        else:
-            raise ValueError("Input string format is incorrect. Expected exactly one '::' in the input string.")
-    except Exception as e:
-        return str(e)
 
 adjectives = [
     "Vibrant", "Pastel", "Bold", "Soft", "Dark", "Bright", "Muted", "Electric",
@@ -42,11 +31,13 @@ nouns = [
     "Wilderness", "Woodland", "Lagoon", "Reef", "Fen"
 ]
 
+# Function to generate cool palette names
 def generate_palette_name():
     adj = random.choice(adjectives)
     color = random.choice(color_words)
     noun = random.choice(nouns)
     return f"{adj}_{color}_{noun}"
 
-if __name__ == '__main__':
-   pass
+# Generate multiple palette names
+for _ in range(20):
+    print(generate_palette_name())
