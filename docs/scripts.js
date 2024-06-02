@@ -84,10 +84,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 colormapDiv.appendChild(colorsDiv);
 
-                const codeSnippet = document.createElement('pre');
-                codeSnippet.className = 'code-snippet';
-                codeSnippet.textContent = `from purrpalette import PurrPalette\npurr = PurrPalette()\ncmap = purr.load_cmap('${name}')`;
-                colormapDiv.appendChild(codeSnippet);
+                const codeSnippetContainer = document.createElement('div');
+                codeSnippetContainer.className = 'code-snippet';
+                const codeSnippet = `from purrpalette import PurrPalette\npurr = PurrPalette()\ncmap = purr.load_cmap('${name}')`;
+                codeSnippetContainer.textContent = codeSnippet;
+
+                // Add copy button to the code snippet
+                const copyCodeButton = document.createElement('button');
+                copyCodeButton.textContent = 'Code';
+                copyCodeButton.addEventListener('click', () => {
+                    navigator.clipboard.writeText(codeSnippet);
+                    copyCodeButton.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyCodeButton.textContent = 'Code';
+                    }, 1200);
+                });
+                codeSnippetContainer.appendChild(copyCodeButton);
+
+                colormapDiv.appendChild(codeSnippetContainer);
 
                 colormapContainer.appendChild(colormapDiv);
 

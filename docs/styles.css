@@ -122,6 +122,28 @@ a:hover {
    font-family: 'Courier New', Courier, monospace;
    font-size: 0.9rem;
    color: #333;
+   position: relative;
+   /* Position relative to allow absolute positioning of the button */
+   white-space: pre-wrap;
+   /* Ensure the code respects line breaks */
+}
+
+.code-snippet button {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   padding: 0.4rem 0.7rem;
+   font-size: 1rem;
+   border: none;
+   background-color: #c1c1c1;
+   color: rgb(0, 0, 0);
+   border-radius: 4px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+
+.code-snippet button:hover {
+   background-color: #df7b00;
 }
 
 #palette-of-the-day {
