@@ -1,7 +1,7 @@
 body {
    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-         sans-serif;
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
    margin: 0;
    padding: 0;
    background-color: #f4f4f4;
@@ -31,10 +31,17 @@ main {
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.title-container {
+   display: flex;
+   align-items: center;
+   margin-bottom: 1rem;
+}
+
 .colormap h2 {
-   margin-top: 0;
+   margin: 0;
    font-size: 1.2rem;
    color: #000000;
+   margin-right: 10px;
 }
 
 .colors {
@@ -50,7 +57,9 @@ main {
 }
 
 button {
-   margin-top: 1rem;
+   margin-top: 0;
+   font-size: 18px;
+   font-weight: 400;
    padding: 0.5rem 1rem;
    border: none;
    background-color: #023266;
@@ -60,19 +69,24 @@ button {
    transition: background-color 0.3s;
 }
 
-#colormap-container {
-   justify-content: center;
-}
-
 button:hover {
    background-color: #df7b00;
+}
+
+#colormap-container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
 }
 
 .clearfix {
    clear: both;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
    font-weight: 300;
 }
 
@@ -90,4 +104,70 @@ a:hover {
 .container {
    width: 80%;
    margin: auto;
+}
+
+.code-snippet {
+   background-color: #f8f8f8;
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   padding: 1rem;
+   margin-top: 1rem;
+   font-family: 'Courier New', Courier, monospace;
+   font-size: 0.9rem;
+   color: #333;
+}
+
+#palette-of-the-day {
+   border: 2px solid #023266;
+   border-radius: 8px;
+   padding: 2rem;
+   background-color: #e0f7fa;
+   margin-bottom: 2rem;
+   text-align: center;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#palette-of-the-day h2 {
+   margin-top: 0;
+   color: #023266;
+   font-size: 2rem;
+}
+
+#palette-of-the-day-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 1rem;
+}
+
+#palette-of-the-day .color {
+   width: 50px;
+   height: 50px;
+   margin: 5px;
+   border-radius: 8px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#palette-of-the-day-title {
+   font-size: 1.5rem;
+   color: #023266;
+   margin-right: 1rem;
+   padding: 0.5rem 1rem;
+   border: 2px solid #023266;
+   border-radius: 8px;
+   display: inline-block;
+}
+
+#palette-of-the-day-code {
+   background-color: #f8f8f8;
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   padding: 1rem;
+   text-align: left;
+   margin-top: 1rem;
+   font-family: 'Courier New', Courier, monospace;
+   font-size: 1rem;
+   color: #333;
+   width: fit-content;
+   margin: 1rem auto 0 auto;
 }

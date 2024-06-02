@@ -23,7 +23,7 @@ class PurrPalette:
             )
         return self.palettes.loc[name]
 
-    def load_cmap(self, name='random', type='continuous'):
+    def load_cmap(self, name='random', type='qualitative'):
         palette = self._get_palette(name)
         hex_list = eval(palette['palette'])
 
