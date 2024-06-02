@@ -1,9 +1,9 @@
 import pandas as pd
 
 palette_path = [
-   'purrpalette/coolors.csv',
-   'purrpalette/paletteer.csv',
-   'purrpalette/matplotlib.csv',
+    'purrpalette/matplot_and_seaborn.csv',
+    'purrpalette/coolors.csv',
+    'purrpalette/paletteer.csv',
 ]
 df = pd.DataFrame()
 for path in palette_path:
