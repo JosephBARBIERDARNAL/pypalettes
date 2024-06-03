@@ -6,6 +6,14 @@ All available palettes can be found [on the dedicated website](https://josephbar
 
 <br><br>
 
+## Installation
+
+```bash
+pip install git+https://github.com/JosephBARBIERDARNAL/pypalettes.git
+```
+
+<br><br>
+
 ## Quick start
 
 Once the `cmap` is loaded, you can use it as any other color map in `matplotlib` or `seaborn`.
@@ -25,14 +33,6 @@ plt.show()
 ```
 
 ![heatmap example](images/heatmap.png)
-
-<br><br>
-
-## Installation
-
-```bash
-pip install git+https://github.com/JosephBARBIERDARNAL/pypalettes.git
-```
 
 <br><br>
 
