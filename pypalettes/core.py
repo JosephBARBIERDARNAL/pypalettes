@@ -19,6 +19,7 @@ def get_palette(palettes, name):
     return palettes.loc[name]
 
 def load_cmap(name='random', type='discrete', palettes_path='palettes.csv'):
+    type = type.lower()
     palettes = load_palettes(palettes_path)
     palette = get_palette(palettes, name)
     hex_list = eval(palette['palette'])
