@@ -127,6 +127,18 @@ get_rgb('AirNomads')
 
 <br>
 
+- Error handling:
+
+```python
+from pypalettes import load_cmap
+
+cmap = load_cmap('colwarm')
+cmap
+```
+
+`ValueError: Palette with name 'colwarm' not found. Did you mean: 'coolwarm'?
+See available palettes at https://josephbarbierdarnal.github.io/pypalettes/`
+
 More examples can be found in the [how to use notebook](https://github.com/JosephBARBIERDARNAL/pypalettes/blob/main/how_to_use.ipynb)
 
 <br><br>
