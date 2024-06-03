@@ -18,8 +18,7 @@ import numpy as np
 
 data = np.random.rand(10, 12)
 
-purr = pypalettes()
-cmap = purr.load_cmap('Anemone')
+cmap = load_cmap('Anemone')
 
 sns.heatmap(data, cmap=cmap)
 plt.show()
@@ -39,41 +38,38 @@ pip install git+https://github.com/JosephBARBIERDARNAL/pypalettes.git
 
 ## Getting started
 
-- Load the package:
-
-```python
-from pypalettes import pypalettes
-purr = pypalettes()
-```
-
 <br>
 
 - Load a color map:
 
 ```python
-cmap = purr.load_cmap('Darjeeling2')
+from pypalettes import load_cmap
+
+cmap = load_cmap('Chaetodon_sedentarius')
 cmap
 ```
 
-![Darjeeling2](images/Darjeeling2-qualitative.png)
+![Darjeeling2](images/discrete.png)
 
 <br>
 
 - Transform a qualitative color map into a continuous one:
 
 ```python
-cmap = purr.load_cmap('Darjeeling2', type='continuous')
+from pypalettes import load_cmap
+
+cmap = load_cmap('Chaetodon_sedentarius', type='continuous')
 cmap
 ```
 
-![Darjeeling2](images/Darjeeling2-continuous.png)
+![Darjeeling2](images/continuous.png)
 
 <br>
 
 - Load a random color map:
 
 ```python
-cmap = purr.load_cmap('random')
+cmap = load_cmap()
 cmap
 ```
 
@@ -84,7 +80,9 @@ cmap
 - Find where a color map comes from:
 
 ```python
-print(purr.source('bilbao'))
+from pypalettes import get_source
+
+get_source('bilbao')
 ```
 
 `'The R package: {khroma}'`
@@ -94,7 +92,9 @@ print(purr.source('bilbao'))
 - Get hex values of a color map:
 
 ```python
-print(purr.hex('pupitar'))
+from pypalettes import get_hex
+
+get_hex('pupitar')
 ```
 
 `['#7098C0FF',
@@ -112,7 +112,9 @@ print(purr.hex('pupitar'))
 - Get rgb values of a color map:
 
 ```python
-print(purr.rgb('AirNomads'))
+from pypalettes import get_rgb
+
+get_rgb('AirNomads')
 ```
 
 `[(255, 153, 51),

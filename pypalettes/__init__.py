@@ -1,4 +1,4 @@
 
-from .core import pypalettes
+from .core import load_cmap, get_source, get_hex, get_rgb
 
-__all__ = ['pypalettes']
+__all__ = ['load_cmap, get_source, get_hex, get_rgb']
