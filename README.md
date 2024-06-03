@@ -13,7 +13,7 @@ Once the `cmap` is loaded, you can use it as any other color map in `matplotlib`
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
-from pypalettes import pypalettes
+from pypalettes import load_cmap
 import numpy as np
 
 data = np.random.rand(10, 12)
