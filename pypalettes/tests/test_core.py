@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch, MagicMock
 import pandas as pd
-from purrpalette import PurrPalette
+from pypalettes import pypalettes
 
 @pytest.fixture
 def mock_palettes_df():
@@ -15,8 +15,8 @@ def mock_palettes_df():
 
 @pytest.fixture
 def purr_palette_instance(mock_palettes_df):
-    with patch('purrpalette.utils.load_csv', return_value=mock_palettes_df):
-        instance = PurrPalette()
+    with patch('pypalettes.utils.load_csv', return_value=mock_palettes_df):
+        instance = pypalettes()
         return instance
 
 def test_get_palette_non_existing(purr_palette_instance):

@@ -45,6 +45,6 @@ df = pd.DataFrame({
     'palette': hex_values_list,
     'source': ['coolors.co']*len(palettes),
 })
-df.to_csv('purrpalette/coolors.csv', index=False)
+df.to_csv('pypalettes/coolors.csv', index=False)
 
 print(f'Coolors.co parsing finished with: {len(palettes)} palettes found')

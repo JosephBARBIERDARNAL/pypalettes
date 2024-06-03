@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('https://raw.githubusercontent.com/JosephBARBIERDARNAL/purrpalette/main/purrpalette/palettes.csv')
+    fetch('https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/pypalettes/palettes.csv')
         .then(response => response.text())
         .then(data => {
             const rows = data.split('\n').slice(1);
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             paletteOfTheDayContainer.appendChild(colorsDiv);
 
             // Add code snippet
-            const codeSnippet = `from purrpalette import PurrPalette\npurr = PurrPalette()\ncmap = purr.load_cmap('${paletteOfTheDay.name}')`;
+            const codeSnippet = `from pypalettes import pypalettes\npurr = pypalettes()\ncmap = purr.load_cmap('${paletteOfTheDay.name}')`;
             const codeContainer = document.getElementById('palette-of-the-day-code');
             codeContainer.textContent = codeSnippet;
 
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const codeSnippetContainer = document.createElement('div');
                 codeSnippetContainer.className = 'code-snippet';
-                const codeSnippet = `from purrpalette import PurrPalette\npurr = PurrPalette()\ncmap = purr.load_cmap('${name}')`;
+                const codeSnippet = `from pypalettes import pypalettes\npurr = pypalettes()\ncmap = purr.load_cmap('${name}')`;
                 codeSnippetContainer.textContent = codeSnippet;
 
                 // Add copy button to the code snippet

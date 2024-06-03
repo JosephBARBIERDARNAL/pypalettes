@@ -36,6 +36,6 @@ matplotlib_palettes = pd.DataFrame({
 palettes = pd.concat([seaborn_palettes, matplotlib_palettes])
 palettes.reset_index(drop=True, inplace=True)
 palettes.drop_duplicates(subset='name', keep='first', inplace=True)
-palettes.to_csv('purrpalette/matplot_and_seaborn.csv', index=False)
+palettes.to_csv('pypalettes/matplot_and_seaborn.csv', index=False)
 
 print(f'Matplotlib/Seaborn built-in cmaps: {len(palettes)} palettes found')

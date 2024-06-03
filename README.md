@@ -1,8 +1,8 @@
-# purrpalette
+# pypalettes
 
 A large (**+2500**) collection of color maps for matplotlib/seaborn.
 
-All available palettes can be found [on the dedicated website](https://josephbarbierdarnal.github.io/purrpalette/)
+All available palettes can be found [on the dedicated website](https://josephbarbierdarnal.github.io/pypalettes/)
 
 <br><br>
 
@@ -13,12 +13,12 @@ Once the `cmap` is loaded, you can use it as any other color map in `matplotlib`
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
-from purrpalette import PurrPalette
+from pypalettes import pypalettes
 import numpy as np
 
 data = np.random.rand(10, 12)
 
-purr = PurrPalette()
+purr = pypalettes()
 cmap = purr.load_cmap('Anemone')
 
 sns.heatmap(data, cmap=cmap)
@@ -32,7 +32,7 @@ plt.show()
 ## Installation
 
 ```bash
-pip install git+https://github.com/JosephBARBIERDARNAL/purrpalette.git
+pip install git+https://github.com/JosephBARBIERDARNAL/pypalettes.git
 ```
 
 <br><br>
@@ -42,8 +42,8 @@ pip install git+https://github.com/JosephBARBIERDARNAL/purrpalette.git
 - Load the package:
 
 ```python
-from purrpalette import PurrPalette
-purr = PurrPalette()
+from pypalettes import pypalettes
+purr = pypalettes()
 ```
 
 <br>
@@ -125,13 +125,13 @@ print(purr.rgb('AirNomads'))
 
 <br>
 
-More examples can be found in the [how to use notebook](https://github.com/JosephBARBIERDARNAL/purrpalette/blob/main/how_to_use.ipynb)
+More examples can be found in the [how to use notebook](https://github.com/JosephBARBIERDARNAL/pypalettes/blob/main/how_to_use.ipynb)
 
 <br><br>
 
 ## Related projects
 
-`purrpalette` is **highly** inspired from the R package [paletteer](https://github.com/EmilHvitfeldt/paletteer) and the python package [palettable](https://github.com/jiffyclub/palettable).
+`pypalettes` is **highly** inspired from the R package [paletteer](https://github.com/EmilHvitfeldt/paletteer) and the python package [palettable](https://github.com/jiffyclub/palettable).
 
 <br><br>
 
@@ -147,7 +147,7 @@ Color maps already available in `matplotlib` and `seaborn` have been added to th
 
 Since some color maps have the same name, some specific palettes can be different from the ones expected. If you find a mistake, please open an issue.
 
-The easiest way to find the original source is to use the `source()` method, and I highly suggest you to find your dream color map using the [original site](https://josephbarbierdarnal.github.io/purrpalette/).
+The easiest way to find the original source is to use the `source()` method, and I highly suggest you to find your dream color map using the [original site](https://josephbarbierdarnal.github.io/pypalettes/).
 
 <br><br>
 

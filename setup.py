@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="purrpalette",
+    name="pypalettes",
     version="0.0.1",
     packages=find_packages(),
     description="A large collection of matplotlib color maps",
@@ -12,7 +12,7 @@ setup(
     url="http://www.barberjoseph.com",
     include_package_data=True,
     package_data={
-        'purrpalette': ['palettes.csv'],
+        'pypalettes': ['palettes.csv'],
     },
     install_requires=[
         "pandas",

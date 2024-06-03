@@ -38,6 +38,6 @@ df = pd.DataFrame({
    "palette": palettes,
    "source": sources
 })
-df.to_csv("purrpalette/paletteer.csv", index=False)
+df.to_csv("pypalettes/paletteer.csv", index=False)
 
 print(f'Paletteer parsing finished with: {len(palettes)} palettes found')

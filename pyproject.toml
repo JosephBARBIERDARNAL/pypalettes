@@ -1,5 +1,5 @@
 [project]
-name = "purrpalette"
+name = "pypalettes"
 version = "0.0.1"
 authors = [
   { name="Joseph Barbier", email="joseph.barbierdarnal@gmail.com" },
@@ -22,5 +22,5 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project.urls]
-Homepage = "https://github.com/JosephBARBIERDARNAL/purrpalette"
-Issues = "https://github.com/JosephBARBIERDARNAL/purrpalette/issues"
+Homepage = "https://github.com/JosephBARBIERDARNAL/pypalettes"
+Issues = "https://github.com/JosephBARBIERDARNAL/pypalettes/issues"

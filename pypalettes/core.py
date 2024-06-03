@@ -2,9 +2,9 @@ from matplotlib.colors import LinearSegmentedColormap, ListedColormap
 import matplotlib.cm as cm
 from difflib import get_close_matches
 
-from purrpalette.utils import load_csv
+from pypalettes.utils import load_csv
 
-class PurrPalette:
+class pypalettes:
     
     def __init__(self, palettes_path='palettes.csv'):
         df = load_csv(palettes_path)
@@ -19,7 +19,7 @@ class PurrPalette:
             suggestions = get_close_matches(name, self.palettes.index, n=1, cutoff=0.1)
             raise ValueError(
                 f"Palette with name '{name}' not found. Did you mean: '{', '.join(suggestions)}'?\n"
-                "See available palettes at https://josephbarbierdarnal.github.io/purrpalette/"
+                "See available palettes at https://josephbarbierdarnal.github.io/pypalettes/"
             )
         return self.palettes.loc[name]
 
