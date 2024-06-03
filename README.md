@@ -149,7 +149,7 @@ Color maps already available in `matplotlib` and `seaborn` have been added to th
 
 Since some color maps have the same name, some specific palettes can be different from the ones expected. If you find a mistake, please open an issue.
 
-The easiest way to find the original source is to use the `source()` method, and I highly suggest you to find your dream color map using the [original site](https://josephbarbierdarnal.github.io/pypalettes/).
+The easiest way to find the original source is to use the `get_source()` method, and I highly suggest you to find your dream color map using the [original site](https://josephbarbierdarnal.github.io/pypalettes/).
 
 <br><br>
 
