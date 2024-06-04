@@ -1,64 +1,164 @@
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
 from difflib import get_close_matches
 from pypalettes.utils import load_csv
+import pandas as pd
+import os
 
 def load_palettes(palettes_path='palettes.csv'):
+    """
+    Load palettes from csv file
+    
+    Parameters
+    - palettes_path: str
+        Path to the csv file with the palettes
+    """
+    
     df = load_csv(palettes_path)
+    if 'name' not in df.columns or 'palette' not in df.columns:
+        raise ValueError("CSV file must contain 'name' and 'palette' columns.")
+    
     df.set_index('name', inplace=True)
     return df
 
-def get_palette(palettes, name):
+def _get_palette(palettes, name, reverse=False, keep_first_n=None):
+    """
+    Get palette from name
+
+    Parameters
+    - name: str
+        Name of the palette
+    - palettes: pd.DataFrame
+        DataFrame with the palettes
+    - reverse: bool
+        Whether to reverse the order of the colors or not
+    - keep_first_n: int
+        Keep only the first n colors of the palette
+    """
+    if not isinstance(name, str):
+        raise TypeError("Name must be a string.")
+    if not isinstance(reverse, bool):
+        raise TypeError("Reverse must be a boolean.")
+    if keep_first_n is not None and (not isinstance(keep_first_n, int) or keep_first_n <= 0):
+        raise ValueError("keep_first_n must be a positive integer.")
+    
     if name == 'random':
-        return palettes.sample(1).iloc[0]
-    if name not in palettes.index:
-        suggestions = get_close_matches(name, palettes.index, n=1, cutoff=0.1)
-        raise ValueError(
-            f"Palette with name '{name}' not found. Did you mean: '{', '.join(suggestions)}'?\n"
-            "See available palettes at https://josephbarbierdarnal.github.io/pypalettes/"
-        )
-    return palettes.loc[name]
-
-def load_cmap(name='random', type='discrete', reversed=False, palettes_path='palettes.csv'):
-    type = type.lower()
-    palettes = load_palettes(palettes_path)
-    palette = get_palette(palettes, name)
-    hex_list = eval(palette['palette'])
-
-    if name == 'random':
-        name = palette.name
-
-    if reversed:
+        palette = palettes.sample(1).iloc[0]
+    else:
+        if name not in palettes.index:
+            suggestions = get_close_matches(name, palettes.index, n=1, cutoff=0.1)
+            raise ValueError(
+                f"Palette with name '{name}' not found. Did you mean: '{', '.join(suggestions)}'?\n"
+                "See available palettes at https://josephbarbierdarnal.github.io/pypalettes/"
+            )
+        palette = palettes.loc[name]
+    
+    try:
+        source = palette['source']
+        hex_list = eval(palette['palette'])
+        if not isinstance(hex_list, list) or not all(isinstance(color, str) for color in hex_list):
+            raise ValueError("Palette must be a list of hex color strings.")
+    except Exception as e:
+        raise ValueError(f"Error parsing palette: {e}")
+    
+    if len(hex_list) == 0:
+        raise ValueError("Palette cannot be empty.")
+    
+    if keep_first_n is not None and keep_first_n > len(hex_list):
+        raise ValueError("keep_first_n must be less than or equal to the length of the palette.")
+    
+    if reverse:
         hex_list = hex_list[::-1]
+    if keep_first_n:
+        hex_list = hex_list[:keep_first_n]
+
+    return hex_list, source
+
+def load_cmap(
+    name='random',
+    type='discrete',
+    reverse=False,
+    keep_first_n=None
+):
+    """
+    Load colormap from name
+
+    Parameters
+    - name: str
+        Name of the palette
+    - type: str
+        Type of colormap: 'continuous' or 'discrete'
+    - reverse: bool
+        Whether to reverse the order of the colors or not
+    - keep_first_n: int
+        Keep only the first n colors of the palette
+    """
+    if not isinstance(type, str) or type.lower() not in {'continuous', 'discrete'}:
+        raise ValueError("Type argument must be 'continuous' or 'discrete'")
+    
+    type = type.lower()
+    palettes = load_palettes()
+    hex_list, _ = _get_palette(palettes, name, reverse, keep_first_n)
 
     if type == 'continuous':
         cmap = LinearSegmentedColormap.from_list(name=f'{name}', colors=hex_list)
     elif type == 'discrete':
         cmap = ListedColormap(name=f'{name}', colors=hex_list)
-    else:
-        raise ValueError("type argument must be 'continuous' or 'discrete'")
 
     return cmap
 
-def get_source(name='random', palettes_path='palettes.csv'):
-    palettes = load_palettes(palettes_path)
-    palette = get_palette(palettes, name)
-    return palette['source']
+def get_source(
+    name='random'
+):
+    """
+    Get source of the palette
 
-def get_hex(name='random', reversed=False, palettes_path='palettes.csv'):
-    palettes = load_palettes(palettes_path)
-    palette = get_palette(palettes, name)
-    palette = eval(palette['palette'])
-    if reversed:
-        palette = palette[::-1]
-    return palette
+    Parameters
+    - name: str
+        Name of the palette
+    """
+    palettes = load_palettes()
+    _, source = _get_palette(palettes, name)
+    return source
 
-def get_rgb(name='random', reversed=False, palettes_path='palettes.csv'):
-    hex_list = get_hex(name, palettes_path)
-    if reversed:
-        hex_list = hex_list[::-1]
+def get_hex(
+    name='random',
+    reverse=False,
+    keep_first_n=None
+):
+    """
+    Get hex colors from name
+
+    Parameters
+    - name: str
+        Name of the palette
+    - reverse: bool
+        Whether to reverse the order of the colors or not
+    - keep_first_n: int
+        Keep only the first n colors of the palette
+    """
+    palettes = load_palettes()
+    hex_list, _ = _get_palette(palettes, name, reverse, keep_first_n)
+    return hex_list
+
+def get_rgb(
+    name='random',
+    reverse=False,
+    keep_first_n=None
+):
+    """
+    Get rgb colors from name
+
+    Parameters
+    - name: str
+        Name of the palette
+    - reverse: bool
+        Whether to reverse the order of the colors or not
+    - keep_first_n: int
+        Keep only the first n colors of the palette
+    """
+    hex_list = get_hex(name, reverse, keep_first_n)
     rgb_list = [tuple(int(hex.lstrip('#')[i:i+2], 16) for i in (0, 2, 4)) for hex in hex_list]
     return rgb_list
-
 
 if __name__ == '__main__':
     pass
