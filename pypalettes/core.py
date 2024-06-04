@@ -18,7 +18,7 @@ def get_palette(palettes, name):
         )
     return palettes.loc[name]
 
-def load_cmap(name='random', type='discrete', palettes_path='palettes.csv'):
+def load_cmap(name='random', type='discrete', reversed=False, palettes_path='palettes.csv'):
     type = type.lower()
     palettes = load_palettes(palettes_path)
     palette = get_palette(palettes, name)
@@ -26,6 +26,9 @@ def load_cmap(name='random', type='discrete', palettes_path='palettes.csv'):
 
     if name == 'random':
         name = palette.name
+
+    if reversed:
+        hex_list = hex_list[::-1]
 
     if type == 'continuous':
         cmap = LinearSegmentedColormap.from_list(name=f'{name}', colors=hex_list)
@@ -41,13 +44,18 @@ def get_source(name='random', palettes_path='palettes.csv'):
     palette = get_palette(palettes, name)
     return palette['source']
 
-def get_hex(name='random', palettes_path='palettes.csv'):
+def get_hex(name='random', reversed=False, palettes_path='palettes.csv'):
     palettes = load_palettes(palettes_path)
     palette = get_palette(palettes, name)
-    return eval(palette['palette'])
+    palette = eval(palette['palette'])
+    if reversed:
+        palette = palette[::-1]
+    return palette
 
-def get_rgb(name='random', palettes_path='palettes.csv'):
+def get_rgb(name='random', reversed=False, palettes_path='palettes.csv'):
     hex_list = get_hex(name, palettes_path)
+    if reversed:
+        hex_list = hex_list[::-1]
     rgb_list = [tuple(int(hex.lstrip('#')[i:i+2], 16) for i in (0, 2, 4)) for hex in hex_list]
     return rgb_list
 
