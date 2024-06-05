@@ -43,26 +43,55 @@ plt.show()
 - Load a color map:
 
 ```python
-from pypalettes import load_cmap
-
 cmap = load_cmap('Chaetodon_sedentarius')
 cmap
 ```
 
-![Darjeeling2](images/discrete.png)
+![Darjeeling2](images/Chaetodon_sedentarius.png)
 
 <br>
 
 - Transform a qualitative color map into a continuous one:
 
 ```python
-from pypalettes import load_cmap
-
 cmap = load_cmap('Chaetodon_sedentarius', type='continuous')
 cmap
 ```
 
-![Darjeeling2](images/continuous.png)
+![Darjeeling2](images/Chaetodon_sedentarius_continuous.png)
+
+<br>
+
+Invert a color map:
+
+```python
+cmap = load_cmap('Chaetodon_sedentarius', reverse=True)
+cmap
+```
+
+![Darjeeling2](images/Chaetodon_sedentarius_reverse.png)
+
+<br>
+
+Reverse and continuous:
+
+```python
+cmap = load_cmap('Chaetodon_sedentarius', reverse=True, type='continuous')
+cmap
+```
+
+![Darjeeling2](images/Chaetodon_sedentarius_continuous_reverse.png)
+
+<br>
+
+Keep only the first 3 colors of a color map:
+
+```python
+cmap = load_cmap('Chaetodon_sedentarius', keep_first_n=3)
+cmap
+```
+
+![Darjeeling2](images/Chaetodon_sedentarius_keep_first_n.png)
 
 <br>
 
@@ -81,7 +110,6 @@ cmap
 
 ```python
 from pypalettes import get_source
-
 get_source('bilbao')
 ```
 
@@ -93,7 +121,6 @@ get_source('bilbao')
 
 ```python
 from pypalettes import get_hex
-
 get_hex('pupitar')
 ```
 
@@ -113,7 +140,6 @@ get_hex('pupitar')
 
 ```python
 from pypalettes import get_rgb
-
 get_rgb('AirNomads')
 ```
 
@@ -138,6 +164,8 @@ cmap
 
 `ValueError: Palette with name 'colwarm' not found. Did you mean: 'coolwarm'?
 See available palettes at https://josephbarbierdarnal.github.io/pypalettes/`
+
+<br>
 
 More examples can be found in the [how to use notebook](https://github.com/JosephBARBIERDARNAL/pypalettes/blob/main/how_to_use.ipynb)
 
