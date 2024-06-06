@@ -5,8 +5,8 @@ from utils import split_string
 
 def get_paletteer_palettes():
 
-   # load the HTML file (https://pmassicotte.github.io/paletteer_gallery/)
-   with open('parsers/paletteer.html', 'r') as file:
+   # load the HTML file (from: https://pmassicotte.github.io/paletteer_gallery/)
+   with open('parsers/html/paletteer.html', 'r') as file:
       soup = BeautifulSoup(file, 'html.parser')
 
    # initialize lists to store data and the soup

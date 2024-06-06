@@ -6,8 +6,8 @@ from utils import generate_palette_name
 
 def get_coolors_palettes():
 
-    # read the html content
-    with open('parsers/coolors.html', 'r', encoding='utf-8') as file:
+    # read the html content (from: https://coolors.co/palettes/trending)
+    with open('parsers/html/coolors.html', 'r', encoding='utf-8') as file:
         html_content = file.read()
     soup = BeautifulSoup(html_content, 'html.parser')
     palette_cols = soup.find_all('div', class_='explore-palettes_col')
