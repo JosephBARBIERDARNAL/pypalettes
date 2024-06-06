@@ -1,8 +1,6 @@
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
 from difflib import get_close_matches
 from pypalettes.utils import load_csv
-import pandas as pd
-import os
 
 def load_palettes(palettes_path='palettes.csv'):
     """
@@ -35,9 +33,9 @@ def _get_palette(palettes, name, reverse=False, keep_first_n=None):
         Keep only the first n colors of the palette
     """
     if not isinstance(name, str):
-        raise TypeError("Name must be a string.")
+        raise TypeError("name must be a string.")
     if not isinstance(reverse, bool):
-        raise TypeError("Reverse must be a boolean.")
+        raise TypeError("reverse must be a boolean.")
     if keep_first_n is not None and (not isinstance(keep_first_n, int) or keep_first_n <= 0):
         raise ValueError("keep_first_n must be a positive integer.")
     
@@ -56,15 +54,15 @@ def _get_palette(palettes, name, reverse=False, keep_first_n=None):
         source = palette['source']
         hex_list = eval(palette['palette'])
         if not isinstance(hex_list, list) or not all(isinstance(color, str) for color in hex_list):
-            raise ValueError("Palette must be a list of hex color strings.")
+            raise ValueError("palette must be a list of hex color strings.")
     except Exception as e:
         raise ValueError(f"Error parsing palette: {e}")
     
     if len(hex_list) == 0:
-        raise ValueError("Palette cannot be empty.")
+        raise ValueError("palette cannot be empty.")
     
     if keep_first_n is not None and keep_first_n > len(hex_list):
-        raise ValueError("keep_first_n must be less than or equal to the length of the palette.")
+        raise ValueError(f"keep_first_n {keep_first_n} must be less than or equal to the length of the palette {len(hex_list)}.")
     
     if reverse:
         hex_list = hex_list[::-1]
@@ -93,7 +91,7 @@ def load_cmap(
         Keep only the first n colors of the palette
     """
     if not isinstance(type, str) or type.lower() not in {'continuous', 'discrete'}:
-        raise ValueError("Type argument must be 'continuous' or 'discrete'")
+        raise ValueError("type argument must be 'continuous' or 'discrete'")
     
     type = type.lower()
     palettes = load_palettes()
