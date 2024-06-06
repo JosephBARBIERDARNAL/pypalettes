@@ -52,6 +52,7 @@ def _get_palette(palettes, name, reverse=False, keep_first_n=None):
     
     try:
         source = palette['source']
+        kind = palette['kind']
         hex_list = eval(palette['palette'])
         if not isinstance(hex_list, list) or not all(isinstance(color, str) for color in hex_list):
             raise ValueError("palette must be a list of hex color strings.")
@@ -69,7 +70,7 @@ def _get_palette(palettes, name, reverse=False, keep_first_n=None):
     if keep_first_n:
         hex_list = hex_list[:keep_first_n]
 
-    return hex_list, source
+    return hex_list, source, kind
 
 def load_cmap(
     name='random',
@@ -95,7 +96,7 @@ def load_cmap(
     
     type = type.lower()
     palettes = load_palettes()
-    hex_list, _ = _get_palette(palettes, name, reverse, keep_first_n)
+    hex_list, _, _ = _get_palette(palettes, name, reverse, keep_first_n)
 
     if type == 'continuous':
         cmap = LinearSegmentedColormap.from_list(name=f'{name}', colors=hex_list)
@@ -115,8 +116,22 @@ def get_source(
         Name of the palette
     """
     palettes = load_palettes()
-    _, source = _get_palette(palettes, name)
+    _, source, _ = _get_palette(palettes, name)
     return source
+
+def get_kind(
+    name='random'
+):
+    """
+    Get kind of the palette
+
+    Parameters
+    - name: str
+        Name of the palette
+    """
+    palettes = load_palettes()
+    _, _, kind = _get_palette(palettes, name)
+    return kind
 
 def get_hex(
     name='random',
@@ -135,7 +150,7 @@ def get_hex(
         Keep only the first n colors of the palette
     """
     palettes = load_palettes()
-    hex_list, _ = _get_palette(palettes, name, reverse, keep_first_n)
+    hex_list, _, _ = _get_palette(palettes, name, reverse, keep_first_n)
     return hex_list
 
 def get_rgb(
