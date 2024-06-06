@@ -184,7 +184,6 @@ get_kind('pupitar')
 from pypalettes import load_cmap
 
 cmap = load_cmap('colwarm')
-cmap
 ```
 
 `ValueError: Palette with name 'colwarm' not found. Did you mean: 'coolwarm'?
