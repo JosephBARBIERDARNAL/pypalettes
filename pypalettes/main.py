@@ -18,7 +18,7 @@ def load_palettes(palettes_path='palettes.csv'):
     df.set_index('name', inplace=True)
     return df
 
-def _get_palette(palettes, name, reverse=False, keep_first_n=None):
+def _get_palette(palettes, name, reverse=False, keep_first_n=None, keep=None):
     """
     Get palette from name
 
@@ -31,6 +31,8 @@ def _get_palette(palettes, name, reverse=False, keep_first_n=None):
         Whether to reverse the order of the colors or not
     - keep_first_n: int
         Keep only the first n colors of the palette
+    - keep: list of bool
+        Specify which colors to keep in the palette
     """
     if not isinstance(name, str):
         raise TypeError("name must be a string.")
@@ -38,7 +40,11 @@ def _get_palette(palettes, name, reverse=False, keep_first_n=None):
         raise TypeError("reverse must be a boolean.")
     if keep_first_n is not None and (not isinstance(keep_first_n, int) or keep_first_n <= 0):
         raise ValueError("keep_first_n must be a positive integer.")
-    
+    if keep is not None and (not isinstance(keep, list) or not all(isinstance(item, bool) for item in keep)):
+        raise ValueError("keep must be a list of boolean values.")
+    if keep_first_n is not None and keep is not None:
+        raise ValueError("Cannot specify both keep_first_n and keep arguments simultaneously.")
+
     if name == 'random':
         palette = palettes.sample(1).iloc[0]
     else:
@@ -65,10 +71,16 @@ def _get_palette(palettes, name, reverse=False, keep_first_n=None):
     if keep_first_n is not None and keep_first_n > len(hex_list):
         raise ValueError(f"keep_first_n {keep_first_n} must be less than or equal to the length of the palette {len(hex_list)}.")
     
+    if keep is not None and len(keep) != len(hex_list):
+        raise ValueError(f"keep list must be the same length as the palette ({len(hex_list)}!={len(keep)}).")
+    
     if reverse:
         hex_list = hex_list[::-1]
+    
     if keep_first_n:
         hex_list = hex_list[:keep_first_n]
+    elif keep is not None:
+        hex_list = [color for color, keep_color in zip(hex_list, keep) if keep_color]
 
     return hex_list, source, kind
 
@@ -76,7 +88,8 @@ def load_cmap(
     name='random',
     type='discrete',
     reverse=False,
-    keep_first_n=None
+    keep_first_n=None,
+    keep=None
 ):
     """
     Load colormap from name
@@ -90,13 +103,15 @@ def load_cmap(
         Whether to reverse the order of the colors or not
     - keep_first_n: int
         Keep only the first n colors of the palette
+    - keep: list of bool
+        Specify which colors to keep in the palette
     """
     if not isinstance(type, str) or type.lower() not in {'continuous', 'discrete'}:
         raise ValueError("type argument must be 'continuous' or 'discrete'")
     
     type = type.lower()
     palettes = load_palettes()
-    hex_list, _, _ = _get_palette(palettes, name, reverse, keep_first_n)
+    hex_list, _, _ = _get_palette(palettes, name, reverse, keep_first_n, keep)
 
     if type == 'continuous':
         cmap = LinearSegmentedColormap.from_list(name=f'{name}', colors=hex_list)
@@ -136,7 +151,8 @@ def get_kind(
 def get_hex(
     name='random',
     reverse=False,
-    keep_first_n=None
+    keep_first_n=None,
+    keep=None
 ):
     """
     Get hex colors from name
@@ -148,15 +164,18 @@ def get_hex(
         Whether to reverse the order of the colors or not
     - keep_first_n: int
         Keep only the first n colors of the palette
+    - keep: list of bool
+        Specify which colors to keep in the palette
     """
     palettes = load_palettes()
-    hex_list, _, _ = _get_palette(palettes, name, reverse, keep_first_n)
+    hex_list, _, _ = _get_palette(palettes, name, reverse, keep_first_n, keep)
     return hex_list
 
 def get_rgb(
     name='random',
     reverse=False,
-    keep_first_n=None
+    keep_first_n=None,
+    keep=None
 ):
     """
     Get rgb colors from name
@@ -168,8 +187,10 @@ def get_rgb(
         Whether to reverse the order of the colors or not
     - keep_first_n: int
         Keep only the first n colors of the palette
+    - keep: list of bool
+        Specify which colors to keep in the palette
     """
-    hex_list = get_hex(name, reverse, keep_first_n)
+    hex_list = get_hex(name, reverse, keep_first_n, keep)
     rgb_list = [tuple(int(hex.lstrip('#')[i:i+2], 16) for i in (0, 2, 4)) for hex in hex_list]
     return rgb_list
 

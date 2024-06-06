@@ -62,7 +62,7 @@ cmap
 
 <br>
 
-Invert a color map:
+- Invert a color map:
 
 ```python
 cmap = load_cmap('Chaetodon_sedentarius', reverse=True)
@@ -73,7 +73,7 @@ cmap
 
 <br>
 
-Reverse and continuous:
+- Reverse and continuous:
 
 ```python
 cmap = load_cmap('Chaetodon_sedentarius', reverse=True, type='continuous')
@@ -84,7 +84,7 @@ cmap
 
 <br>
 
-Keep only the first 3 colors of a color map:
+- Keep only the first 3 colors of a color map:
 
 ```python
 cmap = load_cmap('Chaetodon_sedentarius', keep_first_n=3)
@@ -92,6 +92,19 @@ cmap
 ```
 
 ![Darjeeling2](images/Chaetodon_sedentarius_keep_first_n.png)
+
+<br>
+
+- Keep only specific colors of a color map:
+
+```python
+from pypalettes import load_cmap
+
+cmap = load_cmap('Chaetodon_sedentarius', keep=[True, True, False, False, True])
+cmap
+```
+
+![Darjeeling2](images/Chaetodon_sedentarius_keep.png)
 
 <br>
 
@@ -153,7 +166,7 @@ get_rgb('AirNomads')
 
 <br>
 
-Get the `kind` of a color map:
+- Get the `kind` of a color map:
 
 ```python
 from pypalettes import get_kind
@@ -204,9 +217,3 @@ Since some color maps have the same name, some specific palettes can be differen
 The easiest way to find the original source is to use the `get_source()` function, and I highly suggest you to find your dream color map using the [original site](https://josephbarbierdarnal.github.io/pypalettes/).
 
 <br><br>
-
-## How to add a new palette
-
-More is better: if you know how to add a significant amount of palettes (>30), please do so. PRs are welcome.
-
-TODO: detail the process
