@@ -47,7 +47,7 @@ cmap = load_cmap('Chaetodon_sedentarius')
 cmap
 ```
 
-![Darjeeling2](images/Chaetodon_sedentarius.png)
+![Darjeeling2](images/simple.png)
 
 <br>
 
@@ -58,7 +58,7 @@ cmap = load_cmap('Chaetodon_sedentarius', type='continuous')
 cmap
 ```
 
-![Darjeeling2](images/Chaetodon_sedentarius_continuous.png)
+![Darjeeling2](images/continuous.png)
 
 <br>
 
@@ -69,7 +69,7 @@ cmap = load_cmap('Chaetodon_sedentarius', reverse=True)
 cmap
 ```
 
-![Darjeeling2](images/Chaetodon_sedentarius_reverse.png)
+![Darjeeling2](images/reverse.png)
 
 <br>
 
@@ -80,7 +80,7 @@ cmap = load_cmap('Chaetodon_sedentarius', reverse=True, type='continuous')
 cmap
 ```
 
-![Darjeeling2](images/Chaetodon_sedentarius_continuous_reverse.png)
+![Darjeeling2](images/continuous_reverse.png)
 
 <br>
 
@@ -91,7 +91,7 @@ cmap = load_cmap('Chaetodon_sedentarius', keep_first_n=3)
 cmap
 ```
 
-![Darjeeling2](images/Chaetodon_sedentarius_keep_first_n.png)
+![Darjeeling2](images/keep_first_n.png)
 
 <br>
 
@@ -104,7 +104,7 @@ cmap = load_cmap('Chaetodon_sedentarius', keep=[True, True, False, False, True])
 cmap
 ```
 
-![Darjeeling2](images/Chaetodon_sedentarius_keep.png)
+![Darjeeling2](images/keep.png)
 
 <br>
 
