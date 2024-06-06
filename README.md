@@ -153,6 +153,18 @@ get_rgb('AirNomads')
 
 <br>
 
+Get the `kind` of a color map:
+
+```python
+from pypalettes import get_kind
+
+get_kind('pupitar')
+```
+
+`'qualitative'`
+
+<br>
+
 - Error handling:
 
 ```python
