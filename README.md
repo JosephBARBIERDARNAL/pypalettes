@@ -5,9 +5,11 @@ A large (**+2500**) collection of color maps for matplotlib/seaborn.
 All available palettes can be found [on the dedicated website](https://python-graph-gallery.com/color-palette-finder/)
 
 <center>
-
+   
    ![](pypalettes.gif)
 </center>
+
+
 
 <br><br>
 
