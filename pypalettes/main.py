@@ -52,7 +52,7 @@ def _get_palette(palettes, name, reverse=False, keep_first_n=None, keep=None):
             suggestions = get_close_matches(name, palettes.index, n=1, cutoff=0.1)
             raise ValueError(
                 f"Palette with name '{name}' not found. Did you mean: '{', '.join(suggestions)}'?\n"
-                "See available palettes at https://josephbarbierdarnal.github.io/pypalettes/"
+                "See available palettes at https://python-graph-gallery.com/color-palette-finder/"
             )
         palette = palettes.loc[name]
     

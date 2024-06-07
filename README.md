@@ -2,7 +2,7 @@
 
 A large (**+2500**) collection of color maps for matplotlib/seaborn.
 
-All available palettes can be found [on the dedicated website](https://josephbarbierdarnal.github.io/pypalettes/)
+All available palettes can be found [on the dedicated website](https://python-graph-gallery.com/color-palette-finder/)
 
 <br><br>
 
@@ -187,7 +187,7 @@ cmap = load_cmap('colwarm')
 ```
 
 `ValueError: Palette with name 'colwarm' not found. Did you mean: 'coolwarm'?
-See available palettes at https://josephbarbierdarnal.github.io/pypalettes/`
+See available palettes at https://python-graph-gallery.com/color-palette-finder/`
 
 <br>
 
@@ -213,6 +213,6 @@ Color maps already available in `matplotlib` and `seaborn` have been added to th
 
 Since some color maps have the same name, some specific palettes can be different from the ones expected. If you find a mistake, please open an issue.
 
-The easiest way to find the original source is to use the `get_source()` function, and I highly suggest you to find your dream color map using the [original site](https://josephbarbierdarnal.github.io/pypalettes/).
+The easiest way to find the original source is to use the `get_source()` function, and I highly suggest you to find your dream color map using the [original site](https://python-graph-gallery.com/color-palette-finder/).
 
 <br><br>
