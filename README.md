@@ -36,6 +36,16 @@ plt.show()
 
 <br><br>
 
+## Some cool color maps
+
+<p align="center">
+  <img src="economics/unemployment_linecharts.png" width="30%" />
+  <img src="happiness/mutliple_maps.png" width="30%" />
+  <img src="plastic-pollution/global-plastics-production-modif.gif" width="30%" />
+</p>
+
+<br><br>
+
 ## Getting started
 
 <br>
