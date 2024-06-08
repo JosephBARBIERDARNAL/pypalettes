@@ -2,7 +2,7 @@ from matplotlib.colors import LinearSegmentedColormap, ListedColormap
 from difflib import get_close_matches
 from pypalettes.utils import load_csv
 
-def load_palettes(palettes_path='palettes.csv'):
+def load_palettes(palettes_path: str='palettes.csv'):
     """
     Load palettes from csv file
     
@@ -18,7 +18,13 @@ def load_palettes(palettes_path='palettes.csv'):
     df.set_index('name', inplace=True)
     return df
 
-def _get_palette(palettes, name, reverse=False, keep_first_n=None, keep=None):
+def _get_palette(
+    palettes,
+    name: str,
+    reverse: bool=False,
+    keep_first_n: int=None,
+    keep: list[bool]=None
+):
     """
     Get palette from name
 
@@ -85,11 +91,11 @@ def _get_palette(palettes, name, reverse=False, keep_first_n=None, keep=None):
     return hex_list, source, kind
 
 def load_cmap(
-    name='random',
-    type='discrete',
-    reverse=False,
+    name: str='random',
+    type: str='discrete',
+    reverse: bool=False,
     keep_first_n=None,
-    keep=None
+    keep: list[bool]=None
 ):
     """
     Load colormap from name
@@ -149,10 +155,10 @@ def get_kind(
     return kind
 
 def get_hex(
-    name='random',
-    reverse=False,
-    keep_first_n=None,
-    keep=None
+    name: str='random',
+    reverse: bool=False,
+    keep_first_n: int=None,
+    keep: list[bool]=None
 ):
     """
     Get hex colors from name
@@ -172,10 +178,10 @@ def get_hex(
     return hex_list
 
 def get_rgb(
-    name='random',
-    reverse=False,
-    keep_first_n=None,
-    keep=None
+    name: str='random',
+    reverse: bool=False,
+    keep_first_n: int=None,
+    keep: list[bool]=None
 ):
     """
     Get rgb colors from name
