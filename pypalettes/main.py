@@ -55,9 +55,9 @@ def _get_palette(
         palette = palettes.sample(1).iloc[0]
     else:
         if name not in palettes.index:
-            suggestions = get_close_matches(name, palettes.index, n=1, cutoff=0.1)
+            suggestions = get_close_matches(name, palettes.index, n=5, cutoff=0.01)
             raise ValueError(
-                f"Palette with name '{name}' not found. Did you mean: '{', '.join(suggestions)}'?\n"
+                f"Palette with name '{name}' not found. Did you mean:\n{', '.join(suggestions)}?\n\n"
                 "See available palettes at https://python-graph-gallery.com/color-palette-finder/"
             )
         palette = palettes.loc[name]
