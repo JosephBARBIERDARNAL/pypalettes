@@ -91,11 +91,11 @@ def _get_palette(
     return hex_list, source, kind
 
 def load_cmap(
-    name: str='random',
-    type: str='discrete',
-    reverse: bool=False,
-    keep_first_n=None,
-    keep: list[bool]=None
+    name: str = 'random',
+    type: str = 'discrete',
+    reverse: bool = False,
+    keep_first_n: int | None = None,
+    keep: list[bool] | None = None
 ):
     """
     Load colormap from name
@@ -127,7 +127,7 @@ def load_cmap(
     return cmap
 
 def get_source(
-    name='random'
+    name = 'random'
 ):
     """
     Get source of the palette
@@ -141,7 +141,7 @@ def get_source(
     return source
 
 def get_kind(
-    name='random'
+    name = 'random'
 ):
     """
     Get kind of the palette
@@ -155,10 +155,10 @@ def get_kind(
     return kind
 
 def get_hex(
-    name: str='random',
-    reverse: bool=False,
-    keep_first_n: int=None,
-    keep: list[bool]=None
+    name: str = 'random',
+    reverse: bool = False,
+    keep_first_n: int | None = None,
+    keep: list[bool] | None = None
 ):
     """
     Get hex colors from name
@@ -178,10 +178,10 @@ def get_hex(
     return hex_list
 
 def get_rgb(
-    name: str='random',
-    reverse: bool=False,
-    keep_first_n: int=None,
-    keep: list[bool]=None
+    name: str = 'random',
+    reverse: bool = False,
+    keep_first_n: int | None = None,
+    keep: list[bool] | None = None
 ):
     """
     Get rgb colors from name
