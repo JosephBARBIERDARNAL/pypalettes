@@ -1,8 +1,8 @@
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
 from difflib import get_close_matches
-from pypalettes.utils import load_csv
+from pypalettes.utils import _load_csv
 
-def load_palettes(palettes_path: str='palettes.csv'):
+def _load_palettes(palettes_path: str='palettes.csv'):
     """
     Load palettes from csv file
     
@@ -11,7 +11,7 @@ def load_palettes(palettes_path: str='palettes.csv'):
         Path to the csv file with the palettes
     """
     
-    df = load_csv(palettes_path)
+    df = _load_csv(palettes_path)
     if 'name' not in df.columns or 'palette' not in df.columns:
         raise ValueError("CSV file must contain 'name' and 'palette' columns.")
     
@@ -21,9 +21,9 @@ def load_palettes(palettes_path: str='palettes.csv'):
 def _get_palette(
     palettes,
     name: str,
-    reverse: bool=False,
-    keep_first_n: int=None,
-    keep: list[bool]=None
+    reverse: bool = False,
+    keep_first_n: int | None = None,
+    keep: list[bool] | None = None
 ):
     """
     Get palette from name
@@ -37,7 +37,7 @@ def _get_palette(
         Whether to reverse the order of the colors or not
     - keep_first_n: int
         Keep only the first n colors of the palette
-    - keep: list of bool
+    - keep: list of bool | None
         Specify which colors to keep in the palette
     """
     if not isinstance(name, str):
@@ -116,7 +116,7 @@ def load_cmap(
         raise ValueError("type argument must be 'continuous' or 'discrete'")
     
     type = type.lower()
-    palettes = load_palettes()
+    palettes = _load_palettes()
     hex_list, _, _ = _get_palette(palettes, name, reverse, keep_first_n, keep)
 
     if type == 'continuous':
@@ -136,7 +136,7 @@ def get_source(
     - name: str
         Name of the palette
     """
-    palettes = load_palettes()
+    palettes = _load_palettes()
     _, source, _ = _get_palette(palettes, name)
     return source
 
@@ -150,7 +150,7 @@ def get_kind(
     - name: str
         Name of the palette
     """
-    palettes = load_palettes()
+    palettes = _load_palettes()
     _, _, kind = _get_palette(palettes, name)
     return kind
 
@@ -173,7 +173,7 @@ def get_hex(
     - keep: list of bool
         Specify which colors to keep in the palette
     """
-    palettes = load_palettes()
+    palettes = _load_palettes()
     hex_list, _, _ = _get_palette(palettes, name, reverse, keep_first_n, keep)
     return hex_list
 
