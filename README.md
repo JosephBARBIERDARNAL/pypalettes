@@ -172,7 +172,7 @@ Click on the image to get the associated code!
 
 <p align="center">
    
-   <a href='https://python-graph-gallery.com/web-map-with-custom-legend/'>
+   <a href='https://python-graph-gallery.com/web-map-with-custom-legend/'  target="_blank">
       <img
          src="https://raw.githubusercontent.com/holtzy/The-Python-Graph-Gallery/master/static/graph/web-map-with-custom-legend.png"
          width="30%"
