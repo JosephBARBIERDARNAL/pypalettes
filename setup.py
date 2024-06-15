@@ -9,7 +9,7 @@ setup(
     long_description_content_type="text/markdown",
     author="Joseph Barbier",
     author_email="joseph.barbierdarnal@gmail.com",
-    url="http://www.barberjoseph.com",
+    url="https://github.com/JosephBARBIERDARNAL/pypalettes/blob/main/README.md",
     include_package_data=True,
     package_data={
         'pypalettes': ['palettes.csv'],

@@ -20,7 +20,7 @@ def get_paletteer_palettes():
    for section in sections:
       kind = section['id']
       
-      # get the name of the palette
+      # get the name and source of the palette
       name_tags = section.find_all('center')
       for name_tag in name_tags:
          name = name_tag.text.strip()
@@ -29,7 +29,7 @@ def get_paletteer_palettes():
          names.append(name)
          sources.append(source)
 
-      # get the hex values of the palette
+      # get the hex values and kind of the palette
       palette_tags = section.find_all('hr')
       for palette_tag in palette_tags:
          all_spans = palette_tag.find_previous_sibling('p').find_all('span')
@@ -37,7 +37,7 @@ def get_paletteer_palettes():
          palettes.append(palette)
          kinds.append(kind)
 
-   # save palettes to csv
+   # create pandas df with palette properties
    df = pd.DataFrame({
       "name": names,
       "palette": palettes,

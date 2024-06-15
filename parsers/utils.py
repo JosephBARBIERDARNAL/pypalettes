@@ -2,14 +2,11 @@ import random
 random.seed(42)
 
 def split_string(input_string):
-    try:
-        parts = input_string.split('::')
-        if len(parts) == 2:
-            return parts[0], parts[1]
-        else:
-            raise ValueError("Input string format is incorrect. Expected exactly one '::' in the input string.")
-    except Exception as e:
-        return str(e)
+    parts = input_string.split('::')
+    if len(parts) == 2:
+        return parts[0], parts[1]
+    else:
+        raise ValueError("Input string format is incorrect. Expected exactly one '::' in the input string.")
 
 adjectives = [
     "Vibrant", "Pastel", "Bold", "Soft", "Dark", "Bright", "Muted", "Electric",
