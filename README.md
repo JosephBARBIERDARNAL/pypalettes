@@ -168,20 +168,18 @@ More examples can be found in the [how to use notebook](https://github.com/Josep
 
 ## Chart made with `pypalettes`
 
+Click on the image to get the associated code!
+
 <p align="center">
+   
    <a href='https://python-graph-gallery.com/web-map-with-custom-legend/'>
       <img
          src="https://raw.githubusercontent.com/holtzy/The-Python-Graph-Gallery/master/static/graph/web-map-with-custom-legend.png"
          width="30%"
+         alt="choropleth map of europe"
       />
    </a>
 
-   <a href='https://python-graph-gallery.com/web-map-with-custom-legend/'>
-      <img
-         src="https://raw.githubusercontent.com/holtzy/The-Python-Graph-Gallery/master/static/graph/web-map-with-custom-legend.png"
-         width="30%"
-      />
-   </a>
 </p>
 
 <br><br>
