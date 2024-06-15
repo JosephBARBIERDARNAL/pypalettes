@@ -126,17 +126,6 @@ cmap
 
 <br>
 
-- Find where a color map comes from:
-
-```python
-from pypalettes import get_source
-get_source('bilbao')
-```
-
-`'The R package: {khroma}'`
-
-<br>
-
 - Get hex values of a color map:
 
 ```python
@@ -173,32 +162,27 @@ get_rgb('AirNomads')
 
 <br>
 
-- Get the `kind` of a color map:
-
-```python
-from pypalettes import get_kind
-
-get_kind('pupitar')
-```
-
-`'qualitative'`
-
-<br>
-
-- Error handling:
-
-```python
-from pypalettes import load_cmap
-
-cmap = load_cmap('colwarm')
-```
-
-`ValueError: Palette with name 'colwarm' not found. Did you mean: 'coolwarm'?
-See available palettes at https://python-graph-gallery.com/color-palette-finder/`
-
-<br>
-
 More examples can be found in the [how to use notebook](https://github.com/JosephBARBIERDARNAL/pypalettes/blob/main/how_to_use.ipynb)
+
+<br><br>
+
+## Chart made with `pypalettes`
+
+<p align="center">
+   <a href='https://python-graph-gallery.com/web-map-with-custom-legend/'>
+      <img
+         src="https://raw.githubusercontent.com/holtzy/The-Python-Graph-Gallery/master/static/graph/web-map-with-custom-legend.png"
+         width="30%"
+      />
+   </a>
+
+   <a href='https://python-graph-gallery.com/web-map-with-custom-legend/'>
+      <img
+         src="https://raw.githubusercontent.com/holtzy/The-Python-Graph-Gallery/master/static/graph/web-map-with-custom-legend.png"
+         width="30%"
+      />
+   </a>
+</p>
 
 <br><br>
 
@@ -217,11 +201,5 @@ More examples can be found in the [how to use notebook](https://github.com/Josep
 These sites have been scraped with the scripts in `parsers/`. Data is then saved into a `.csv` format with name+palette+source.
 
 [Learn more in the dedicated directory](parsers/README.md)
-
-Color maps already available in `matplotlib` and `seaborn` have been added to the collection.
-
-Since some color maps have the same name, some specific palettes can be different from the ones expected. If you find a mistake, please open an issue.
-
-The easiest way to find the original source is to use the `get_source()` function, and I highly suggest you to find your dream color map using the [original site](https://python-graph-gallery.com/color-palette-finder/).
 
 <br><br>
