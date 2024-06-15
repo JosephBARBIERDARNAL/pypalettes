@@ -50,6 +50,7 @@ plt.show()
 - Load a color map:
 
 ```python
+from pypalettes import load_cmap
 cmap = load_cmap('Chaetodon_sedentarius')
 cmap
 ```
@@ -61,6 +62,7 @@ cmap
 - Transform a qualitative color map into a continuous one:
 
 ```python
+from pypalettes import load_cmap
 cmap = load_cmap('Chaetodon_sedentarius', type='continuous')
 cmap
 ```
@@ -72,6 +74,7 @@ cmap
 - Invert a color map:
 
 ```python
+from pypalettes import load_cmap
 cmap = load_cmap('Chaetodon_sedentarius', reverse=True)
 cmap
 ```
@@ -83,6 +86,7 @@ cmap
 - Reverse and continuous:
 
 ```python
+from pypalettes import load_cmap
 cmap = load_cmap('Chaetodon_sedentarius', reverse=True, type='continuous')
 cmap
 ```
@@ -94,6 +98,7 @@ cmap
 - Keep only the first 3 colors of a color map:
 
 ```python
+from pypalettes import load_cmap
 cmap = load_cmap('Chaetodon_sedentarius', keep_first_n=3)
 cmap
 ```
@@ -106,7 +111,6 @@ cmap
 
 ```python
 from pypalettes import load_cmap
-
 cmap = load_cmap('Chaetodon_sedentarius', keep=[True, True, False, False, True])
 cmap
 ```
@@ -118,6 +122,7 @@ cmap
 - Load a random color map:
 
 ```python
+from pypalettes import load_cmap 
 cmap = load_cmap()
 cmap
 ```
@@ -170,7 +175,7 @@ More examples can be found in the [how to use notebook](https://github.com/Josep
 
 Click on the image to get the associated code!
 
-<p align="center">
+<p>
    
    <a href='https://python-graph-gallery.com/web-map-with-custom-legend/'  target="_blank">
       <img
@@ -195,8 +200,6 @@ Click on the image to get the associated code!
 - Sites used
    - https://coolors.co/palettes/trending
    - https://pmassicotte.github.io/paletteer_gallery/
-
-These sites have been scraped with the scripts in `parsers/`. Data is then saved into a `.csv` format with name+palette+source.
 
 [Learn more in the dedicated directory](parsers/README.md)
 
