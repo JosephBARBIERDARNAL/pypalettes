@@ -46,7 +46,8 @@ def get_coolors_palettes():
         'name': palettes,
         'palette': hex_values_list,
         'source': ['coolors.co']*len(palettes),
-        'kind': ['unknown']*len(palettes)
+        'kind': ['unknown']*len(palettes),
+        'paletteer-kind': ['unknown']*len(palettes)
     })
 
     print(f'Coolors.co parsing finished with: {len(palettes)} palettes found')

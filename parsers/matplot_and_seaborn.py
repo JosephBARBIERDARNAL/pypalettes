@@ -32,7 +32,8 @@ def get_matplotlib_and_seaborn_palettes():
         'name': all_cmap_names,
         'palette': [cmap_to_hex(name) for name in all_cmap_names],
         'source': ['matplotlib/seaborn builtin' for _ in all_cmap_names],
-        'kind': ['unknown']*len(all_cmap_names)
+        'kind': ['unknown']*len(all_cmap_names),
+        'paletteer-kind': ['unknown']*len(all_cmap_names)
     })
 
     # combine the palettes
