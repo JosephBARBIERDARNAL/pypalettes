@@ -4,7 +4,7 @@ setup(
     name="pypalettes",
     version="0.0.1",
     packages=find_packages(),
-    description="A large collection of matplotlib color maps",
+    description="A large collection of color maps for Python",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     author="Joseph Barbier",
