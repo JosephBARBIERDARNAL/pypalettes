@@ -188,15 +188,17 @@ More examples can be found in the [how to use notebook](https://github.com/Josep
    <a href='https://python-graph-gallery.com/web-stacked-area-with-inflexion-arrows/'  target="_blank">
       <img
          src="https://raw.githubusercontent.com/holtzy/The-Python-Graph-Gallery/master/static/graph/web-stacked-area-with-inflexion-arrows.png"
-         width="60%"
+         width="69%"
          alt="stacked area chart of natural disasters"
       />
    </a>
 
+   <br/>
+
    <a href='https://python-graph-gallery.com/591-arrows-with-inflexion-point/'  target="_blank">
       <img
          src="images/chart_example_1.png"
-         width="50%"
+         width="60%"
          alt="gapminder bubble chart"
       />
    </a>
