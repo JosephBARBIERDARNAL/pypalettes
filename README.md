@@ -173,7 +173,7 @@ More examples can be found in the [how to use notebook](https://github.com/Josep
 
 ## Chart made with `pypalettes`
 
-Click on the image to get the associated code!
+*Click on the image to get the associated code!*
 
 <p>
    
@@ -182,6 +182,22 @@ Click on the image to get the associated code!
          src="https://raw.githubusercontent.com/holtzy/The-Python-Graph-Gallery/master/static/graph/web-map-with-custom-legend.png"
          width="30%"
          alt="choropleth map of europe"
+      />
+   </a>
+
+   <a href='https://python-graph-gallery.com/web-stacked-area-with-inflexion-arrows/'  target="_blank">
+      <img
+         src="https://raw.githubusercontent.com/holtzy/The-Python-Graph-Gallery/master/static/graph/web-stacked-area-with-inflexion-arrows.png"
+         width="30%"
+         alt="stacked area chart of natural disasters"
+      />
+   </a>
+
+   <a href='https://python-graph-gallery.com/591-arrows-with-inflexion-point/'  target="_blank">
+      <img
+         src="images/chart_example_1.png"
+         width="30%"
+         alt="gapminder bubble chart"
       />
    </a>
 
