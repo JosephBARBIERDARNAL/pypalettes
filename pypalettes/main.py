@@ -1,5 +1,8 @@
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
 from difflib import get_close_matches
+from PIL import ImageColor
+import warnings
+
 from pypalettes.utils import _load_csv
 
 def _load_palettes(palettes_path: str='palettes.csv'):
@@ -65,17 +68,15 @@ def _get_palette(
     try:
         source = palette['source']
         kind = palette['kind']
+        paletteer_kind = palette['paletteer-kind']
         hex_list = eval(palette['palette'])
         if not isinstance(hex_list, list) or not all(isinstance(color, str) for color in hex_list):
             raise ValueError("palette must be a list of hex color strings.")
     except Exception as e:
         raise ValueError(f"Error parsing palette: {e}")
     
-    if len(hex_list) == 0:
-        raise ValueError("palette cannot be empty.")
-    
     if keep_first_n is not None and keep_first_n > len(hex_list):
-        raise ValueError(f"keep_first_n {keep_first_n} must be less than or equal to the length of the palette {len(hex_list)}.")
+        raise ValueError(f"keep_first_n ({keep_first_n}) must be less than or equal to the length of the palette ({len(hex_list)}).")
     
     if keep is not None and len(keep) != len(hex_list):
         raise ValueError(f"keep list must be the same length as the palette ({len(hex_list)}!={len(keep)}).")
@@ -88,14 +89,15 @@ def _get_palette(
     elif keep is not None:
         hex_list = [color for color, keep_color in zip(hex_list, keep) if keep_color]
 
-    return hex_list, source, kind
+    return hex_list, source, kind, paletteer_kind
 
 def load_cmap(
     name: str = 'random',
     type: str = 'discrete',
     reverse: bool = False,
     keep_first_n: int | None = None,
-    keep: list[bool] | None = None
+    keep: list[bool] | None = None,
+    type_warning: bool = True
 ):
     """
     Load colormap from name
@@ -111,15 +113,24 @@ def load_cmap(
         Keep only the first n colors of the palette
     - keep: list of bool
         Specify which colors to keep in the palette
+    - type_warning: bool
+        Display warning when using a continuous palette with categorical colors
     """
     if not isinstance(type, str) or type.lower() not in {'continuous', 'discrete'}:
         raise ValueError("type argument must be 'continuous' or 'discrete'")
     
     type = type.lower()
     palettes = _load_palettes()
-    hex_list, _, _ = _get_palette(palettes, name, reverse, keep_first_n, keep)
+    hex_list, _, _, paletteer_kind = _get_palette(palettes, name, reverse, keep_first_n, keep)
 
     if type == 'continuous':
+        if paletteer_kind == 'discrete-qualitative':
+            if type_warning == True:
+                warnings.warn(
+                    "Using a continuous palette for a non-sequential palette can pose a problem in terms of the meaning of the graphs. "
+                    "Shut down this warning with `type_warning = False`. "
+                    "See https://blog.datawrapper.de/colors/ for more information."
+                )
         cmap = LinearSegmentedColormap.from_list(name=f'{name}', colors=hex_list)
     elif type == 'discrete':
         cmap = ListedColormap(name=f'{name}', colors=hex_list)
@@ -137,7 +148,7 @@ def get_source(
         Name of the palette
     """
     palettes = _load_palettes()
-    _, source, _ = _get_palette(palettes, name)
+    _, source, _, _ = _get_palette(palettes, name)
     return source
 
 def get_kind(
@@ -151,7 +162,7 @@ def get_kind(
         Name of the palette
     """
     palettes = _load_palettes()
-    _, _, kind = _get_palette(palettes, name)
+    _, _, kind, _ = _get_palette(palettes, name)
     return kind
 
 def get_hex(
@@ -174,7 +185,7 @@ def get_hex(
         Specify which colors to keep in the palette
     """
     palettes = _load_palettes()
-    hex_list, _, _ = _get_palette(palettes, name, reverse, keep_first_n, keep)
+    hex_list, _, _, _ = _get_palette(palettes, name, reverse, keep_first_n, keep)
     return hex_list
 
 def get_rgb(
@@ -197,7 +208,7 @@ def get_rgb(
         Specify which colors to keep in the palette
     """
     hex_list = get_hex(name, reverse, keep_first_n, keep)
-    rgb_list = [tuple(int(hex.lstrip('#')[i:i+2], 16) for i in (0, 2, 4)) for hex in hex_list]
+    rgb_list = [ImageColor.getcolor(hex, "RGB") for hex in hex_list]
     return rgb_list
 
 if __name__ == '__main__':
