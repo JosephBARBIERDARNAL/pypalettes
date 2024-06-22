@@ -5,7 +5,3 @@ build
 pypalettes.egg-info
 site
 .pytest_cache
-
-
-#unfinished files
-test_get_rgb.py
