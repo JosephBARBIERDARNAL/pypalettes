@@ -16,7 +16,7 @@ All available palettes can be found [on the dedicated website](https://python-gr
 ## Installation
 
 ```bash
-pip install git+https://github.com/JosephBARBIERDARNAL/pypalettes.git
+pip install pypalettes
 ```
 
 <br><br>
@@ -39,7 +39,7 @@ sns.heatmap(data, cmap=cmap)
 plt.show()
 ```
 
-![heatmap example](images/heatmap.png)
+![heatmap example](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/heatmap.png)
 
 <br><br>
 
@@ -55,7 +55,7 @@ cmap = load_cmap('Chaetodon_sedentarius')
 cmap
 ```
 
-![Darjeeling2](images/simple.png)
+![Darjeeling2](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/simple.png)
 
 <br>
 
@@ -67,7 +67,7 @@ cmap = load_cmap('Chaetodon_sedentarius', type='continuous')
 cmap
 ```
 
-![Darjeeling2](images/continuous.png)
+![Darjeeling2](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/continuous.png)
 
 <br>
 
@@ -79,7 +79,7 @@ cmap = load_cmap('Chaetodon_sedentarius', reverse=True)
 cmap
 ```
 
-![Darjeeling2](images/reverse.png)
+![Darjeeling2](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/reverse.png)
 
 <br>
 
@@ -91,7 +91,7 @@ cmap = load_cmap('Chaetodon_sedentarius', reverse=True, type='continuous')
 cmap
 ```
 
-![Darjeeling2](images/continuous_reverse.png)
+![Darjeeling2](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/continuous_reverse.png)
 
 <br>
 
@@ -103,7 +103,7 @@ cmap = load_cmap('Chaetodon_sedentarius', keep_first_n=3)
 cmap
 ```
 
-![Darjeeling2](images/keep_first_n.png)
+![Darjeeling2](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/keep_first_n.png)
 
 <br>
 
@@ -115,7 +115,7 @@ cmap = load_cmap('Chaetodon_sedentarius', keep=[True, True, False, False, True])
 cmap
 ```
 
-![Darjeeling2](images/keep.png)
+![Darjeeling2](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/keep.png)
 
 <br>
 
@@ -127,7 +127,7 @@ cmap = load_cmap()
 cmap
 ```
 
-![random](images/random.png)
+![random](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/random.png)
 
 <br>
 
@@ -197,7 +197,7 @@ More examples can be found in the [how to use notebook](https://github.com/Josep
 
    <a href='https://python-graph-gallery.com/591-arrows-with-inflexion-point/'  target="_blank">
       <img
-         src="images/chart_example_1.png"
+         src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/chart_example_1.png"
          width="60%"
          alt="gapminder bubble chart"
       />

@@ -1,6 +1,6 @@
 [project]
 name = "pypalettes"
-version = "0.0.1"
+version = "0.1.0"
 authors = [
   { name="Joseph Barbier", email="joseph.barbierdarnal@gmail.com" },
 ]
