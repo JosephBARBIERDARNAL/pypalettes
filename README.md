@@ -26,27 +26,20 @@ pip install pypalettes
 Once the `cmap` is loaded, you can use it as any other color map in `matplotlib` or `seaborn`.
 
 ```python
-# load libraries
-import geopandas as gpd
 import matplotlib.pyplot as plt
+import seaborn as sns
 from pypalettes import load_cmap
+import numpy as np
 
-# load the world dataset
-df = gpd.read_file('https://raw.githubusercontent.com/holtzy/The-Python-Graph-Gallery/master/static/data/all_world.geojson')
-df = df[df['name'] != 'Antarctica']
+data = np.random.rand(10, 12)
 
-# create a color palette
-cmap = load_cmap(name='Acadia', type='continuous', type_warning=False)
+cmap = load_cmap('Anemone', type='continuous')
 
-# display the world map
-fig, ax = plt.subplots(figsize=(10, 10), dpi=300)
-ax.set_axis_off()
-df.plot(ax=ax, cmap=cmap, edgecolor='white', linewidth=0.3)
-plt.savefig('images/quick-start.png', dpi=300)
+sns.heatmap(data, cmap=cmap)
 plt.show()
 ```
 
-![quick start example](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/quick-start.png)
+![heatmap example](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/heatmap.png)
 
 <br><br>
 
