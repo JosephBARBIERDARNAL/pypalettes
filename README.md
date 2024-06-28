@@ -1,13 +1,15 @@
-# pypalettes
+# PyPalettes
 
 A large (**+2500**) collection of color maps for Python.
 
-All available palettes can be found [on the dedicated website](https://python-graph-gallery.com/color-palette-finder/)
+All available palettes can be found [**on the dedicated website**](https://python-graph-gallery.com/color-palette-finder/)
 
 <center>
    
    ![](pypalettes.gif)
 </center>
+
+> You can find an [**introduction to PyPalettes**](https://python-graph-gallery.com/introduction-to-pypalettes/) in the [**Python Graph Gallery**](https://python-graph-gallery.com), with code samples and explanations about how to use this library in many different cases.
 
 
 
@@ -15,8 +17,16 @@ All available palettes can be found [on the dedicated website](https://python-gr
 
 ## Installation
 
+You can install `pypalettes` directly from PyPI with:
+
 ```bash
 pip install pypalettes
+```
+
+Alternatively you can install the **development version** with:
+
+```bash
+pip install git+https://github.com/JosephBARBIERDARNAL/pypalettes.git
 ```
 
 <br><br>
@@ -83,54 +93,6 @@ cmap
 
 <br>
 
-- Reverse and continuous:
-
-```python
-from pypalettes import load_cmap
-cmap = load_cmap('Chaetodon_sedentarius', reverse=True, type='continuous')
-cmap
-```
-
-![Darjeeling2](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/continuous_reverse.png)
-
-<br>
-
-- Keep only the first 3 colors of a color map:
-
-```python
-from pypalettes import load_cmap
-cmap = load_cmap('Chaetodon_sedentarius', keep_first_n=3)
-cmap
-```
-
-![Darjeeling2](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/keep_first_n.png)
-
-<br>
-
-- Keep only specific colors of a color map:
-
-```python
-from pypalettes import load_cmap
-cmap = load_cmap('Chaetodon_sedentarius', keep=[True, True, False, False, True])
-cmap
-```
-
-![Darjeeling2](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/keep.png)
-
-<br>
-
-- Load a random color map:
-
-```python
-from pypalettes import load_cmap 
-cmap = load_cmap()
-cmap
-```
-
-![random](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/random.png)
-
-<br>
-
 - Get hex values of a color map:
 
 ```python
@@ -167,7 +129,7 @@ get_rgb('AirNomads')
 
 <br>
 
-More examples can be found in the [how to use notebook](https://github.com/JosephBARBIERDARNAL/pypalettes/blob/main/how_to_use.ipynb)
+> More examples can be found in this [**introduction to PyPalettes**](https://python-graph-gallery.com/introduction-to-pypalettes/).
 
 <br><br>
 
@@ -209,7 +171,7 @@ More examples can be found in the [how to use notebook](https://github.com/Josep
 
 ## Related projects
 
-`pypalettes` is **highly** inspired from the R package [paletteer](https://github.com/EmilHvitfeldt/paletteer) and the python package [palettable](https://github.com/jiffyclub/palettable).
+`PyPalettes` is **highly** inspired from the R package [paletteer](https://github.com/EmilHvitfeldt/paletteer) and the python package [palettable](https://github.com/jiffyclub/palettable).
 
 <br><br>
 
