@@ -169,9 +169,15 @@ get_rgb('AirNomads')
 
 <br><br>
 
-## Related projects
+## Acknowledgements
 
 `PyPalettes` is **highly** inspired from the R package [paletteer](https://github.com/EmilHvitfeldt/paletteer) and the python package [palettable](https://github.com/jiffyclub/palettable).
+
+A big thanks to [Yan Holtz](https://www.yan-holtz.com/) for:
+
+- Creating the [web app for browsing palettes](https://python-graph-gallery.com/color-palette-finder/)
+- Hosting the [documentation](https://python-graph-gallery.com/introduction-to-pypalettes/) and [examples](#chart-made-with-pypalettes) on the [Python Graph Gallery](https://python-graph-gallery.com)
+- Providing valuable feedback on the code and design of the API
 
 <br><br>
 
@@ -181,6 +187,6 @@ get_rgb('AirNomads')
    - https://coolors.co/palettes/trending
    - https://pmassicotte.github.io/paletteer_gallery/
 
-[Learn more in the dedicated directory](parsers/README.md)
+Learn more in the [dedicated directory](parsers/README.md)
 
 <br><br>
