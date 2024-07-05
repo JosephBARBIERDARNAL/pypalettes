@@ -116,10 +116,9 @@ def load_cmap(
     - type_warning: bool
         Display warning when using a continuous palette with categorical colors
     """
-    if not isinstance(type, str) or type.lower() not in {'continuous', 'discrete'}:
+    if not isinstance(type, str) or type not in {'continuous', 'discrete'}:
         raise ValueError("type argument must be 'continuous' or 'discrete'")
     
-    type = type.lower()
     palettes = _load_palettes()
     hex_list, _, _, paletteer_kind = _get_palette(palettes, name, reverse, keep_first_n, keep)
 
