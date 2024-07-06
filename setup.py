@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pypalettes",
-    version="0.1.0",
+    version="0.1.1",
     packages=find_packages(),
     description="A large collection of color maps for Python",
     long_description=open("README.md").read(),

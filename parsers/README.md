@@ -3,7 +3,6 @@
 
 This directory contains scripts that at the end generate `palettes.csv` (and `palettes.json`).
 
-- `scrape_coolors.py` scrapes [coolors.co](https://coolors.co/palettes/trending)
 - `scrape_paletteer.py` scrapes the [paletteer gallery](https://pmassicotte.github.io/paletteer_gallery/)
 - `matplotlib_and_seaborn.py` gets color maps from matplotlib and seaborn.
 
@@ -11,12 +10,11 @@ This directory contains scripts that at the end generate `palettes.csv` (and `pa
 
 ## Palette source
 
-- Sites used
-   - https://coolors.co/palettes/trending
+- Sources
    - https://pmassicotte.github.io/paletteer_gallery/
    - and color maps already availables in `matplotlib` and `seaborn`
 
-These sites have been scraped with the scripts in `parsers/`. Data is then saved into a `.csv` (and `.json`) format with name + palette + source + kind, where:
+Data is then saved into a `.csv` (and `.json`) format with name + palette + source + kind, where:
 - `name`: palette name (such as viridis or inferno)
 - `palette`: list of string (hexadecimal format)
 - `source`: a simple string that says where the palette comes from
