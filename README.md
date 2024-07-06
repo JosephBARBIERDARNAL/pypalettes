@@ -20,7 +20,7 @@ All available palettes can be found [**on the dedicated website**](https://pytho
 You can install `pypalettes` directly from PyPI with:
 
 ```bash
-pip install pypalettes
+pip install --upgrade pypalettes
 ```
 
 Alternatively you can install the **development version** with:
