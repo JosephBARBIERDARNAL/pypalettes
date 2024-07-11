@@ -2,6 +2,24 @@
 
 A large (**+2500**) collection of color maps for Python.
 
+<p>
+   
+   <img
+      src="https://raw.githubusercontent.com/holtzy/The-Python-Graph-Gallery/master/static/graph/web-map-with-custom-legend.png"
+      width="15%"
+      alt="logo1"
+   />
+
+
+</p>
+
+
+
+
+
+
+<br/><br/>
+
 All available palettes can be found [**on the dedicated website**](https://python-graph-gallery.com/color-palette-finder/)
 
 <center>
@@ -10,6 +28,9 @@ All available palettes can be found [**on the dedicated website**](https://pytho
 </center>
 
 > You can find an [**introduction to PyPalettes**](https://python-graph-gallery.com/introduction-to-pypalettes/) in the [**Python Graph Gallery**](https://python-graph-gallery.com), with code samples and explanations about how to use this library in many different cases.
+
+
+
 
 
 
