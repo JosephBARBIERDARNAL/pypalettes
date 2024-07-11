@@ -1,24 +1,41 @@
 # PyPalettes
 
-A large (**+2500**) collection of color maps for Python.
-
 <p>
    
    <img
-      src="https://raw.githubusercontent.com/holtzy/The-Python-Graph-Gallery/master/static/graph/web-map-with-custom-legend.png"
+      src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/master/images/Pypalettes-1.png"
+      width="15%"
+      alt="logo1"
+   />
+   <img
+      src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/master/images/Pypalettes-2.png"
+      width="15%"
+      alt="logo1"
+   />
+   <img
+      src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/master/images/Pypalettes-3.png"
+      width="15%"
+      alt="logo1"
+   />
+   <img
+      src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/master/images/Pypalettes-4.png"
+      width="15%"
+      alt="logo1"
+   />
+   <img
+      src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/master/images/Pypalettes-5.png"
+      width="15%"
+      alt="logo1"
+   />
+   <img
+      src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/master/images/Pypalettes-6.png"
       width="15%"
       alt="logo1"
    />
 
-
 </p>
 
-
-
-
-
-
-<br/><br/>
+A large (**+2500**) collection of color maps for Python.
 
 All available palettes can be found [**on the dedicated website**](https://python-graph-gallery.com/color-palette-finder/)
 
