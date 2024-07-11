@@ -4,32 +4,32 @@
    
    <img
       src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/master/images/Pypalettes-1.png"
-      width="15%"
+      width="16%"
       alt="logo1"
    />
    <img
       src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/master/images/Pypalettes-2.png"
-      width="15%"
+      width="16%"
       alt="logo1"
    />
    <img
       src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/master/images/Pypalettes-3.png"
-      width="15%"
+      width="16%"
       alt="logo1"
    />
    <img
       src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/master/images/Pypalettes-4.png"
-      width="15%"
+      width="16%"
       alt="logo1"
    />
    <img
       src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/master/images/Pypalettes-5.png"
-      width="15%"
+      width="16%"
       alt="logo1"
    />
    <img
       src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/master/images/Pypalettes-6.png"
-      width="15%"
+      width="16%"
       alt="logo1"
    />
 
