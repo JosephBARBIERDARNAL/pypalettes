@@ -18,6 +18,12 @@ dependencies = [
   "matplotlib"
 ]
 
+[tool.pytest.ini_options]
+filterwarnings = [
+    "error",
+    "ignore::UserWarning",
+]
+
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
