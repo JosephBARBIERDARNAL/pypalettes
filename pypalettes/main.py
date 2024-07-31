@@ -93,7 +93,7 @@ def _get_palette(
 
 def load_cmap(
     name: str = 'random',
-    type: str = 'discrete',
+    cmap_type: str = 'discrete',
     reverse: bool = False,
     keep_first_n: int | None = None,
     keep: list[bool] | None = None,
@@ -105,7 +105,7 @@ def load_cmap(
     Parameters
     - name: str
         Name of the palette
-    - type: str
+    - cmap_type: str
         Type of colormap: 'continuous' or 'discrete'
     - reverse: bool
         Whether to reverse the order of the colors or not
@@ -116,13 +116,13 @@ def load_cmap(
     - type_warning: bool
         Display warning when using a continuous palette with categorical colors
     """
-    if not isinstance(type, str) or type not in {'continuous', 'discrete'}:
-        raise ValueError("type argument must be 'continuous' or 'discrete'")
+    if not isinstance(cmap_type, str) or cmap_type not in {'continuous', 'discrete'}:
+        raise ValueError("cmap_type argument must be 'continuous' or 'discrete'")
     
     palettes = _load_palettes()
     hex_list, _, _, paletteer_kind = _get_palette(palettes, name, reverse, keep_first_n, keep)
 
-    if type == 'continuous':
+    if cmap_type == 'continuous':
         if paletteer_kind == 'discrete-qualitative':
             if type_warning == True:
                 warnings.warn(
@@ -131,7 +131,7 @@ def load_cmap(
                     "See https://blog.datawrapper.de/colors/ for more information."
                 )
         cmap = LinearSegmentedColormap.from_list(name=f'{name}', colors=hex_list)
-    elif type == 'discrete':
+    elif cmap_type == 'discrete':
         cmap = ListedColormap(name=f'{name}', colors=hex_list)
 
     return cmap

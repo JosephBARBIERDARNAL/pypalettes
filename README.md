@@ -75,13 +75,13 @@ Once the `cmap` is loaded, you can use it as any other color map in `matplotlib`
 
 ```python
 import matplotlib.pyplot as plt
-import seaborn as sns
 from pypalettes import load_cmap
+import seaborn as sns
 import numpy as np
 
 data = np.random.rand(10, 12)
 
-cmap = load_cmap('Anemone', type='continuous')
+cmap = load_cmap('Anemone', cmap_type='continuous')
 
 sns.heatmap(data, cmap=cmap)
 plt.show()
@@ -111,7 +111,7 @@ cmap
 
 ```python
 from pypalettes import load_cmap
-cmap = load_cmap('Chaetodon_sedentarius', type='continuous')
+cmap = load_cmap('Chaetodon_sedentarius', cmap_type='continuous')
 cmap
 ```
 
