@@ -5,3 +5,4 @@ build
 pypalettes.egg-info
 site
 .pytest_cache
+sandbox.ipynb

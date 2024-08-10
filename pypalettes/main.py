@@ -2,8 +2,9 @@ from matplotlib.colors import LinearSegmentedColormap, ListedColormap
 from difflib import get_close_matches
 from PIL import ImageColor
 import warnings
-
-from pypalettes.utils import _load_csv
+from importlib import resources
+import pandas as pd
+    
 
 def _load_palettes(palettes_path: str='palettes.csv'):
     """
@@ -13,16 +14,13 @@ def _load_palettes(palettes_path: str='palettes.csv'):
     - palettes_path: str
         Path to the csv file with the palettes
     """
-    
-    df = _load_csv(palettes_path)
-    if 'name' not in df.columns or 'palette' not in df.columns:
-        raise ValueError("CSV file must contain 'name' and 'palette' columns.")
-    
+    with resources.open_binary('pypalettes', palettes_path) as f:
+        df = pd.read_csv(f)
     df.set_index('name', inplace=True)
     return df
 
 def _get_palette(
-    palettes,
+    palettes: pd.DataFrame,
     name: str,
     reverse: bool = False,
     keep_first_n: int | None = None,
