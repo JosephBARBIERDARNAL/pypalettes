@@ -1,13 +1,13 @@
 # PyPalettes
 
-<img src="https://github.com/JosephBARBIERDARNAL/pypalettes/blob/main/images/logo.png?raw=true" alt="pypalettes logo" align="right" width="200px"/>
+<img src="https://github.com/JosephBARBIERDARNAL/pypalettes/blob/main/images/logo.png?raw=true" alt="pypalettes logo" align="right" width="160px"/>
 
 A large (**+2500**) collection of color maps for Python.
 
 All available palettes can be found [**on the dedicated website**](https://python-graph-gallery.com/color-palette-finder/)
 
 
-<center>
+<center align="left">
    
    ![](pypalettes.gif)
 </center>
