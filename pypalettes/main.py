@@ -6,7 +6,7 @@ from importlib import resources
 import pandas as pd
     
 
-def _load_palettes(palettes_path: str='palettes.csv'):
+def _load_palettes(palettes_path: str = 'palettes.csv'):
     """
     Load palettes from csv file
     
@@ -19,38 +19,13 @@ def _load_palettes(palettes_path: str='palettes.csv'):
     df.set_index('name', inplace=True)
     return df
 
-def _get_palette(
+def _get_one_palette(
     palettes: pd.DataFrame,
-    name: str,
+    name: str | list,
     reverse: bool = False,
     keep_first_n: int | None = None,
     keep: list[bool] | None = None
 ):
-    """
-    Get palette from name
-
-    Parameters
-    - name: str
-        Name of the palette
-    - palettes: pd.DataFrame
-        DataFrame with the palettes
-    - reverse: bool
-        Whether to reverse the order of the colors or not
-    - keep_first_n: int
-        Keep only the first n colors of the palette
-    - keep: list of bool | None
-        Specify which colors to keep in the palette
-    """
-    if not isinstance(name, str):
-        raise TypeError("name must be a string.")
-    if not isinstance(reverse, bool):
-        raise TypeError("reverse must be a boolean.")
-    if keep_first_n is not None and (not isinstance(keep_first_n, int) or keep_first_n <= 0):
-        raise ValueError("keep_first_n must be a positive integer.")
-    if keep is not None and (not isinstance(keep, list) or not all(isinstance(item, bool) for item in keep)):
-        raise ValueError("keep must be a list of boolean values.")
-    if keep_first_n is not None and keep is not None:
-        raise ValueError("Cannot specify both keep_first_n and keep arguments simultaneously.")
 
     if name == 'random':
         palette = palettes.sample(1).iloc[0]
@@ -89,8 +64,74 @@ def _get_palette(
 
     return hex_list, source, kind, paletteer_kind
 
+
+def _get_palette(
+    palettes: pd.DataFrame,
+    name: str | list,
+    reverse: bool = False,
+    keep_first_n: int | None = None,
+    keep: list[bool] | None = None
+):
+    """
+    Get palette from name
+
+    Parameters
+    - name: str | list
+        Name of the palette. Also accepts list of palette names.
+    - palettes: pd.DataFrame
+        DataFrame with the palettes
+    - reverse: bool
+        Whether to reverse the order of the colors or not
+    - keep_first_n: int
+        Keep only the first n colors of the palette
+    - keep: list of bool | None
+        Specify which colors to keep in the palette
+    """
+    if not isinstance(reverse, bool):
+        raise TypeError("reverse must be a boolean.")
+    if keep_first_n is not None and (not isinstance(keep_first_n, int) or keep_first_n <= 0):
+        raise ValueError("keep_first_n must be a positive integer.")
+    if keep is not None and (not isinstance(keep, list) or not all(isinstance(item, bool) for item in keep)):
+        raise ValueError("keep must be a list of boolean values.")
+    if keep_first_n is not None and keep is not None:
+        raise ValueError("Cannot specify both keep_first_n and keep arguments simultaneously.")
+
+    if isinstance(name, str):
+        hex_list, source, kind, paletteer_kind = _get_one_palette(
+            palettes=palettes,
+            name=name,
+            reverse=reverse,
+            keep_first_n=keep_first_n,
+            keep=keep
+        )
+    elif isinstance(name, list):
+        reverse = None
+        for param in [reverse, keep_first_n, keep]:
+            if param is not None:
+                warnings.warn(
+                    f"`reverse`, `keep_first_n` and `keep` arguments are ignored when `name` is a list."
+                )
+        hex_list = []
+        source = []
+        kind = []
+        paletteer_kind = []
+        for palette_name in name:
+            one_hex_list, one_source, one_kind, one_paletteer_kind = _get_one_palette(
+                palettes=palettes,
+                name=palette_name
+            )
+            hex_list.extend(one_hex_list)
+            source.append(one_source)
+            kind.append(one_kind)
+            paletteer_kind.append(one_paletteer_kind)
+    else:
+        raise TypeError("`name` must be a string or a list of strings")
+
+    return hex_list, source, kind, paletteer_kind
+
+
 def load_cmap(
-    name: str = 'random',
+    name: str | list = 'random',
     cmap_type: str = 'discrete',
     reverse: bool = False,
     keep_first_n: int | None = None,
@@ -101,7 +142,7 @@ def load_cmap(
     Load colormap from name
 
     Parameters
-    - name: str
+    - name: str | list
         Name of the palette
     - cmap_type: str
         Type of colormap: 'continuous' or 'discrete'
@@ -124,8 +165,8 @@ def load_cmap(
         if paletteer_kind == 'discrete-qualitative':
             if type_warning == True:
                 warnings.warn(
-                    "Using a continuous palette for a non-sequential palette can pose a problem in terms of the meaning of the graphs. "
-                    "Shut down this warning with `type_warning = False`. "
+                    "Using a continuous palette for a non-sequential palette can pose a problem in terms of the meaning of the graphs."
+                    " Shut down this warning with `type_warning = False`. "
                     "See https://blog.datawrapper.de/colors/ for more information."
                 )
         cmap = LinearSegmentedColormap.from_list(name=f'{name}', colors=hex_list)
@@ -141,7 +182,7 @@ def get_source(
     Get source of the palette
 
     Parameters
-    - name: str
+    - name: str | list
         Name of the palette
     """
     palettes = _load_palettes()
@@ -155,7 +196,7 @@ def get_kind(
     Get kind of the palette
 
     Parameters
-    - name: str
+    - name: str | list
         Name of the palette
     """
     palettes = _load_palettes()
@@ -163,7 +204,7 @@ def get_kind(
     return kind
 
 def get_hex(
-    name: str = 'random',
+    name: str | list = 'random',
     reverse: bool = False,
     keep_first_n: int | None = None,
     keep: list[bool] | None = None
@@ -172,7 +213,7 @@ def get_hex(
     Get hex colors from name
 
     Parameters
-    - name: str
+    - name: str | list
         Name of the palette
     - reverse: bool
         Whether to reverse the order of the colors or not
@@ -186,7 +227,7 @@ def get_hex(
     return hex_list
 
 def get_rgb(
-    name: str = 'random',
+    name: str | list = 'random',
     reverse: bool = False,
     keep_first_n: int | None = None,
     keep: list[bool] | None = None
@@ -195,7 +236,7 @@ def get_rgb(
     Get rgb colors from name
 
     Parameters
-    - name: str
+    - name: str | list
         Name of the palette
     - reverse: bool
         Whether to reverse the order of the colors or not
