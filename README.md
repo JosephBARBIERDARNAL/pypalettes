@@ -135,6 +135,38 @@ get_rgb('AirNomads')
 
 <br>
 
+- Combine multiple colormaps
+
+```python
+from pypalettes import get_hex
+get_hex(['Alacena', 'Antique'])
+```
+
+`['#693829FF',
+ '#894B33FF',
+ '#A56A3EFF',
+ '#CFB267FF',
+ '#D9C5B6FF',
+ '#9CA9BAFF',
+ '#5480B5FF',
+ '#3D619DFF',
+ '#405A95FF',
+ '#345084FF',
+ '#855C75FF',
+ '#D9AF6BFF',
+ '#AF6458FF',
+ '#736F4CFF',
+ '#526A83FF',
+ '#625377FF',
+ '#68855CFF',
+ '#9C9C5EFF',
+ '#A06177FF',
+ '#8C785DFF',
+ '#467378FF',
+ '#7C7C7CFF']`
+
+<br>
+
 > More examples can be found in this [**introduction to PyPalettes**](https://python-graph-gallery.com/introduction-to-pypalettes/).
 
 <br><br>
