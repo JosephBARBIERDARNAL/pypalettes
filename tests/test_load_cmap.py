@@ -13,7 +13,7 @@ class TestLoadCmap:
       assert cmap.name == 'ClaudeMonet'
       assert cmap.colors == ['#184430FF', '#548150FF', '#DEB738FF', '#734321FF', '#852419FF']
    
-   def test_load_cmap_multiple(self):
+   def test_load_cmap_with_list(self):
       cmap = load_cmap(name=['Alacena', 'Antique'])
       assert isinstance(cmap, ListedColormap)
       assert cmap.name == "['Alacena', 'Antique']"

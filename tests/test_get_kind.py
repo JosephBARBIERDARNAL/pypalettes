@@ -4,8 +4,13 @@ from pypalettes import get_kind
 class TestGetKind:
 
    def test_get_kind(self):
-      actual = get_kind('MelonPomelo')
+      actual = get_kind(name='MelonPomelo')
       expected = 'qualitative'
+      assert actual == expected
+
+   def test_get_kind_with_list(self):
+      actual = get_kind(name=['MelonPomelo', 'Clay'])
+      expected = ['qualitative', 'qualitative']
       assert actual == expected
 
    def test_get_kind_invalid_name(self):

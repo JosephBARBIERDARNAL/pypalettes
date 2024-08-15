@@ -7,6 +7,23 @@ class TestGetHex:
       actual = get_hex(name='ClaudeMonet')
       expected = ['#184430FF', '#548150FF', '#DEB738FF', '#734321FF', '#852419FF']
       assert actual == expected
+   
+   def test_get_hex_with_list(self):
+      actual = get_hex(name=['ClaudeMonet', 'Clay'])
+      expected = [
+         '#184430FF',
+         '#548150FF',
+         '#DEB738FF',
+         '#734321FF',
+         '#852419FF',
+         '#C48329FF',
+         '#8B3B36FF',
+         '#A2B4B7FF',
+         '#514A2EFF',
+         '#CF9860FF',
+         '#8E4115FF'
+      ]
+      assert actual == expected
 
    def test_get_hex_reverse(self):
       actual = get_hex(name='ClaudeMonet', reverse=True)
