@@ -135,6 +135,38 @@ get_rgb('AirNomads')
 
 <br>
 
+- Combine multiple colormaps
+
+```python
+from pypalettes import get_hex
+get_hex(['Alacena', 'Antique'])
+```
+
+`['#693829FF',
+ '#894B33FF',
+ '#A56A3EFF',
+ '#CFB267FF',
+ '#D9C5B6FF',
+ '#9CA9BAFF',
+ '#5480B5FF',
+ '#3D619DFF',
+ '#405A95FF',
+ '#345084FF',
+ '#855C75FF',
+ '#D9AF6BFF',
+ '#AF6458FF',
+ '#736F4CFF',
+ '#526A83FF',
+ '#625377FF',
+ '#68855CFF',
+ '#9C9C5EFF',
+ '#A06177FF',
+ '#8C785DFF',
+ '#467378FF',
+ '#7C7C7CFF']`
+
+<br>
+
 > More examples can be found in this [**introduction to PyPalettes**](https://python-graph-gallery.com/introduction-to-pypalettes/).
 
 <br><br>
@@ -172,6 +204,34 @@ get_rgb('AirNomads')
    </a>
 
 </p>
+
+<br><br>
+
+## Contributing
+
+Since the core code of the library is currently quite short and simple, it does not require any major changes. However, if you feel like you have a good idea/suggestion, please [open an issue](https://github.com/JosephBARBIERDARNAL/pypalettes/issues).
+
+BUT, more palettes is one easy way to make `pypalettes` better! Here is the best way to get started:
+
+_Note: the following steps are for Mac, but not much different in other OS._
+
+- Fork this repo
+- `git clone https://github.com/yourusername/pypalettes.git`
+- `cd pypalettes`
+- `python -m venv venv`
+- `source venv/bin/activate`
+- `pip install -r requirements.txt`
+- `pip install -e .`
+- `git checkout -b feature-name`
+
+Then open your code editor and open `parsers/list_manual_palettes.py`. You will find a dictionnary of dictionnary of manually defined palettes. Add yours at the end with the following elements:
+- `"name"`: the name of your palette
+- `"palette"`: the colors of your palette, in the following format: `["['#123456', '#654321', '#162534']"]`
+- `"source"`: where does your palette come from? If you created it, your name or a link to your portfolio is valid!
+- `"kind"`: the kind of your palette. View examples at https://python-graph-gallery.com/color-palette-finder/
+- `"paletteer-kind"`: just put `"unknown"`
+
+For a large number of palettes, please [open an issue](https://github.com/JosephBARBIERDARNAL/pypalettes/issues) first.
 
 <br><br>
 
