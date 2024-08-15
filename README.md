@@ -175,6 +175,34 @@ get_rgb('AirNomads')
 
 <br><br>
 
+## Contributing
+
+Since the core code of the library is currently quite short and simple, it does not require any major changes. However, if you feel like you have a good idea/suggestion, please [open an issue](https://github.com/JosephBARBIERDARNAL/pypalettes/issues).
+
+BUT, more palettes is one easy way to make `pypalettes` better! Here is the best way to get started:
+
+_Note: the following steps are for Mac, but not much different in other OS._
+
+- Fork this repo
+- `git clone https://github.com/yourusername/pypalettes.git`
+- `cd pypalettes`
+- `python -m venv venv`
+- `source venv/bin/activate`
+- `pip install -r requirements.txt`
+- `pip install -e .`
+- `git checkout -b feature-name`
+
+Then open your code editor and open `parsers/list_manual_palettes.py`. You will find a dictionnary of dictionnary of manually defined palettes. Add yours at the end with the following elements:
+- `"name"`: the name of your palette
+- `"palette"`: the colors of your palette, in the following format: `["['#123456', '#654321', '#162534']"]`
+- `"source"`: where does your palette come from? If you created it, your name or a link to your portfolio is valid!
+- `"kind"`: the kind of your palette. View examples at https://python-graph-gallery.com/color-palette-finder/
+- `"paletteer-kind"`: just put `"unknown"`
+
+For a large number of palettes, please [open an issue](https://github.com/JosephBARBIERDARNAL/pypalettes/issues) first.
+
+<br><br>
+
 ## Acknowledgements
 
 `PyPalettes` is **highly** inspired (and relies on for the first one) from
