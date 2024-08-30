@@ -77,7 +77,7 @@ def _get_palette(
     Get palette from name
 
     Parameters
-    - name: str | list
+    - name: Union[str, list]
         Name of the palette. Also accepts list of palette names.
     - palettes: dict
         Dictionary with the palettes
@@ -85,7 +85,7 @@ def _get_palette(
         Whether to reverse the order of the colors or not
     - keep_first_n: int
         Keep only the first n colors of the palette
-    - keep: list of bool | None
+    - keep: list of bool or None
         Specify which colors to keep in the palette
     """
     if not isinstance(reverse, bool):
@@ -142,7 +142,7 @@ def load_cmap(
     Load colormap from name
 
     Parameters
-    - name: str | list
+    - name: Union[str, list]
         Name of the palette
     - cmap_type: str
         Type of colormap: 'continuous' or 'discrete'
@@ -182,7 +182,7 @@ def get_source(
     Get source of the palette
 
     Parameters
-    - name: str | list
+    - name: Union[str, list]
         Name of the palette
     """
     palettes = _load_palettes()
@@ -196,7 +196,7 @@ def get_kind(
     Get kind of the palette
 
     Parameters
-    - name: str | list
+    - name: Union[str, list]
         Name of the palette
     """
     palettes = _load_palettes()
@@ -213,7 +213,7 @@ def get_hex(
     Get hex colors from name
 
     Parameters
-    - name: str | list
+    - name: Union[str, list]
         Name of the palette
     - reverse: bool
         Whether to reverse the order of the colors or not
@@ -236,7 +236,7 @@ def get_rgb(
     Get rgb colors from name
 
     Parameters
-    - name: str | list
+    - name: Union[str, list]
         Name of the palette
     - reverse: bool
         Whether to reverse the order of the colors or not
