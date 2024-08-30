@@ -1,6 +1,6 @@
 # PyPalettes
 
-<img src="https://github.com/JosephBARBIERDARNAL/pypalettes/blob/main/images/logo.png?raw=true" alt="pypalettes logo" align="right" width="160px"/>
+<img src="https://github.com/JosephBARBIERDARNAL/pypalettes/blob/main/images/logo.png?raw=true" alt="pypalettes logo" align="right" width="160px"/> 
 
 A large (**+2500**) collection of color maps for Python.
 
@@ -23,7 +23,7 @@ All available palettes can be found [**on the dedicated website**](https://pytho
 
 ## Installation
 
-_Note: pypalettes is compatible with Python 3.9 and above._
+_Note: pypalettes requires **Python 3.9** or above._
 
 You can install `pypalettes` directly from PyPI with:
 
@@ -200,8 +200,16 @@ get_hex(['Alacena', 'Antique'])
    <a href='https://python-graph-gallery.com/591-arrows-with-inflexion-point/'  target="_blank">
       <img
          src="https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/chart_example_1.png"
-         width="60%"
+         width="50%"
          alt="gapminder bubble chart"
+      />
+   </a>
+
+   <a href='https://python-graph-gallery.com/web-lollipop-with-colormap-and-arrow/'  target="_blank">
+      <img
+         src="https://github.com/holtzy/The-Python-Graph-Gallery/blob/master/static/graph/web-lollipop-with-colormap-and-arrow.png?raw=true"
+         width="49%"
+         alt="lollipop chart with colormap and arrow"
       />
    </a>
 
@@ -211,26 +219,55 @@ get_hex(['Alacena', 'Antique'])
 
 ## Contributing
 
+### Installation for contributions
+
+1. **Fork the Repository:**
+   Fork this repository to your GitHub account.
+
+2. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/JosephBARBIERDARNAL/pypalettes.git
+   cd pypalettes
+   ```
+
+3. **Set Up a Virtual Environment:**
+
+   - **Mac/Linux:**
+     ```bash
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
+   - **Windows:**
+     ```cmd
+     python -m venv venv
+     venv\Scripts\activate
+     ```
+
+4. **Install Dependencies:**
+
+   ```bash
+   pip install -r requirements-dev.txt
+   pip install -e .
+   ```
+
+5. **Create a Feature Branch:**
+
+   ```bash
+   git checkout -b feature-name
+   ```
+
+6. **Start Coding!**
+
 Since the core code of the library is currently quite short and simple, it does not require any major changes. However, if you feel like you have a good idea/suggestion, please [open an issue](https://github.com/JosephBARBIERDARNAL/pypalettes/issues).
 
 BUT, more palettes is one easy way to make `pypalettes` better! Here is the best way to get started:
-
-_Note: the following steps are for Mac, but not much different in other OS._
-
-- Fork this repo
-- `git clone https://github.com/yourusername/pypalettes.git`
-- `cd pypalettes`
-- `python -m venv venv`
-- `source venv/bin/activate`
-- `pip install -r requirements.txt`
-- `pip install -e .`
-- `git checkout -b feature-name`
 
 Then open your code editor and open `parsers/list_manual_palettes.py`. You will find a dictionnary of dictionnary of manually defined palettes. Add yours at the end with the following elements:
 - `"name"`: the name of your palette
 - `"palette"`: the colors of your palette, in the following format: `["['#123456', '#654321', '#162534']"]`
 - `"source"`: where does your palette come from? If you created it, your name or a link to your portfolio is valid!
-- `"kind"`: the kind of your palette. View examples at https://python-graph-gallery.com/color-palette-finder/
+- `"kind"`: the kind of your palette. View examples [here](https://python-graph-gallery.com/color-palette-finder/)
 - `"paletteer-kind"`: just put `"unknown"`
 
 For a large number of palettes, please [open an issue](https://github.com/JosephBARBIERDARNAL/pypalettes/issues) first.
@@ -241,12 +278,12 @@ For a large number of palettes, please [open an issue](https://github.com/Joseph
 
 `PyPalettes` is **highly** inspired (and relies on for the first one) from
 - the R package [paletteer](https://github.com/EmilHvitfeldt/paletteer)
-- the python package [palettable](https://github.com/jiffyclub/palettable).
+- the python library [palettable](https://github.com/jiffyclub/palettable).
 
 A big thanks to [Yan Holtz](https://www.yan-holtz.com/) for:
 
 - Creating the [web app for browsing palettes](https://python-graph-gallery.com/color-palette-finder/)
-- Hosting the [documentation](https://python-graph-gallery.com/introduction-to-pypalettes/) and [examples](#chart-made-with-pypalettes) on the [Python Graph Gallery](https://python-graph-gallery.com)
+- Hosting the [documentation](https://python-graph-gallery.com/introduction-to-pypalettes/) and [examples](#chart-made-with-pypalettes) on the **Python Graph Gallery**
 - Providing valuable feedback on the code and design of the API
 
 <br><br>
