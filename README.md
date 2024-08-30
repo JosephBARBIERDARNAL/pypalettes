@@ -12,7 +12,7 @@ All available palettes can be found [**on the dedicated website**](https://pytho
    ![](pypalettes.gif)
 </center>
 
-> You can find an [**introduction to PyPalettes**](https://python-graph-gallery.com/introduction-to-pypalettes/) in the [**Python Graph Gallery**](https://python-graph-gallery.com), with code samples and explanations about how to use this library in many different cases.
+> You can find an [**introduction to PyPalettes**](https://python-graph-gallery.com/introduction-to-pypalettes/) in the **Python Graph Gallery**, with code samples and explanations about how to use this library in many different cases.
 
 
 
@@ -22,6 +22,8 @@ All available palettes can be found [**on the dedicated website**](https://pytho
 <br><br>
 
 ## Installation
+
+_Note: pypalettes is compatible with Python 3.9 and above._
 
 You can install `pypalettes` directly from PyPI with:
 

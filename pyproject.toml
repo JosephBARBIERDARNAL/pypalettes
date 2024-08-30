@@ -14,7 +14,6 @@ classifiers = [
     "Framework :: Matplotlib"
 ]
 dependencies = [
-  "pandas",
   "matplotlib"
 ]
 
