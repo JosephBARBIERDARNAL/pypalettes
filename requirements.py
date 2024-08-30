@@ -9,7 +9,6 @@
 import subprocess
 
 packages = [
-    "pandas",
     "matplotlib"
 ]
 packages_dev = packages + \

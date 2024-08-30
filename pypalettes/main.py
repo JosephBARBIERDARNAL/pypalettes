@@ -3,8 +3,9 @@ from difflib import get_close_matches
 from PIL import ImageColor
 import warnings
 from importlib import resources
-import pandas as pd
-    
+import csv
+import random
+from typing import Union, List, Optional
 
 def _load_palettes(palettes_path: str = 'palettes.csv'):
     """
@@ -14,29 +15,30 @@ def _load_palettes(palettes_path: str = 'palettes.csv'):
     - palettes_path: str
         Path to the csv file with the palettes
     """
-    with resources.open_binary('pypalettes', palettes_path) as f:
-        df = pd.read_csv(f)
-    df.set_index('name', inplace=True)
-    return df
+    palettes = {}
+    with resources.open_text('pypalettes', palettes_path) as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            palettes[row['name']] = row
+    return palettes
 
 def _get_one_palette(
-    palettes: pd.DataFrame,
-    name: str | list,
+    palettes: dict,
+    name: Union[str, List[str]],
     reverse: bool = False,
-    keep_first_n: int | None = None,
-    keep: list[bool] | None = None
+    keep_first_n: Optional[int] = None,
+    keep: Optional[List[bool]] = None
 ):
-
     if name == 'random':
-        palette = palettes.sample(1).iloc[0]
+        palette = random.choice(list(palettes.values()))
     else:
-        if name not in palettes.index:
-            suggestions = get_close_matches(name, palettes.index, n=5, cutoff=0.01)
+        if name not in palettes:
+            suggestions = get_close_matches(name, palettes.keys(), n=5, cutoff=0.01)
             raise ValueError(
                 f"Palette with name '{name}' not found. Did you mean:\n{', '.join(suggestions)}?\n\n"
                 "See available palettes at https://python-graph-gallery.com/color-palette-finder/"
             )
-        palette = palettes.loc[name]
+        palette = palettes[name]
     
     try:
         source = palette['source']
@@ -64,13 +66,12 @@ def _get_one_palette(
 
     return hex_list, source, kind, paletteer_kind
 
-
 def _get_palette(
-    palettes: pd.DataFrame,
-    name: str | list,
+    palettes: dict,
+    name: Union[str, List[str]],
     reverse: bool = False,
-    keep_first_n: int | None = None,
-    keep: list[bool] | None = None
+    keep_first_n: Optional[int] = None,
+    keep: Optional[List[bool]] = None
 ):
     """
     Get palette from name
@@ -78,8 +79,8 @@ def _get_palette(
     Parameters
     - name: str | list
         Name of the palette. Also accepts list of palette names.
-    - palettes: pd.DataFrame
-        DataFrame with the palettes
+    - palettes: dict
+        Dictionary with the palettes
     - reverse: bool
         Whether to reverse the order of the colors or not
     - keep_first_n: int
@@ -129,13 +130,12 @@ def _get_palette(
 
     return hex_list, source, kind, paletteer_kind
 
-
 def load_cmap(
-    name: str | list = 'random',
+    name: Union[str, List[str]] = 'random',
     cmap_type: str = 'discrete',
     reverse: bool = False,
-    keep_first_n: int | None = None,
-    keep: list[bool] | None = None,
+    keep_first_n: Optional[int] = None,
+    keep: Optional[List[bool]] = None,
     type_warning: bool = True
 ):
     """
@@ -176,7 +176,7 @@ def load_cmap(
     return cmap
 
 def get_source(
-    name = 'random'
+    name: Union[str, List[str]] = 'random'
 ):
     """
     Get source of the palette
@@ -190,7 +190,7 @@ def get_source(
     return source
 
 def get_kind(
-    name = 'random'
+    name: Union[str, List[str]] = 'random'
 ):
     """
     Get kind of the palette
@@ -204,10 +204,10 @@ def get_kind(
     return kind
 
 def get_hex(
-    name: str | list = 'random',
+    name: Union[str, List[str]] = 'random',
     reverse: bool = False,
-    keep_first_n: int | None = None,
-    keep: list[bool] | None = None
+    keep_first_n: Optional[int] = None,
+    keep: Optional[List[bool]] = None
 ):
     """
     Get hex colors from name
@@ -227,10 +227,10 @@ def get_hex(
     return hex_list
 
 def get_rgb(
-    name: str | list = 'random',
+    name: Union[str, List[str]] = 'random',
     reverse: bool = False,
-    keep_first_n: int | None = None,
-    keep: list[bool] | None = None
+    keep_first_n: Optional[int] = None,
+    keep: Optional[List[bool]] = None
 ):
     """
     Get rgb colors from name
@@ -248,6 +248,3 @@ def get_rgb(
     hex_list = get_hex(name, reverse, keep_first_n, keep)
     rgb_list = [ImageColor.getcolor(hex, "RGB") for hex in hex_list]
     return rgb_list
-
-if __name__ == '__main__':
-    pass

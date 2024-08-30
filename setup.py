@@ -15,7 +15,6 @@ setup(
         'pypalettes': ['palettes.csv'],
     },
     install_requires=[
-        "pandas",
         "matplotlib"
     ],
 )
