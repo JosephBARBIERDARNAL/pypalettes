@@ -7,28 +7,47 @@ import csv
 import random
 from typing import Union, List, Optional
 
+_PALETTES_CACHE = None
+
 def _load_palettes(palettes_path: str = 'palettes.csv'):
     """
-    Load palettes from csv file
+    Load palettes from csv file.
     
     Parameters
     - palettes_path: str
         Path to the csv file with the palettes
     """
-    palettes = {}
-    with resources.open_text('pypalettes', palettes_path) as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            palettes[row['name']] = row
-    return palettes
+    global _PALETTES_CACHE
+    
+    if _PALETTES_CACHE is None:
+        _PALETTES_CACHE = {}
+        with resources.open_text('pypalettes', palettes_path) as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                _PALETTES_CACHE[row['name']] = row
+    
+    return _PALETTES_CACHE
 
 def _get_one_palette(
-    palettes: dict,
     name: Union[str, List[str]],
     reverse: bool = False,
     keep_first_n: Optional[int] = None,
     keep: Optional[List[bool]] = None
 ):
+    """
+    Get one palette from name.
+
+    Parameters
+    - name: Union[str, list]
+        Name of the palette
+    - reverse: bool
+        Whether to reverse the order of the colors or not
+    - keep_first_n: int
+        Keep only the first n colors of the palette
+    - keep: list of bool
+        Specify which colors to keep in the palette
+    """
+    palettes = _load_palettes()
     if name == 'random':
         palette = random.choice(list(palettes.values()))
     else:
@@ -67,20 +86,17 @@ def _get_one_palette(
     return hex_list, source, kind, paletteer_kind
 
 def _get_palette(
-    palettes: dict,
     name: Union[str, List[str]],
     reverse: bool = False,
     keep_first_n: Optional[int] = None,
     keep: Optional[List[bool]] = None
 ):
     """
-    Get palette from name
+    Get palette from name.
 
     Parameters
     - name: Union[str, list]
         Name of the palette. Also accepts list of palette names.
-    - palettes: dict
-        Dictionary with the palettes
     - reverse: bool
         Whether to reverse the order of the colors or not
     - keep_first_n: int
@@ -99,7 +115,6 @@ def _get_palette(
 
     if isinstance(name, str):
         hex_list, source, kind, paletteer_kind = _get_one_palette(
-            palettes=palettes,
             name=name,
             reverse=reverse,
             keep_first_n=keep_first_n,
@@ -118,7 +133,6 @@ def _get_palette(
         paletteer_kind = []
         for palette_name in name:
             one_hex_list, one_source, one_kind, one_paletteer_kind = _get_one_palette(
-                palettes=palettes,
                 name=palette_name
             )
             hex_list.extend(one_hex_list)
@@ -139,7 +153,7 @@ def load_cmap(
     type_warning: bool = True
 ):
     """
-    Load colormap from name
+    Load colormap from name.
 
     Parameters
     - name: Union[str, list]
@@ -158,8 +172,7 @@ def load_cmap(
     if not isinstance(cmap_type, str) or cmap_type not in {'continuous', 'discrete'}:
         raise ValueError("cmap_type argument must be 'continuous' or 'discrete'")
     
-    palettes = _load_palettes()
-    hex_list, _, _, paletteer_kind = _get_palette(palettes, name, reverse, keep_first_n, keep)
+    hex_list, _, _, paletteer_kind = _get_palette(name, reverse, keep_first_n, keep)
 
     if cmap_type == 'continuous':
         if paletteer_kind == 'discrete-qualitative':
@@ -179,14 +192,13 @@ def get_source(
     name: Union[str, List[str]] = 'random'
 ):
     """
-    Get source of the palette
+    Get source of the palette.
 
     Parameters
     - name: Union[str, list]
         Name of the palette
     """
-    palettes = _load_palettes()
-    _, source, _, _ = _get_palette(palettes, name)
+    _, source, _, _ = _get_palette(name)
     return source
 
 def get_kind(
@@ -199,8 +211,7 @@ def get_kind(
     - name: Union[str, list]
         Name of the palette
     """
-    palettes = _load_palettes()
-    _, _, kind, _ = _get_palette(palettes, name)
+    _, _, kind, _ = _get_palette(name)
     return kind
 
 def get_hex(
@@ -210,7 +221,7 @@ def get_hex(
     keep: Optional[List[bool]] = None
 ):
     """
-    Get hex colors from name
+    Get hex colors from name.
 
     Parameters
     - name: Union[str, list]
@@ -222,8 +233,7 @@ def get_hex(
     - keep: list of bool
         Specify which colors to keep in the palette
     """
-    palettes = _load_palettes()
-    hex_list, _, _, _ = _get_palette(palettes, name, reverse, keep_first_n, keep)
+    hex_list, _, _, _ = _get_palette(name, reverse, keep_first_n, keep)
     return hex_list
 
 def get_rgb(
@@ -233,7 +243,7 @@ def get_rgb(
     keep: Optional[List[bool]] = None
 ):
     """
-    Get rgb colors from name
+    Get rgb colors from name.
 
     Parameters
     - name: Union[str, list]
