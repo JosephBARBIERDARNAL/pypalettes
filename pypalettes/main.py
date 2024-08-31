@@ -21,7 +21,8 @@ def _load_palettes(palettes_path: str = 'palettes.csv'):
     
     if _PALETTES_CACHE is None:
         _PALETTES_CACHE = {}
-        with resources.open_text('pypalettes', palettes_path) as f:
+        palettes_file = resources.files('pypalettes').joinpath(palettes_path)
+        with palettes_file.open('r') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 _PALETTES_CACHE[row['name']] = row
