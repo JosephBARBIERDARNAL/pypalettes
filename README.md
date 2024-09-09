@@ -4,15 +4,18 @@
 
 A large (**+2500**) collection of color maps for Python.
 
-All available palettes can be found [**on the dedicated website**](https://python-graph-gallery.com/color-palette-finder/)
+- All available palettes can be found [on the dedicated website](https://python-graph-gallery.com/color-palette-finder/).
+- To learn more about how to use `pypalettes`, please refer to the [official documentation](https://python-graph-gallery.com/introduction-to-pypalettes/).
 
 
+<a href="https://python-graph-gallery.com/color-palette-finder/">
 <center align="left">
    
    ![](pypalettes.gif)
 </center>
+</a>
 
-> You can find an [**introduction to PyPalettes**](https://python-graph-gallery.com/introduction-to-pypalettes/) in the **Python Graph Gallery**, with code samples and explanations about how to use this library in many different cases.
+> This package is based on the R package [paletteer](https://github.com/EmilHvitfeldt/paletteer), and all associated sub-packages (with original palettes) mentioned in the file [LICENSE](LICENSE.note).
 
 
 
