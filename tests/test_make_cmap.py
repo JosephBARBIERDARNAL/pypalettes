@@ -1,0 +1,58 @@
+import pytest
+from matplotlib.colors import LinearSegmentedColormap, ListedColormap
+from pypalettes import make_cmap
+
+class TestMakeCmap:
+    def test_make_cmap_discrete(self):
+        colors = ['red', 'green', 'blue']
+        cmap = make_cmap(colors, cmap_type='discrete', name='test_discrete')
+        
+        assert isinstance(cmap, ListedColormap)
+        assert cmap.name == 'test_discrete'
+        assert cmap.colors == colors
+
+    def test_make_cmap_continuous(self):
+        colors = ['red', 'green', 'blue']
+        cmap = make_cmap(colors, cmap_type='continuous', name='test_continuous')
+        
+        assert isinstance(cmap, LinearSegmentedColormap)
+        assert cmap.name == 'test_continuous'
+
+    def test_make_cmap_default_type(self):
+        colors = ['red', 'green', 'blue']
+        cmap = make_cmap(colors)
+        
+        assert isinstance(cmap, ListedColormap)
+        assert cmap.name == 'my cmap'
+        assert cmap.colors == colors
+
+    def test_make_cmap_default_name(self):
+        colors = ['red', 'green', 'blue']
+        cmap = make_cmap(colors, cmap_type='continuous')
+        
+        assert isinstance(cmap, LinearSegmentedColormap)
+        assert cmap.name == 'my cmap'
+
+    def test_make_cmap_invalid_type(self):
+        colors = ['red', 'green', 'blue']
+        
+        with pytest.raises(ValueError) as excinfo:
+            make_cmap(colors, cmap_type='invalid')
+        
+        assert str(excinfo.value) == "cmap_type argument must be 'continuous' or 'discrete'"
+
+    def test_make_cmap_single_color(self):
+        cmap = make_cmap(['red'])
+        
+        assert isinstance(cmap, ListedColormap)
+        assert cmap.colors == ['red']
+
+    def test_make_cmap_many_colors(self):
+        colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+        cmap = make_cmap(colors, cmap_type='continuous')
+        
+        assert isinstance(cmap, LinearSegmentedColormap)
+        assert cmap.name == 'my cmap'
+
+if __name__ == '__main__':
+    pytest.main()
