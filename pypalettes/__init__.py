@@ -1,10 +1,10 @@
 import matplotlib as mpl
 from .main import load_cmap
 from .deprecated import get_source, get_hex, get_rgb, get_kind
-from .make import make_cmap
+from .make import add_cmap
 from .get_colors import _load_palettes
 
-__all__ = ["load_cmap", "make_cmap"]
+__all__ = ["load_cmap", "add_cmap"]
 
 for palette_name in _load_palettes():
     cmap_discrete = load_cmap(name=palette_name)

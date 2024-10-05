@@ -73,10 +73,10 @@ plt.show()
 
 ```python
 import matplotlib.pyplot as plt
-from pypalettes import make_cmap
+from pypalettes import add_cmap
 import numpy as np
 
-make_cmap(
+add_cmap(
     colors=["#D57A6DFF", "#E8B762FF", "#9CCDDFFF", "#525052FF"],
     name="myOwnCmap",
     cmap_type="continuous",

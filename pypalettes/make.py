@@ -4,7 +4,7 @@ import warnings
 from typing import List, Union
 
 
-def make_cmap(
+def add_cmap(
     colors: List, name: str, cmap_type: str = "discrete", force: bool = True
 ) -> Union[LinearSegmentedColormap, ListedColormap]:
     """
