@@ -7,31 +7,33 @@ import warnings
 
 _PALETTES_CACHE = None
 
-def _load_palettes(palettes_path: str = 'palettes.csv'):
+
+def _load_palettes(palettes_path: str = "palettes.csv"):
     """
     Load palettes from csv file.
-    
+
     Parameters
     - palettes_path
         Path to the csv file with the palettes
     """
     global _PALETTES_CACHE
-    
+
     if _PALETTES_CACHE is None:
         _PALETTES_CACHE = {}
-        palettes_file = resources.files('pypalettes').joinpath(palettes_path)
-        with palettes_file.open('r') as f:
+        palettes_file = resources.files("pypalettes").joinpath(palettes_path)
+        with palettes_file.open("r") as f:
             reader = csv.DictReader(f)
             for row in reader:
-                _PALETTES_CACHE[row['name']] = row
-    
+                _PALETTES_CACHE[row["name"]] = row
+
     return _PALETTES_CACHE
+
 
 def _get_one_palette(
     name: Union[str, List[str]],
     reverse: bool = False,
     keep_first_n: Optional[int] = None,
-    keep: Optional[List[bool]] = None
+    keep: Optional[List[bool]] = None,
 ):
     """
     Get one palette from name.
@@ -47,7 +49,7 @@ def _get_one_palette(
         Specify which colors to keep in the palette
     """
     palettes = _load_palettes()
-    if name == 'random':
+    if name == "random":
         palette = random.choice(list(palettes.values()))
     else:
         if name not in palettes:
@@ -57,26 +59,32 @@ def _get_one_palette(
                 "See available palettes at https://python-graph-gallery.com/color-palette-finder/"
             )
         palette = palettes[name]
-    
+
     try:
-        source = palette['source']
-        kind = palette['kind']
-        paletteer_kind = palette['paletteer-kind']
-        hex_list = eval(palette['palette'])
-        if not isinstance(hex_list, list) or not all(isinstance(color, str) for color in hex_list):
+        source = palette["source"]
+        kind = palette["kind"]
+        paletteer_kind = palette["paletteer-kind"]
+        hex_list = eval(palette["palette"])
+        if not isinstance(hex_list, list) or not all(
+            isinstance(color, str) for color in hex_list
+        ):
             raise ValueError("palette must be a list of hex color strings.")
     except Exception as e:
         raise ValueError(f"Error parsing palette: {e}")
-    
+
     if keep_first_n is not None and keep_first_n > len(hex_list):
-        raise ValueError(f"keep_first_n ({keep_first_n}) must be less than or equal to the length of the palette ({len(hex_list)}).")
-    
+        raise ValueError(
+            f"keep_first_n ({keep_first_n}) must be less than or equal to the length of the palette ({len(hex_list)})."
+        )
+
     if keep is not None and len(keep) != len(hex_list):
-        raise ValueError(f"keep list must be the same length as the palette ({len(hex_list)}!={len(keep)}).")
-    
+        raise ValueError(
+            f"keep list must be the same length as the palette ({len(hex_list)}!={len(keep)})."
+        )
+
     if reverse:
         hex_list = hex_list[::-1]
-    
+
     if keep_first_n:
         hex_list = hex_list[:keep_first_n]
     elif keep is not None:
@@ -84,11 +92,13 @@ def _get_one_palette(
 
     return hex_list, source, kind, paletteer_kind
 
+
 def _get_palette(
     name: Union[str, List[str]],
     reverse: bool = False,
     keep_first_n: Optional[int] = None,
-    keep: Optional[List[bool]] = None
+    keep: Optional[List[bool]] = None,
+    repeat: int = 1,
 ):
     """
     Get palette from name.
@@ -102,22 +112,29 @@ def _get_palette(
         Keep only the first n colors of the palette
     - keep
         Specify which colors to keep in the palette
+    - repeat
+        The number of times the palette must be present in the output. Used to access larger palettes that are repeated.
     """
     if not isinstance(reverse, bool):
         raise TypeError("reverse must be a boolean.")
-    if keep_first_n is not None and (not isinstance(keep_first_n, int) or keep_first_n <= 0):
+    if keep_first_n is not None and (
+        not isinstance(keep_first_n, int) or keep_first_n <= 0
+    ):
         raise ValueError("keep_first_n must be a positive integer.")
-    if keep is not None and (not isinstance(keep, list) or not all(isinstance(item, bool) for item in keep)):
+    if keep is not None and (
+        not isinstance(keep, list) or not all(isinstance(item, bool) for item in keep)
+    ):
         raise ValueError("keep must be a list of boolean values.")
     if keep_first_n is not None and keep is not None:
-        raise ValueError("Cannot specify both keep_first_n and keep arguments simultaneously.")
+        raise ValueError(
+            "Cannot specify both keep_first_n and keep arguments simultaneously."
+        )
+    if not repeat >= 1 or not isinstance(repeat, int):
+        raise ValueError("repeat must be a positive integer.")
 
     if isinstance(name, str):
         hex_list, source, kind, paletteer_kind = _get_one_palette(
-            name=name,
-            reverse=reverse,
-            keep_first_n=keep_first_n,
-            keep=keep
+            name=name, reverse=reverse, keep_first_n=keep_first_n, keep=keep
         )
     elif isinstance(name, list):
         reverse = None
@@ -141,4 +158,5 @@ def _get_palette(
     else:
         raise TypeError("`name` must be a string or a list of strings")
 
+    hex_list *= repeat
     return hex_list, source, kind, paletteer_kind

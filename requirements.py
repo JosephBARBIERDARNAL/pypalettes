@@ -1,18 +1,6 @@
-###############################################
-### HOW TO USE THIS SCRIPT
-### 1. Add new packages to the `packages` list.
-### 2. Run the script.
-### 3. The requirements.txt file is now updated.
-###############################################
-
-
 import subprocess
 
-packages = [
-    "matplotlib",
-    "pytest",
-    "bs4"
-]
+packages = ["matplotlib", "pandas", "pre-commit" "pytest", "bs4"]
 REQUIREMENTS_FILE = "requirements.txt"
 
 
@@ -37,4 +25,3 @@ with open(REQUIREMENTS_FILE, "w") as file:
         else:
             print(f"Version not found for package {package}")
     print(f"{REQUIREMENTS_FILE} file updated\n\n")
-

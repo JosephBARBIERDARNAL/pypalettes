@@ -1,27 +1,35 @@
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
-from typing import List, Optional
+import matplotlib as mpl
+import warnings
+from typing import List, Union
+
 
 def make_cmap(
-    colors: List,
-    cmap_type: str = 'discrete',
-    name: Optional[str] = "my cmap"
-):  
+    colors: List, name: str, cmap_type: str = "discrete", force: bool = True
+) -> Union[LinearSegmentedColormap, ListedColormap]:
     """
     Create a matplotlib colormap from an iterable of colors.
 
     Parameters
-    - colors: List
+    - colors:
         An iterable of valid matplotlib colors. More about valid colors: https://python-graph-gallery.com/python-colors/
-    - cmap_type: str
+    - name:
+        Unique palette name
+    - cmap_type:
         Type of colormap: 'continuous' or 'discrete'
-    - name: Union[str, list]
-        Optional palette name
+    - force:
+        If True, overwrites the registered colormap with the same name if it exists.
     """
-    if cmap_type == 'discrete':
+    if cmap_type == "discrete":
         cmap = ListedColormap(colors=colors, name=name)
-    elif cmap_type == 'continuous':
+    elif cmap_type == "continuous":
         cmap = LinearSegmentedColormap.from_list(name=name, colors=colors)
     else:
         raise ValueError("cmap_type argument must be 'continuous' or 'discrete'")
 
+    warnings.filterwarnings(
+        "ignore", category=UserWarning, message=".*that was already in the registry.*"
+    )
+
+    mpl.colormaps.register(cmap=cmap, force=force)
     return cmap
