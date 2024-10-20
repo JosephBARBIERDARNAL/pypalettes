@@ -35,8 +35,6 @@ def load_cmap(
     - shuffle
         Used to mix the order of colors. If an integer is supplied, it will be used as the seed.
     """
-    if cmap_type not in {"continuous", "discrete"}:
-        raise ValueError("cmap_type argument must be 'continuous' or 'discrete'")
 
     hex_list, source, kind, _ = _get_palette(name, reverse, keep_first_n, keep, repeat)
 
@@ -49,6 +47,8 @@ def load_cmap(
         cmap = LinearSegmentedColormap.from_list(name=f"{name}", colors=hex_list)
     elif cmap_type == "discrete":
         cmap = ListedColormap(name=f"{name}", colors=hex_list)
+    else:
+        raise ValueError("cmap_type argument must be 'continuous' or 'discrete'")
 
     cmap.source = source
     cmap.kind = kind

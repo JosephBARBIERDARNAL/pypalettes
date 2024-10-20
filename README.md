@@ -24,7 +24,7 @@ _Note: pypalettes requires **Python 3.9** or above._
 You can install `pypalettes` directly from PyPI with:
 
 ```bash
-pip install --upgrade pypalettes
+pip install -U pypalettes
 ```
 
 <br><br>
@@ -53,7 +53,7 @@ plt.show()
 
 #### Continuous palette
 
-_Note: the suffix `_c` is used to make the colormap a gradient._
+_Note: the suffix `_gradient` is used to make the colormap a gradient._
 
 ```python
 import matplotlib.pyplot as plt
@@ -62,7 +62,7 @@ import numpy as np
 
 data = np.random.randn(20, 20)
 
-plt.imshow(data, cmap="Sunset2_c")
+plt.imshow(data, cmap="Sunset2_gradient")
 plt.colorbar()
 plt.show()
 ```
@@ -167,17 +167,23 @@ A big thanks to [Yan Holtz](https://www.yan-holtz.com/) for:
 
 ## Contributing
 
-Since the core code of the library is currently quite short and simple, it does not require any major changes. However, if you feel like you have a good idea/suggestion, please [open an issue](https://github.com/JosephBARBIERDARNAL/pypalettes/issues).
+Since the core code of the library is currently quite short and simple, it does not require any major changes. However, if you have a good idea or suggestion, please [open an issue](https://github.com/JosephBARBIERDARNAL/pypalettes/issues).
 
-BUT, more palettes is one easy way to make `pypalettes` better! Here is the best way to get started:
+That said, adding more palettes is an easy way to make `pypalettes` better! Here’s the best way to get started:
 
-Then open your code editor and open `parsers/list_manual_palettes.py`. You will find a dictionary of dictionary of manually defined palettes. Add yours at the end with the following elements:
+First, open your code editor and navigate to `parsers/list_manual_palettes.py`. You’ll find a dictionary of manually defined palettes. Add yours at the end with the following elements:
 
 - `"name"`: the name of your palette
-- `"palette"`: the colors of your palette, in the following format: `["['#123456', '#654321', '#162534']"]`
-- `"source"`: where does your palette come from? If you created it, your name or a link to your portfolio is valid!
-- `"kind"`: the kind of your palette. View examples [here](https://python-graph-gallery.com/color-palette-finder/)
+- `"palette"`: the colors of your palette in the following format: `["['#123456', '#654321', '#162534']"]`
+- `"source"`: Where does your palette come from? If you created it, your name or a link to your portfolio is valid!
+- `"kind"`: the type of palette. View examples [here](https://python-graph-gallery.com/color-palette-finder/)
 - `"paletteer-kind"`: just put `"unknown"`
+
+Then, run:
+
+```bash
+python parsers/main.py
+```
 
 For a large number of palettes, please [open an issue](https://github.com/JosephBARBIERDARNAL/pypalettes/issues) first.
 

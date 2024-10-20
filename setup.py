@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pypalettes",
-    version="0.1.3",
+    version="0.1.4",
     packages=find_packages(),
     description="A large (+2500) collection of color maps for Python",
     long_description=open("README.md").read(),
@@ -12,9 +12,7 @@ setup(
     url="https://github.com/JosephBARBIERDARNAL/pypalettes/blob/main/README.md",
     include_package_data=True,
     package_data={
-        'pypalettes': ['palettes.csv'],
+        "pypalettes": ["palettes.csv"],
     },
-    install_requires=[
-        "matplotlib"
-    ],
+    install_requires=["matplotlib"],
 )

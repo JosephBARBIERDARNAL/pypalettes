@@ -116,7 +116,7 @@ class TestLoadCmap:
 
     def test_load_cmap_invalid_cmap_type(self):
         with pytest.raises(ValueError):
-            load_cmap(name="Acadia", cmap_type="invalid", shuffle=True)
+            load_cmap(name="Acadia", cmap_type="invalid")
 
     def test_load_cmap_attributes(self):
         cmap = load_cmap(name="Acadia", shuffle=True)

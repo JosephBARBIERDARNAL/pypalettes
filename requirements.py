@@ -1,6 +1,6 @@
 import subprocess
 
-packages = ["matplotlib", "pandas", "pre-commit" "pytest", "bs4"]
+packages = ["matplotlib", "pandas", "pre-commit", "pytest", "bs4"]
 REQUIREMENTS_FILE = "requirements.txt"
 
 
@@ -24,4 +24,3 @@ with open(REQUIREMENTS_FILE, "w") as file:
             file.write(packageVersion + "\n")
         else:
             print(f"Version not found for package {package}")
-    print(f"{REQUIREMENTS_FILE} file updated\n\n")
