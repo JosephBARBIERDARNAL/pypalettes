@@ -1,4 +1,4 @@
-venv
+venv/
 __pycache__
 dist
 build
@@ -6,3 +6,6 @@ pypalettes.egg-info
 site
 .pytest_cache
 sandbox.ipynb
+.coverage
+coverage.sh
+.vscode/
