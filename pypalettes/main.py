@@ -12,6 +12,7 @@ def load_cmap(
     cmap_type: str = "discrete",
     reverse: bool = False,
     keep_first_n: Optional[int] = None,
+    keep_last_n: Optional[int] = None,
     keep: Optional[List[bool]] = None,
     repeat: int = 1,
     shuffle: Union[bool, int] = False,
@@ -36,7 +37,9 @@ def load_cmap(
         Used to mix the order of colors. If an integer is supplied, it will be used as the seed.
     """
 
-    hex_list, source, kind, _ = _get_palette(name, reverse, keep_first_n, keep, repeat)
+    hex_list, source, kind, _ = _get_palette(
+        name, reverse, keep_first_n, keep_last_n, keep, repeat
+    )
 
     if shuffle:
         if isinstance(shuffle, int):

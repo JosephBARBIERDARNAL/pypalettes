@@ -59,6 +59,18 @@ class TestGetRGB:
         ][:3]
         assert actual == expected
 
+    def test_get_rgb_keep_last_n(self):
+        with pytest.warns(DeprecationWarning):
+            actual = get_rgb(name="ClaudeMonet", keep_last_n=3)
+        expected = [
+            (24, 68, 48),
+            (84, 129, 80),
+            (222, 183, 56),
+            (115, 67, 33),
+            (133, 36, 25),
+        ][-3:]
+        assert actual == expected
+
     def test_get_rgb_keep(self):
         with pytest.warns(DeprecationWarning):
             actual = get_rgb(name="ClaudeMonet", keep=[True, False, True, False, True])

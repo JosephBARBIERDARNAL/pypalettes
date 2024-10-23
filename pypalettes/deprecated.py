@@ -49,7 +49,9 @@ def get_hex(
     name: Union[str, List[str]] = "random",
     reverse: bool = False,
     keep_first_n: Optional[int] = None,
+    keep_last_n: Optional[int] = None,
     keep: Optional[List[bool]] = None,
+    raise_warn: bool = True,
 ):
     """
     Deprecated. Get hex colors from name.
@@ -64,9 +66,10 @@ def get_hex(
     - keep
         Specify which colors to keep in the palette
     """
-    warning_message = make_warning_message(func=get_hex, name=name, attribute="hex")
-    warnings.warn(warning_message, category=DeprecationWarning)
-    hex_list, _, _, _ = _get_palette(name, reverse, keep_first_n, keep)
+    if raise_warn:
+        warning_message = make_warning_message(func=get_hex, name=name, attribute="hex")
+        warnings.warn(warning_message, category=DeprecationWarning)
+    hex_list, _, _, _ = _get_palette(name, reverse, keep_first_n, keep_last_n, keep)
     return hex_list
 
 
@@ -74,6 +77,7 @@ def get_rgb(
     name: Union[str, List[str]] = "random",
     reverse: bool = False,
     keep_first_n: Optional[int] = None,
+    keep_last_n: Optional[int] = None,
     keep: Optional[List[bool]] = None,
 ):
     """
@@ -91,6 +95,6 @@ def get_rgb(
     """
     warning_message = make_warning_message(func=get_rgb, name=name, attribute="rgb")
     warnings.warn(warning_message, category=DeprecationWarning)
-    hex_list = get_hex(name, reverse, keep_first_n, keep)
+    hex_list = get_hex(name, reverse, keep_first_n, keep_last_n, keep, raise_warn=False)
     rgb_list = [ImageColor.getcolor(hex, "RGB") for hex in hex_list]
     return rgb_list

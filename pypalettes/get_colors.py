@@ -33,6 +33,7 @@ def _get_one_palette(
     name: Union[str, List[str]],
     reverse: bool = False,
     keep_first_n: Optional[int] = None,
+    keep_last_n: Optional[int] = None,
     keep: Optional[List[bool]] = None,
 ):
     """
@@ -45,6 +46,8 @@ def _get_one_palette(
         Whether to reverse the order of the colors or not
     - keep_first_n
         Keep only the first n colors of the palette
+    - keep_last_n
+        Keep only the last n colors of the palette
     - keep
         Specify which colors to keep in the palette
     """
@@ -77,6 +80,11 @@ def _get_one_palette(
             f"keep_first_n ({keep_first_n}) must be less than or equal to the length of the palette ({len(hex_list)})."
         )
 
+    if keep_last_n is not None and keep_last_n > len(hex_list):
+        raise ValueError(
+            f"keep_last_n ({keep_last_n}) must be less than or equal to the length of the palette ({len(hex_list)})."
+        )
+
     if keep is not None and len(keep) != len(hex_list):
         raise ValueError(
             f"keep list must be the same length as the palette ({len(hex_list)}!={len(keep)})."
@@ -87,6 +95,8 @@ def _get_one_palette(
 
     if keep_first_n:
         hex_list = hex_list[:keep_first_n]
+    elif keep_last_n:
+        hex_list = hex_list[-keep_last_n:]
     elif keep is not None:
         hex_list = [color for color, keep_color in zip(hex_list, keep) if keep_color]
 
@@ -97,6 +107,7 @@ def _get_palette(
     name: Union[str, List[str]],
     reverse: bool = False,
     keep_first_n: Optional[int] = None,
+    keep_last_n: Optional[int] = None,
     keep: Optional[List[bool]] = None,
     repeat: int = 1,
 ):
@@ -110,6 +121,8 @@ def _get_palette(
         Whether to reverse the order of the colors or not
     - keep_first_n
         Keep only the first n colors of the palette
+    - keep_last_n
+        Keep only the last n colors of the palette
     - keep
         Specify which colors to keep in the palette
     - repeat
@@ -120,28 +133,37 @@ def _get_palette(
     if keep_first_n is not None and (
         not isinstance(keep_first_n, int) or keep_first_n <= 0
     ):
-        raise ValueError("keep_first_n must be a positive integer.")
+        raise ValueError(
+            f"keep_first_n must be a positive integer, not {keep_first_n}."
+        )
+    if keep_last_n is not None and (
+        not isinstance(keep_last_n, int) or keep_last_n <= 0
+    ):
+        raise ValueError(f"keep_last_n must be a positive integer, not {keep_last_n}.")
     if keep is not None and (
         not isinstance(keep, list) or not all(isinstance(item, bool) for item in keep)
     ):
-        raise ValueError("keep must be a list of boolean values.")
-    if keep_first_n is not None and keep is not None:
+        raise ValueError(f"keep must be a list of boolean values, not {keep}.")
+    if sum(x is not None for x in [keep_first_n, keep_last_n, keep]) > 1:
         raise ValueError(
-            "Cannot specify both keep_first_n and keep arguments simultaneously."
+            "Cannot specify more than one of keep_first_n, keep_last_n, and keep arguments simultaneously."
         )
     if not repeat >= 1 or not isinstance(repeat, int):
         raise ValueError("repeat must be a positive integer.")
 
     if isinstance(name, str):
         hex_list, source, kind, paletteer_kind = _get_one_palette(
-            name=name, reverse=reverse, keep_first_n=keep_first_n, keep=keep
+            name=name,
+            reverse=reverse,
+            keep_first_n=keep_first_n,
+            keep_last_n=keep_last_n,
+            keep=keep,
         )
     elif isinstance(name, list):
-        reverse = None
-        for param in [reverse, keep_first_n, keep]:
+        for param in [reverse, keep_first_n, keep_last_n, keep]:
             if param is not None:
                 warnings.warn(
-                    f"`reverse`, `keep_first_n` and `keep` arguments are ignored when `name` is a list."
+                    f"`reverse`, `keep_first_n`, `keep_last_n` and `keep` arguments are ignored when `name` is a list."
                 )
         hex_list = []
         source = []

@@ -69,6 +69,10 @@ class TestLoadCmap:
         cmap = load_cmap(name="ClaudeMonet", keep_first_n=3)
         assert cmap.colors == ["#184430FF", "#548150FF", "#DEB738FF"]
 
+    def test_load_cmap_keep_last_n(self):
+        cmap = load_cmap(name="ClaudeMonet", keep_last_n=3)
+        assert cmap.colors == ["#DEB738FF", "#734321FF", "#852419FF"]
+
     def test_load_cmap_keep(self):
         cmap = load_cmap(name="ClaudeMonet", keep=[True, False, True, False, True])
         assert cmap.colors == ["#184430FF", "#DEB738FF", "#852419FF"]
