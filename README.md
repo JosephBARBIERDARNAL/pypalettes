@@ -43,7 +43,7 @@ import pypalettes
 df = sns.load_dataset("penguins")
 
 g = sns.lmplot(
-    data=df, x="bill_length_mm", y="bill_depth_mm", hue="species", palette="Acadia"
+    data=df, x="bill_length_mm", y="bill_depth_mm", hue="species", palette="Fun"
 )
 g.set_axis_labels("Snoot length", "Snoot depth")
 plt.show()
