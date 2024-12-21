@@ -5,7 +5,7 @@ build
 pypalettes.egg-info
 site
 .pytest_cache
-sandbox.ipynb
+sandbox.*
 .coverage
 coverage.sh
 .vscode/
