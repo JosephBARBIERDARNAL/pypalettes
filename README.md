@@ -1,3 +1,7 @@
+> PyPalettes is supported by [Matplotlib Journey](https://www.matplotlib-journey.com/), an interactive online course designed to make you a master of Matplotlib. If you want to **support PyPalettes** and **become a Matplotlib expert**, consider purchasing the course!
+
+<br><br>
+
 # PyPalettes
 
 <img src="https://github.com/JosephBARBIERDARNAL/pypalettes/blob/main/images/logo.png?raw=true" alt="pypalettes logo" align="right" width="160px"/>
