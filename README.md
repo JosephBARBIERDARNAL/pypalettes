@@ -37,41 +37,43 @@ pip install -U pypalettes
 
 Once `pypalettes` is imported, all the palettes are now accessible as any other colormap in matplotlib or seaborn via the `palette` or `cmap` arguments.
 
+#### Continuous palette
+
+```python
+import matplotlib.pyplot as plt
+from pypalettes import load_cmap
+import numpy as np
+
+cmap = load_cmap("Sunset2", cmap_type="continuous")
+
+data = np.random.randn(20, 20)
+
+plt.imshow(data, cmap=cmap)
+plt.colorbar()
+plt.show()
+```
+
+![heatmap example](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/heatmap.png)
+
 #### Categorical palette
 
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
-import pypalettes
+from pypalettes import load_cmap
 
+cmap = load_cmap("Fun")
+palette = cmap.colors
 df = sns.load_dataset("penguins")
 
 g = sns.lmplot(
-    data=df, x="bill_length_mm", y="bill_depth_mm", hue="species", palette="Fun"
+    data=df, x="bill_length_mm", y="bill_depth_mm", hue="species", palette=palette
 )
 g.set_axis_labels("Snoot length", "Snoot depth")
 plt.show()
 ```
 
 ![scatterplot example](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/scatter.png)
-
-#### Continuous palette
-
-_Note: the suffix `_gradient` is used to make the colormap a gradient._
-
-```python
-import matplotlib.pyplot as plt
-import pypalettes
-import numpy as np
-
-data = np.random.randn(20, 20)
-
-plt.imshow(data, cmap="Sunset2_gradient")
-plt.colorbar()
-plt.show()
-```
-
-![heatmap example](https://raw.githubusercontent.com/JosephBARBIERDARNAL/pypalettes/main/images/heatmap.png)
 
 #### Your own palette
 
@@ -80,16 +82,16 @@ import matplotlib.pyplot as plt
 from pypalettes import add_cmap
 import numpy as np
 
-add_cmap(
+cmap = add_cmap(
     colors=["#D57A6DFF", "#E8B762FF", "#9CCDDFFF", "#525052FF"],
-    name="myOwnCmap",
+    name="myCmap",
     cmap_type="continuous",
 )
 
 x = np.linspace(0, 20, 1000)
 y = np.sin(x)
 
-plt.scatter(x, y, c=y, cmap="myOwnCmap")
+plt.scatter(x, y, c=y, cmap=cmap)
 plt.colorbar()
 plt.show()
 ```
