@@ -41,8 +41,8 @@ Once `pypalettes` is imported, all the palettes are now accessible as any other 
 
 ```python
 import matplotlib.pyplot as plt
-from pypalettes import load_cmap
 import numpy as np
+from pypalettes import load_cmap
 
 cmap = load_cmap("Sunset2", cmap_type="continuous")
 
@@ -63,11 +63,16 @@ import seaborn as sns
 from pypalettes import load_cmap
 
 cmap = load_cmap("Fun")
-palette = cmap.colors
+palette = cmap.colors # return colors as a list of hexadecimal values
+
 df = sns.load_dataset("penguins")
 
 g = sns.lmplot(
-    data=df, x="bill_length_mm", y="bill_depth_mm", hue="species", palette=palette
+    data=df,
+    x="bill_length_mm",
+    y="bill_depth_mm",
+    hue="species",
+    palette=palette,
 )
 g.set_axis_labels("Snoot length", "Snoot depth")
 plt.show()
