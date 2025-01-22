@@ -1,11 +1,20 @@
 [project]
 name = "pypalettes"
 version = "0.1.5"
-description = "Add your description here"
+description = "A large (+2500) collection of color maps for Python"
+authors = [
+  { name="Joseph Barbier", email="joseph.barbierdarnal@gmail.com" },
+]
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "matplotlib>=3.10.0",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Framework :: Matplotlib"
 ]
 
 [dependency-groups]
@@ -15,3 +24,7 @@ dev = [
     "pre-commit>=4.1.0",
     "pytest>=8.3.4",
 ]
+
+[project.urls]
+Homepage = "https://github.com/JosephBARBIERDARNAL/pypalettes"
+Issues = "https://github.com/JosephBARBIERDARNAL/pypalettes/issues"
