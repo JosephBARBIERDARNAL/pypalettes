@@ -23,12 +23,16 @@ A large (**+2500**) collection of color maps for Python.
 
 ## Installation
 
-_Note: pypalettes requires **Python 3.9** or above._
-
-You can install `pypalettes` directly from PyPI with:
+With pip:
 
 ```bash
-pip install -U pypalettes
+pip install pypalettes
+```
+
+With conda:
+
+```bash
+conda install pypalettes
 ```
 
 <br><br>
