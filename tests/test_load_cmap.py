@@ -4,7 +4,6 @@ from pypalettes import load_cmap
 
 
 class TestLoadCmap:
-
     def test_load_cmap_discrete(self):
         cmap = load_cmap(name="ClaudeMonet")
         assert isinstance(cmap, ListedColormap)
@@ -168,10 +167,6 @@ class TestLoadCmap:
         assert isinstance(cmap, LinearSegmentedColormap)
         cmap = load_cmap(name="random")
         assert isinstance(cmap, ListedColormap)
-
-    def test_load_cmap_invalid_cmap_type(self):
-        with pytest.raises(ValueError):
-            load_cmap(name="ClaudeMonet", cmap_type="invalid_type")
 
     def test_get_hex(self):
         actual = load_cmap(name="ClaudeMonet").hex

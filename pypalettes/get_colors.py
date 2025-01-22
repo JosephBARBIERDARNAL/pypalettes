@@ -160,10 +160,10 @@ def _get_palette(
             keep=keep,
         )
     elif isinstance(name, list):
-        for param in [reverse, keep_first_n, keep_last_n, keep]:
+        for param in [keep_first_n, keep_last_n, keep]:
             if param is not None:
                 warnings.warn(
-                    f"`reverse`, `keep_first_n`, `keep_last_n` and `keep` arguments are ignored when `name` is a list."
+                    f"`keep_first_n`, `keep_last_n` and `keep` arguments are ignored when `name` is a list."
                 )
         hex_list = []
         source = []
