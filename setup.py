@@ -1,9 +1,9 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name="pypalettes",
     version="0.1.4",
-    packages=find_packages(),
+    packages=["pypalettes"],
     description="A large (+2500) collection of color maps for Python",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
@@ -14,5 +14,5 @@ setup(
     package_data={
         "pypalettes": ["palettes.csv"],
     },
-    install_requires=["matplotlib"],
+    install_requires=["matplotlib>=3.10.0"],
 )
