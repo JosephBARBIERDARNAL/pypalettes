@@ -32,7 +32,7 @@ pip install pypalettes
 With conda:
 
 ```bash
-conda install pypalettes
+conda install conda-forge::pypalettes
 ```
 
 <br><br>
