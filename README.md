@@ -11,6 +11,8 @@ A large (**+2500**) collection of color maps for Python.
 - All available palettes can be found in the [Color Palette Finder](https://python-graph-gallery.com/color-palette-finder/).
 - To learn more about how to use `pypalettes`, please refer to the [official documentation](https://python-graph-gallery.com/introduction-to-pypalettes/).
 
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pypalettes)
+
 <center align="left">
 
 ![](pypalettes.gif)
