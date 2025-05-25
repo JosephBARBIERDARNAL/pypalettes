@@ -2,6 +2,8 @@
 name = "pypalettes"
 version = "0.1.5"
 description = "A large (+2500) collection of color maps for Python"
+license-files = ["LICENSE.note"]
+keywords = ["palette", "colormap", "cmap", "matplotlib", "dataviz", "visualization", "seaborn"]
 authors = [
   { name="Joseph Barbier", email="joseph.barbierdarnal@gmail.com" },
 ]
@@ -17,6 +19,20 @@ classifiers = [
     "Framework :: Matplotlib"
 ]
 
+[build-system]
+requires = [
+    "setuptools",
+    "setuptools-scm",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["pypalettes"]
+include-package-data = true
+
+[tool.uv.sources]
+pypalettes = { workspace = true }
+
 [dependency-groups]
 dev = [
     "bs4>=0.0.2",
@@ -26,5 +42,7 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/JosephBARBIERDARNAL/pypalettes"
+Homepage = "https://python-graph-gallery.com/color-palette-finder/"
 Issues = "https://github.com/JosephBARBIERDARNAL/pypalettes/issues"
+Documentation = "https://python-graph-gallery.com/introduction-to-pypalettes/"
+Repository = "https://github.com/JosephBARBIERDARNAL/pypalettes"

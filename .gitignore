@@ -9,3 +9,4 @@ sandbox.*
 .coverage
 coverage.sh
 .vscode/
+uv.lock

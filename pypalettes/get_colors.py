@@ -163,7 +163,7 @@ def _get_palette(
         for param in [keep_first_n, keep_last_n, keep]:
             if param is not None:
                 warnings.warn(
-                    f"`keep_first_n`, `keep_last_n` and `keep` arguments are ignored when `name` is a list."
+                    "`keep_first_n`, `keep_last_n` and `keep` arguments are ignored when `name` is a list."
                 )
         hex_list = []
         source = []
