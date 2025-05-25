@@ -2,8 +2,7 @@
 name = "pypalettes"
 version = "0.1.5"
 description = "A large (+2500) collection of color maps for Python"
-license = "MIT"
-license-files = ["LICENSE"]
+license-files = ["LICENSE.note"]
 keywords = ["palette", "colormap", "cmap", "matplotlib", "dataviz", "visualization", "seaborn"]
 authors = [
   { name="Joseph Barbier", email="joseph.barbierdarnal@gmail.com" },
