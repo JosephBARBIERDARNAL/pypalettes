@@ -1,11 +1,9 @@
 import pytest
-import pypalettes
 from matplotlib import colormaps as cm
 from matplotlib.colors import ListedColormap, LinearSegmentedColormap
 
 
 class TestRegisterCmap:
-
     def test_cmap_registered(self):
         cmap = cm.get_cmap("ClaudeMonet")
         assert isinstance(cmap, ListedColormap)

@@ -22,7 +22,7 @@ jobs:
         run: pip install ruff==0.9.10
 
       - name: Run Ruff format check
-        run: ruff format --check .
+        run: ruff format --check pypalettes/
 
       - name: Run Ruff linting and auto-fix
-        run: ruff check --fix .
+        run: ruff check --fix pypalettes/

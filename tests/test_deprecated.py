@@ -4,7 +4,6 @@ from pypalettes.deprecated import make_warning_message
 
 
 class TestGetRGB:
-
     def test_get_rgb(self):
         with pytest.warns(DeprecationWarning):
             actual = get_rgb(name="ClaudeMonet")
@@ -84,7 +83,6 @@ class TestGetRGB:
 
 
 class TestGetKind:
-
     def test_get_kind(self):
         with pytest.warns(DeprecationWarning):
             actual = get_kind(name="MelonPomelo")
@@ -104,7 +102,6 @@ class TestGetKind:
 
 
 class TestGetHex:
-
     def test_get_hex(self):
         with pytest.warns(DeprecationWarning):
             actual = get_hex(name="ClaudeMonet")
@@ -156,12 +153,10 @@ class TestGetHex:
 
 
 class TestWarningMessage:
-
     def sample_func(self):
         pass
 
     def test_make_warning_message_basic(self):
-
         expected = """
 The sample_func() function is deprecated and will be removed in a future version.
 Please, use: load_cmap('example').some_attribute
@@ -170,7 +165,6 @@ Please, use: load_cmap('example').some_attribute
         assert actual == expected
 
     def test_make_warning_message_empty_name(self):
-
         expected = """
 The sample_func() function is deprecated and will be removed in a future version.
 Please, use: load_cmap('').some_attribute
@@ -179,7 +173,6 @@ Please, use: load_cmap('').some_attribute
         assert actual == expected
 
     def test_make_warning_message_empty_attribute(self):
-
         expected = """
 The sample_func() function is deprecated and will be removed in a future version.
 Please, use: load_cmap('example').
@@ -188,7 +181,6 @@ Please, use: load_cmap('example').
         assert actual == expected
 
     def test_make_warning_message_special_characters(self):
-
         expected = """
 The sample_func() function is deprecated and will be removed in a future version.
 Please, use: load_cmap('ex@mpl3').att#r1but3
@@ -197,7 +189,6 @@ Please, use: load_cmap('ex@mpl3').att#r1but3
         assert actual == expected
 
     def test_make_warning_message_different_function(self):
-
         def another_func(self):
             pass
 
