@@ -29,7 +29,7 @@ nav:
   - Examples: examples.md
   - Reference:
       - reference/load_cmap.md
-      - reference/add_cmap.md
+      - reference/create_cmap.md
       - reference/show_cmap.md
   - Contributing: contributing.md
 

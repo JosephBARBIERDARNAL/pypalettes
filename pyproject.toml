@@ -53,3 +53,6 @@ Homepage = "https://python-graph-gallery.com/color-palette-finder/"
 Issues = "https://github.com/JosephBARBIERDARNAL/pypalettes/issues"
 Documentation = "https://python-graph-gallery.com/introduction-to-pypalettes/"
 Repository = "https://github.com/JosephBARBIERDARNAL/pypalettes"
+
+[tool.ruff]
+extend-exclude = ["tests", "parsers"]

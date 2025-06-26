@@ -90,7 +90,7 @@ import matplotlib.pyplot as plt
 from pypalettes import add_cmap
 import numpy as np
 
-cmap = add_cmap(
+cmap = create_cmap(
     colors=["#D57A6DFF", "#E8B762FF", "#9CCDDFFF", "#525052FF"],
     name="myCmap",
     cmap_type="continuous",

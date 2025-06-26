@@ -29,8 +29,7 @@ g.set_axis_labels("Snoot length", "Snoot depth")
 # mkdocs: render
 import matplotlib.pyplot as plt
 import seaborn as sns
-from pypalettes import load_cmap
+from pypalettes import show_cmap
 
-cmap = load_cmap("Fun")
-cmap
+show_cmap("Fun")
 ```

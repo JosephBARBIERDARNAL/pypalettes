@@ -3,7 +3,9 @@ from typing import List, Union
 
 
 def create_cmap(
-    colors: List, name: str, cmap_type: str = "discrete"
+    colors: List,
+    name: str,
+    cmap_type: str = "discrete",
 ) -> Union[LinearSegmentedColormap, ListedColormap]:
     """
     Create a matplotlib colormap from an iterable of colors.
