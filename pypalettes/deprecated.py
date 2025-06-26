@@ -1,8 +1,9 @@
 from typing import Union, List, Optional
 from PIL import ImageColor
 import warnings
+from matplotlib.colors import LinearSegmentedColormap, ListedColormap
 
-from .get_colors import _get_palette
+from .utils import _get_palette
 
 warnings.simplefilter("always")
 
@@ -98,3 +99,14 @@ def get_rgb(
     hex_list = get_hex(name, reverse, keep_first_n, keep_last_n, keep, raise_warn=False)
     rgb_list = [ImageColor.getcolor(hex, "RGB") for hex in hex_list]
     return rgb_list
+
+
+def add_cmap(
+    colors: List, name: str, cmap_type: str = "discrete"
+) -> Union[LinearSegmentedColormap, ListedColormap]:
+    """
+    Deprecated function, used `create_cmap()` instead
+    """
+    raise RuntimeError(
+        "This function is no longer available, use `create_cmap()` instead."
+    )

@@ -1,0 +1,57 @@
+site_name: pypalettes
+site_url: https://JosephBARBIERDARNAL.github.io/pypalettes/
+repo_url: https://github.com/JosephBARBIERDARNAL/pypalettes
+
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - content.code.copy
+    - navigation.path
+    - navigation.tabs
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - mkdocs_matplotlib
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: false
+            show_root_heading: true
+            heading_level: 3
+
+nav:
+  - Home: index.md
+  - Examples: examples.md
+  - Reference:
+      - reference/load_cmap.md
+      - reference/create_cmap.md
+      - reference/show_cmap.md
+
+extra_css:
+  - stylesheets/style.css
+
+markdown_extensions:
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+  - admonition
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde

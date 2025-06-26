@@ -155,7 +155,7 @@ class TestLoadCmap:
         assert actual == expected
 
     def test_load_cmap_invalid_repeat(self):
-        with pytest.raises(ValueError):
+        with pytest.raises(TypeError):
             load_cmap(name="ClaudeMonet", repeat=1.5)
 
     def test_load_cmap_invalid_name(self):

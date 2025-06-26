@@ -1,5 +1,5 @@
 import pytest
-from pypalettes import get_hex, get_kind, get_rgb
+from pypalettes import get_hex, get_kind, get_rgb, get_source
 from pypalettes.deprecated import make_warning_message
 
 
@@ -99,6 +99,25 @@ class TestGetKind:
         with pytest.raises(ValueError):
             with pytest.warns(DeprecationWarning):
                 get_kind(name="invalid_name")
+
+
+class TestGetSource:
+    def test_get_source(self):
+        with pytest.warns(DeprecationWarning):
+            actual = get_source(name="Acadia")
+        expected = "The R package: {nationalparkcolors}"
+        assert actual == expected
+
+    def test_get_source_with_list(self):
+        with pytest.warns(DeprecationWarning):
+            actual = get_source(name=["Acadia", "Sunset"])
+        expected = ["The R package: {nationalparkcolors}", "The R package: {PNWColors}"]
+        assert actual == expected
+
+    def test_get_source_invalid_name(self):
+        with pytest.raises(ValueError):
+            with pytest.warns(DeprecationWarning):
+                get_source(name="invalid_name")
 
 
 class TestGetHex:
