@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from .main import load_cmap
+from .load_cmap import load_cmap
 
 
 def show_cmap(

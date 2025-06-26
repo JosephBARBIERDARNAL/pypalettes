@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 
-from pypalettes.get_colors import _load_palettes
+from pypalettes.utils import _load_palettes
 
 
 class TestLoadFile:

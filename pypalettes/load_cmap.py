@@ -4,7 +4,7 @@ from PIL import ImageColor
 import random
 import colorsys
 
-from .get_colors import _get_palette
+from .utils import _get_palette
 
 
 def load_cmap(

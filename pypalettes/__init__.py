@@ -1,7 +1,7 @@
-from .main import load_cmap
+from .load_cmap import load_cmap
+from .create_cmap import create_cmap
+from .show_cmap import show_cmap
 from .deprecated import get_source, get_hex, get_rgb, get_kind, add_cmap
-from .create import create_cmap
-from .show import show_cmap
 
 __version__ = "0.1.5"
 __all__ = [

@@ -3,7 +3,7 @@ from PIL import ImageColor
 import warnings
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
 
-from .get_colors import _get_palette
+from .utils import _get_palette
 
 warnings.simplefilter("always")
 
