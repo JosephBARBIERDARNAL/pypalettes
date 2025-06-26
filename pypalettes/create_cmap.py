@@ -4,8 +4,8 @@ from typing import List, Union
 
 def create_cmap(
     colors: List,
-    name: str,
     cmap_type: str = "discrete",
+    name: str = "custom_cmap",
 ) -> Union[LinearSegmentedColormap, ListedColormap]:
     """
     Create a matplotlib colormap from an iterable of colors.
@@ -13,7 +13,7 @@ def create_cmap(
     Args:
         colors: An iterable of valid matplotlib colors. More about
             valid colors: https://python-graph-gallery.com/python-colors/
-        name: Unique palette name
+        name: A name for the palette
         cmap_type: Type of colormap: 'continuous' or 'discrete'
     """
     if cmap_type == "discrete":

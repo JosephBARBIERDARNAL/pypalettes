@@ -5,6 +5,7 @@
 A large (**+2500**) collection of color maps for Python.
 
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/pypalettes)
+![Coverage badge](coverage-badge.svg)
 
 <br>
 
