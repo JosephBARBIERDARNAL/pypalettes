@@ -63,17 +63,10 @@ def _get_one_palette(
             )
         palette = palettes[name]
 
-    try:
-        source = palette["source"]
-        kind = palette["kind"]
-        paletteer_kind = palette["paletteer-kind"]
-        hex_list = eval(palette["palette"])
-        if not isinstance(hex_list, list) or not all(
-            isinstance(color, str) for color in hex_list
-        ):
-            raise ValueError("palette must be a list of hex color strings.")
-    except Exception as e:
-        raise ValueError(f"Error parsing palette: {e}")
+    source = palette["source"]
+    kind = palette["kind"]
+    paletteer_kind = palette["paletteer-kind"]
+    hex_list = eval(palette["palette"])
 
     if keep_first_n is not None and keep_first_n > len(hex_list):
         raise ValueError(
@@ -133,23 +126,21 @@ def _get_palette(
     if keep_first_n is not None and (
         not isinstance(keep_first_n, int) or keep_first_n <= 0
     ):
-        raise ValueError(
-            f"keep_first_n must be a positive integer, not {keep_first_n}."
-        )
+        raise TypeError(f"keep_first_n must be a positive integer, not {keep_first_n}.")
     if keep_last_n is not None and (
         not isinstance(keep_last_n, int) or keep_last_n <= 0
     ):
-        raise ValueError(f"keep_last_n must be a positive integer, not {keep_last_n}.")
+        raise TypeError(f"keep_last_n must be a positive integer, not {keep_last_n}.")
     if keep is not None and (
         not isinstance(keep, list) or not all(isinstance(item, bool) for item in keep)
     ):
-        raise ValueError(f"keep must be a list of boolean values, not {keep}.")
+        raise TypeError(f"keep must be a list of boolean values, not {keep}.")
     if sum(x is not None for x in [keep_first_n, keep_last_n, keep]) > 1:
         raise ValueError(
             "Cannot specify more than one of keep_first_n, keep_last_n, and keep arguments simultaneously."
         )
     if not repeat >= 1 or not isinstance(repeat, int):
-        raise ValueError("repeat must be a positive integer.")
+        raise TypeError("repeat must be a positive integer.")
 
     if isinstance(name, str):
         hex_list, source, kind, paletteer_kind = _get_one_palette(
