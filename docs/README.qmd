@@ -13,7 +13,7 @@ A large (**+2500**) collection of color maps for Python.
 - To learn more about how to use `pypalettes`, please refer to the [official documentation](https://python-graph-gallery.com/introduction-to-pypalettes/).
 
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/pypalettes)
-![Coverage badge](coverage-badge.svg)
+![Coverage badge](docs/coverage-badge.svg)
 
 <center align="left">
 
