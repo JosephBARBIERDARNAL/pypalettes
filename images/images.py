@@ -8,9 +8,6 @@ plt.rcParams["figure.dpi"] = 300
 plt.rcParams["savefig.dpi"] = 300
 
 # plot 1
-import matplotlib.pyplot as plt
-from pypalettes import load_cmap
-import numpy as np
 
 cmap = load_cmap("Sunset2", cmap_type="continuous")
 
@@ -34,9 +31,7 @@ plt.savefig("images/scatter.png")
 plt.close()
 
 # plot 3
-import matplotlib.pyplot as plt
-from pypalettes import add_cmap
-import numpy as np
+
 
 cmap = add_cmap(
     colors=["#D57A6DFF", "#E8B762FF", "#9CCDDFFF", "#525052FF"],
