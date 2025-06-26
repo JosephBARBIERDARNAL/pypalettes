@@ -178,27 +178,3 @@ A big thanks to [Yan Holtz](https://www.yan-holtz.com/) for:
 - Providing valuable feedback on the code and design of the API
 
 <br><br>
-
-## Contributing
-
-Since the core code of the library is currently quite short and simple, it does not require any major changes. However, if you have a good idea or suggestion, please [open an issue](https://github.com/JosephBARBIERDARNAL/pypalettes/issues).
-
-That said, adding more palettes is an easy way to make `pypalettes` better! Here’s the best way to get started:
-
-First, open your code editor and navigate to `parsers/list_manual_palettes.py`. You’ll find a dictionary of manually defined palettes. Add yours at the end with the following elements:
-
-- `"name"`: the name of your palette
-- `"palette"`: the colors of your palette in the following format: `["['#123456', '#654321', '#162534']"]`
-- `"source"`: Where does your palette come from? If you created it, your name or a link to your portfolio is valid!
-- `"kind"`: the type of palette. View examples [here](https://python-graph-gallery.com/color-palette-finder/)
-- `"paletteer-kind"`: just put `"unknown"`
-
-Then, run:
-
-```bash
-python parsers/main.py
-```
-
-For a large number of palettes, please [open an issue](https://github.com/JosephBARBIERDARNAL/pypalettes/issues) first.
-
-<br><br>

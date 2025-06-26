@@ -18,23 +18,18 @@ def load_cmap(
     shuffle: Union[bool, int] = False,
 ):
     """
-    Load colormap from name.
+    Load a matplotlib colormap from one of the 2500+ available palettes.
 
-    Parameters
-    - name
-        Name of the palette
-    - cmap_type
-        Type of colormap: 'continuous' or 'discrete'
-    - reverse
-        Whether to reverse the order of the colors or not
-    - keep_first_n
-        Keep only the first n colors of the palette
-    - keep
-        Specify which colors to keep in the palette
-    - repeat
-        The number of times the palette must be present in the output. Used to access larger palettes that are repeated.
-    - shuffle
-        Used to mix the order of colors. If an integer is supplied, it will be used as the seed.
+    Args:
+        name: Name of the palette
+        cmap_type: Type of colormap: 'continuous' or 'discrete'
+        reverse: Whether to reverse the order of the colors or not
+        keep_first_n: Keep only the first n colors of the palette
+        keep: Specify which colors to keep in the palette
+        repeat: The number of times the palette must be present in
+            the output. Used to access larger palettes that are repeated.
+        shuffle: Used to mix the order of colors. If an integer is
+            supplied, it will be used as the seed.
     """
 
     hex_list, source, kind, _ = _get_palette(
