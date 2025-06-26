@@ -47,6 +47,11 @@ dev = [
     "genbadge[coverage]>=1.1.2",
     "seaborn>=0.13.2",
 ]
+quarto = [
+    "jupyter>=1.1.1",
+    "nbclient>=0.10.2",
+    "nbformat>=5.10.4",
+]
 
 [project.urls]
 Homepage = "https://python-graph-gallery.com/color-palette-finder/"
