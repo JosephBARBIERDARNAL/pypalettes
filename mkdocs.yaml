@@ -31,7 +31,6 @@ nav:
       - reference/load_cmap.md
       - reference/create_cmap.md
       - reference/show_cmap.md
-  - Contributing: contributing.md
 
 extra_css:
   - stylesheets/style.css
