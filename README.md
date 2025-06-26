@@ -1,7 +1,3 @@
-> PyPalettes is supported by [Matplotlib Journey](https://www.matplotlib-journey.com/), an interactive online course designed to make you a master of Matplotlib. If you want to **support PyPalettes** and **become a Matplotlib expert**, consider purchasing the course!
-
-<br><br>
-
 # PyPalettes
 
 <img src="https://github.com/JosephBARBIERDARNAL/pypalettes/blob/main/images/logo.png?raw=true" alt="pypalettes logo" align="right" width="160px"/>
@@ -12,6 +8,7 @@ A large (**+2500**) collection of color maps for Python.
 - To learn more about how to use `pypalettes`, please refer to the [official documentation](https://python-graph-gallery.com/introduction-to-pypalettes/).
 
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/pypalettes)
+![Coverage badge](coverage-badge.svg)
 
 <center align="left">
 
