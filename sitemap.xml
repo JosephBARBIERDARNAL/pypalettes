@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://JosephBARBIERDARNAL.github.io/pypalettes/</loc>
+         <lastmod>2025-06-27</lastmod>
+    </url>
+    <url>
+         <loc>https://JosephBARBIERDARNAL.github.io/pypalettes/examples/</loc>
+         <lastmod>2025-06-27</lastmod>
+    </url>
+    <url>
+         <loc>https://JosephBARBIERDARNAL.github.io/pypalettes/reference/create_cmap/</loc>
+         <lastmod>2025-06-27</lastmod>
+    </url>
+    <url>
+         <loc>https://JosephBARBIERDARNAL.github.io/pypalettes/reference/load_cmap/</loc>
+         <lastmod>2025-06-27</lastmod>
+    </url>
+    <url>
+         <loc>https://JosephBARBIERDARNAL.github.io/pypalettes/reference/show_cmap/</loc>
+         <lastmod>2025-06-27</lastmod>
+    </url>
+</urlset>
