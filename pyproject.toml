@@ -46,6 +46,7 @@ dev = [
     "coverage>=7.9.1",
     "genbadge[coverage]>=1.1.2",
     "seaborn>=0.13.2",
+    "plotnine>=0.14.6",
 ]
 quarto = [
     "jupyter>=1.1.1",

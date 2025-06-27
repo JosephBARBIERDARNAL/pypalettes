@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 from pypalettes import create_cmap
 import numpy as np
 
-cmap = create_cmap(colors=["#D57A6DFF", "#E8B762FF", "#9CCDDFFF", "#525052FF"])
+cmap = create_cmap(["#D57A6D", "#E8B762", "#9CCDDF", "#525052"])
 
 x = np.linspace(0, 20, 1000)
 y = np.sin(x)
@@ -32,7 +32,7 @@ from pypalettes import create_cmap
 import numpy as np
 
 cmap = create_cmap(
-    colors=["#D57A6DFF", "#E8B762FF", "#9CCDDFFF", "#525052FF"],
+    ["#D57A6D", "#E8B762", "#9CCDDF", "#525052"],
     cmap_type="continuous",
 )
 
