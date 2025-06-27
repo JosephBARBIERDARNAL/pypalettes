@@ -8,3 +8,5 @@ site
 sandbox.*
 .vscode/
 uv.lock
+.venv/
+*cache*
