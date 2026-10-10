@@ -10,9 +10,11 @@ manual_palettes = get_manual_palettes()
 
 df = pd.concat([matplot_seaborn, paletteer, manual_palettes])
 df.reset_index(drop=True, inplace=True)
-df.drop_duplicates(subset='name', keep='first', inplace=True)
-df.sort_values('name', inplace=True)
+df.drop_duplicates(subset="name", keep="first", inplace=True)
+df.sort_values("name", inplace=True)
 
-print(f'\n Total (unique) palettes found: {len(df)}')
-#df.to_csv('pypalettes/palettes.csv', index=False)
-df.drop(labels=["paletteer-kind"], axis=1).to_json('pypalettes/palettes.json', orient='records')
+print(f"\n Total (unique) palettes found: {len(df)}")
+# df.to_csv('pypalettes/palettes.csv', index=False)
+df.drop(labels=["paletteer-kind"], axis=1).to_json(
+    "pypalettes/palettes.json", orient="records"
+)
