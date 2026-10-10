@@ -14,5 +14,5 @@ df.drop_duplicates(subset='name', keep='first', inplace=True)
 df.sort_values('name', inplace=True)
 
 print(f'\n Total (unique) palettes found: {len(df)}')
-df.to_csv('pypalettes/palettes.csv', index=False)
-df.to_json('pypalettes/palettes.json', orient='records')
+#df.to_csv('pypalettes/palettes.csv', index=False)
+df.drop(labels=["paletteer-kind"], axis=1).to_json('pypalettes/palettes.json', orient='records')
