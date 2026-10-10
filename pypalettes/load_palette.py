@@ -1,18 +1,17 @@
-from typing import Union, Optional
 import random
 
 from pypalettes.utils import _get_palette
 
 
 def load_palette(
-    name: Union[str, list[str]] = "random",
+    name: str | list[str] = "random",
     reverse: bool = False,
-    keep_first_n: Optional[int] = None,
-    keep_last_n: Optional[int] = None,
-    keep: Optional[list[bool]] = None,
+    keep_first_n: int | None = None,
+    keep_last_n: int | None = None,
+    keep: list[bool] | None = None,
     repeat: int = 1,
-    shuffle: Union[bool, int] = False,
-    remove: Optional[Union[int, list[int]]] = None,
+    shuffle: bool | int = False,
+    remove: int | list[int] | None = None,
 ) -> list[str]:
     """
     Load a color palette from one of the 2500+ available palettes.

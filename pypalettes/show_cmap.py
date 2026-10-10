@@ -1,4 +1,5 @@
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
+
 from pypalettes.load_cmap import load_cmap
 
 if TYPE_CHECKING:
@@ -28,10 +29,10 @@ def show_cmap(
         matplotlib.figure.Figure: The figure object containing the colormap visualization.
     """
     import matplotlib.pyplot as plt
-    from matplotlib.colors import LinearSegmentedColormap, ListedColormap
-    from matplotlib.patches import Rectangle
-    from matplotlib.figure import Figure
     from matplotlib.axes import Axes
+    from matplotlib.colors import LinearSegmentedColormap, ListedColormap
+    from matplotlib.figure import Figure
+    from matplotlib.patches import Rectangle
 
     cmap: LinearSegmentedColormap | ListedColormap = load_cmap(*args)
     colors: list = cmap.colors  # ty: ignore

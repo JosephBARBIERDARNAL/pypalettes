@@ -1,5 +1,6 @@
-from pypalettes import load_palette
 import pytest
+
+from pypalettes import load_palette
 
 
 def test_load_palette():

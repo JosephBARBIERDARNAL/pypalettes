@@ -15,10 +15,7 @@ data = np.random.randn(20, 20)
 
 cmap = load_cmap("Sunset", cmap_type="continuous")
 
-plt.imshow(
-   X=data,
-   cmap=cmap
-)
+plt.imshow(X=data, cmap=cmap)
 plt.colorbar()
 ```
 
@@ -33,10 +30,7 @@ data = np.random.randn(20, 20)
 
 cmap = load_cmap("Acadia", cmap_type="continuous")
 
-plt.imshow(
-   X=data,
-   cmap=cmap
-)
+plt.imshow(X=data, cmap=cmap)
 plt.colorbar()
 ```
 
@@ -51,10 +45,7 @@ data = np.random.randn(20, 20)
 
 cmap = load_cmap("Acanthurus_olivaceus", cmap_type="continuous")
 
-plt.imshow(
-   X=data,
-   cmap=cmap
-)
+plt.imshow(X=data, cmap=cmap)
 plt.colorbar()
 ```
 

@@ -1,9 +1,8 @@
-from importlib import resources
 import csv
 import random
-from difflib import get_close_matches
-from typing import Union, Optional
 import warnings
+from difflib import get_close_matches
+from importlib import resources
 
 
 def _load_palettes():
@@ -26,12 +25,12 @@ def _load_palettes():
 
 
 def _get_one_palette(
-    name: Union[str, list[str]],
+    name: str | list[str],
     reverse: bool = False,
-    keep_first_n: Optional[int] = None,
-    keep_last_n: Optional[int] = None,
-    keep: Optional[list[bool]] = None,
-    remove: Optional[Union[int, list[int]]] = None,
+    keep_first_n: int | None = None,
+    keep_last_n: int | None = None,
+    keep: list[bool] | None = None,
+    remove: int | list[int] | None = None,
 ) -> dict:
     """
     Get one palette from name.
@@ -51,7 +50,7 @@ def _get_one_palette(
         Remove colors at specified indices (0-indexed). Can be a single int or list of ints.
     """
     palettes = _load_palettes()
-    palette_dict: dict = dict()
+    palette_dict: dict = {}
     if name == "random":
         palette = random.choice(list(palettes.values()))
     else:
@@ -126,13 +125,13 @@ def _get_one_palette(
 
 
 def _get_palette(
-    name: Union[str, list[str]],
+    name: str | list[str],
     reverse: bool = False,
-    keep_first_n: Optional[int] = None,
-    keep_last_n: Optional[int] = None,
-    keep: Optional[list[bool]] = None,
+    keep_first_n: int | None = None,
+    keep_last_n: int | None = None,
+    keep: list[bool] | None = None,
     repeat: int = 1,
-    remove: Optional[Union[int, list[int]]] = None,
+    remove: int | list[int] | None = None,
 ) -> dict:
     """
     Get palette from name.

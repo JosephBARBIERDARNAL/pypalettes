@@ -1,7 +1,7 @@
-import pytest
 import pandas as pd
+import pytest
 
-from pypalettes.utils import _load_palettes, _get_one_palette, _get_palette
+from pypalettes.utils import _get_one_palette, _get_palette, _load_palettes
 
 
 @pytest.mark.parametrize(

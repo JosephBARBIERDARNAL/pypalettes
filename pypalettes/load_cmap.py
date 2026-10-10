@@ -1,6 +1,6 @@
-from typing import Union, Optional, TYPE_CHECKING
-import random
 import colorsys
+import random
+from typing import TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from matplotlib.colors import LinearSegmentedColormap, ListedColormap
@@ -9,15 +9,15 @@ from pypalettes.utils import _get_palette
 
 
 def load_cmap(
-    name: Union[str, list[str]] = "random",
+    name: str | list[str] = "random",
     cmap_type: str = "discrete",
     reverse: bool = False,
-    keep_first_n: Optional[int] = None,
-    keep_last_n: Optional[int] = None,
-    keep: Optional[list[bool]] = None,
+    keep_first_n: int | None = None,
+    keep_last_n: int | None = None,
+    keep: list[bool] | None = None,
     repeat: int = 1,
-    shuffle: Union[bool, int] = False,
-    remove: Optional[Union[int, list[int]]] = None,
+    shuffle: bool | int = False,
+    remove: int | list[int] | None = None,
 ) -> Union["LinearSegmentedColormap", "ListedColormap"]:
     """
     Load a matplotlib colormap from one of the 2500+ available palettes.

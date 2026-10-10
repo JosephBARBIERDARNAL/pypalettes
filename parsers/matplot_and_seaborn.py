@@ -1,8 +1,8 @@
-import pandas as pd
 import matplotlib as mpl
+import pandas as pd
 import seaborn as sns
-from matplotlib import colors as mcolors
 from matplotlib import colormaps
+from matplotlib import colors as mcolors
 
 
 def get_matplotlib_and_seaborn_palettes():
