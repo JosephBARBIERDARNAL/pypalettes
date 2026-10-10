@@ -21,7 +21,10 @@ def get_paletteer_palettes():
 
     for section in sections:
         # get whether we're in the discrete or continuous section
-        first_kind = section["id"].split("-")[0]
+        section_id = section.get("id")
+        if not isinstance(section_id, str):
+            raise ValueError("Palette section is missing a string id")
+        first_kind = section_id.split("-")[0]
 
         sub_sections = soup.find_all("section", class_="level3")
 
@@ -41,7 +44,10 @@ def get_paletteer_palettes():
             # get the hex values and kind of the palette
             palette_tags = sub_section.find_all("hr")
             for palette_tag in palette_tags:
-                all_spans = palette_tag.find_previous_sibling("p").find_all("span")
+                palette_description = palette_tag.find_previous_sibling("p")
+                if palette_description is None:
+                    raise ValueError("Palette entry is missing its preceding paragraph")
+                all_spans = palette_description.find_all("span")
                 palette = [span.text for span in all_spans]
                 palettes.append(palette)
                 kinds.append(kind)

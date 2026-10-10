@@ -1,6 +1,6 @@
 import colorsys
 import random
-from typing import TYPE_CHECKING, Union
+from typing import TYPE_CHECKING, Union, cast
 
 if TYPE_CHECKING:
     from matplotlib.colors import LinearSegmentedColormap, ListedColormap
@@ -69,14 +69,15 @@ def load_cmap(
     cmap.kind: str = kind  # ty: ignore
     cmap.hex: list = hex_list  # ty: ignore
     cmap.colors: list = hex_list  # ty: ignore
-    cmap.rgb: list = [ImageColor.getcolor(hex, "RGB") for hex in hex_list]  # ty: ignore
+    rgb_colors: list[tuple[int, int, int]] = [
+        cast(tuple[int, int, int], ImageColor.getcolor(hex, "RGB")) for hex in hex_list
+    ]
+    cmap.rgb: list = rgb_colors  # ty: ignore
     cmap.yiq: list = [  # ty: ignore
-        colorsys.rgb_to_yiq(rgb[0], rgb[1], rgb[2])
-        for rgb in cmap.rgb  # ty: ignore
+        colorsys.rgb_to_yiq(*rgb) for rgb in rgb_colors
     ]
     cmap.hsv: list = [  # ty: ignore
-        colorsys.rgb_to_hsv(rgb[0], rgb[1], rgb[2])
-        for rgb in cmap.rgb  # ty: ignore
+        colorsys.rgb_to_hsv(*rgb) for rgb in rgb_colors
     ]
 
     return cmap

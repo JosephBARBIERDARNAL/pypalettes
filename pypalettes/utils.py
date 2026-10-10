@@ -59,7 +59,7 @@ def _get_one_palette(
                 name, palettes.keys(), n=5, cutoff=0.01
             )
             raise ValueError(
-                f"Palette with name '{name}' not found. Did you mean:\n{', '.join(suggestions)}?\n\n"  # ty: ignore
+                f"Palette with name '{name}' not found. Did you mean:\n{', '.join(suggestions)}?\n\n"
                 "See available palettes at https://python-graph-gallery.com/color-palette-finder/"
             )
         palette = palettes[name]
