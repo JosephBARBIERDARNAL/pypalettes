@@ -1,7 +1,9 @@
-import pytest
 import re
+
+import pytest
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
-from pypalettes import create_cmap, add_cmap
+
+from pypalettes import add_cmap, create_cmap
 
 
 def test_create_cmap_discrete():

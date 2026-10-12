@@ -1,9 +1,10 @@
 name: Check Static Typing
 
 on:
+  push:
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   check-formatting:
@@ -11,7 +12,9 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -21,5 +24,8 @@ jobs:
       - name: Install the project
         run: uv sync --all-groups
 
-      - name: Run tests
+      - name: ty
         run: uv run ty check
+
+      - name: pyrefly
+        run: uv run pyrefly check

@@ -1,4 +1,3 @@
-from typing import Union, List, Optional
 import warnings
 
 from pypalettes.utils import _get_palette
@@ -14,7 +13,7 @@ Please, use: load_cmap('{name}').{attribute}
     return message
 
 
-def get_source(name: Union[str, List[str]] = "random") -> str:
+def get_source(name: str | list[str] = "random") -> str:
     """
     Deprecated. Get source of the palette.
 
@@ -30,7 +29,7 @@ def get_source(name: Union[str, List[str]] = "random") -> str:
     return palette["source"]
 
 
-def get_kind(name: Union[str, List[str]] = "random"):
+def get_kind(name: str | list[str] = "random"):
     """
     Deprecated. Get kind of the palette
 
@@ -47,11 +46,11 @@ def get_kind(name: Union[str, List[str]] = "random"):
 
 
 def get_hex(
-    name: Union[str, List[str]] = "random",
+    name: str | list[str] = "random",
     reverse: bool = False,
-    keep_first_n: Optional[int] = None,
-    keep_last_n: Optional[int] = None,
-    keep: Optional[List[bool]] = None,
+    keep_first_n: int | None = None,
+    keep_last_n: int | None = None,
+    keep: list[bool] | None = None,
     raise_warn: bool = True,
 ) -> list:
     """
@@ -77,11 +76,11 @@ def get_hex(
 
 
 def get_rgb(
-    name: Union[str, List[str]] = "random",
+    name: str | list[str] = "random",
     reverse: bool = False,
-    keep_first_n: Optional[int] = None,
-    keep_last_n: Optional[int] = None,
-    keep: Optional[List[bool]] = None,
+    keep_first_n: int | None = None,
+    keep_last_n: int | None = None,
+    keep: list[bool] | None = None,
 ) -> list:
     """
     Deprecated. Get rgb colors from name.
@@ -109,7 +108,7 @@ def get_rgb(
     return rgb_list
 
 
-def add_cmap(colors: List, name: str, cmap_type: str = "discrete") -> None:
+def add_cmap(colors: list, name: str, cmap_type: str = "discrete") -> None:
     """
     Deprecated function, used `create_cmap()` instead
     """

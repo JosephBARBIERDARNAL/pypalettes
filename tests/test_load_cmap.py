@@ -1,5 +1,6 @@
 import pytest
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
+
 from pypalettes import load_cmap
 
 
@@ -211,7 +212,7 @@ class TestLoadCmap:
 
     def test_get_hex_invalid_name(self):
         with pytest.raises(ValueError):
-            load_cmap(name="invalid_name").hex
+            _ = load_cmap(name="invalid_name").hex
 
     def test_get_rgb(self):
         actual = load_cmap(name="ClaudeMonet").rgb
@@ -272,7 +273,7 @@ class TestLoadCmap:
 
     def test_get_rgb_invalid_name(self):
         with pytest.raises(ValueError):
-            load_cmap(name="invalid_name").rgb
+            _ = load_cmap(name="invalid_name").rgb
 
     def test_get_yiq(self):
         actual = load_cmap(name="ClaudeMonet").yiq
@@ -287,7 +288,7 @@ class TestLoadCmap:
 
     def test_get_yiq_invalid_name(self):
         with pytest.raises(ValueError):
-            load_cmap(name="invalid_name").yiq
+            _ = load_cmap(name="invalid_name").yiq
 
     def test_get_hsv(self):
         actual = load_cmap(name="ClaudeMonet").hsv
@@ -302,7 +303,7 @@ class TestLoadCmap:
 
     def test_get_hsv_invalid_name(self):
         with pytest.raises(ValueError):
-            load_cmap(name="invalid_name").hsv
+            _ = load_cmap(name="invalid_name").hsv
 
     def test_get_kind(self):
         actual = load_cmap(name="MelonPomelo").kind
@@ -316,7 +317,7 @@ class TestLoadCmap:
 
     def test_get_kind_invalid_name(self):
         with pytest.raises(ValueError):
-            load_cmap(name="invalid_name").kind
+            _ = load_cmap(name="invalid_name").kind
 
     def test_load_cmap_remove_single(self):
         """Test removing a single color by index"""

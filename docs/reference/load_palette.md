@@ -9,7 +9,7 @@
 import seaborn as sns
 from pypalettes import load_palette
 
-palette = load_palette("Fun") # list of colors
+palette = load_palette("Fun")  # list of colors
 
 df = sns.load_dataset("penguins")
 
@@ -30,10 +30,7 @@ import pandas as pd
 from plotnine import ggplot, aes, geom_bar, theme_minimal, scale_fill_gradientn
 from pypalettes import load_palette
 
-df = pd.DataFrame({
-    "category": ["A", "B", "C", "D", "E"],
-    "value": [10, 15, 7, 12, 20]
-})
+df = pd.DataFrame({"category": ["A", "B", "C", "D", "E"], "value": [10, 15, 7, 12, 20]})
 
 colors = load_palette("Arches2", reverse=True)
 

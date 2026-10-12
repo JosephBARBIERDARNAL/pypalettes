@@ -1,4 +1,5 @@
 import pytest
+
 from pypalettes import get_hex, get_kind, get_rgb, get_source
 from pypalettes.deprecated import make_warning_message
 
@@ -77,9 +78,8 @@ class TestGetRGB:
         assert actual == expected
 
     def test_get_rgb_invalid_name(self):
-        with pytest.raises(ValueError):
-            with pytest.warns(DeprecationWarning):
-                get_rgb(name="invalid_name")
+        with pytest.raises(ValueError), pytest.warns(DeprecationWarning):
+            get_rgb(name="invalid_name")
 
 
 class TestGetKind:
@@ -96,9 +96,8 @@ class TestGetKind:
         assert actual == expected
 
     def test_get_kind_invalid_name(self):
-        with pytest.raises(ValueError):
-            with pytest.warns(DeprecationWarning):
-                get_kind(name="invalid_name")
+        with pytest.raises(ValueError), pytest.warns(DeprecationWarning):
+            get_kind(name="invalid_name")
 
 
 class TestGetSource:
@@ -115,9 +114,8 @@ class TestGetSource:
         assert actual == expected
 
     def test_get_source_invalid_name(self):
-        with pytest.raises(ValueError):
-            with pytest.warns(DeprecationWarning):
-                get_source(name="invalid_name")
+        with pytest.raises(ValueError), pytest.warns(DeprecationWarning):
+            get_source(name="invalid_name")
 
 
 class TestGetHex:
@@ -166,9 +164,8 @@ class TestGetHex:
         assert actual == expected
 
     def test_get_hex_invalid_name(self):
-        with pytest.raises(ValueError):
-            with pytest.warns(DeprecationWarning):
-                get_hex(name="invalid_name")
+        with pytest.raises(ValueError), pytest.warns(DeprecationWarning):
+            get_hex(name="invalid_name")
 
 
 class TestWarningMessage:

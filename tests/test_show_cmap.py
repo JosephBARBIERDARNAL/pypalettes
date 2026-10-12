@@ -1,5 +1,6 @@
-from pypalettes import show_cmap
 from matplotlib.figure import Figure
+
+from pypalettes import show_cmap
 
 
 def test_show_cmap():
