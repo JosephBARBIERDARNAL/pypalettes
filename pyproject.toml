@@ -1,6 +1,6 @@
 [project]
 name = "pypalettes"
-version = "0.2.1"
+version = "0.2.2"
 description = "A dependency-free large (+2500) collection of colormaps and palettes for Python."
 readme = "README.md"
 requires-python = ">=3.10"

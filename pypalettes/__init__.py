@@ -6,7 +6,7 @@ from pypalettes.load_cmap import load_cmap
 from pypalettes.load_palette import load_palette
 from pypalettes.show_cmap import show_cmap
 
-__version__: Literal["0.2.1"] = "0.2.1"
+__version__: Literal["0.2.2"] = "0.2.2"
 __all__: list[str] = [
     "add_cmap",
     "create_cmap",
